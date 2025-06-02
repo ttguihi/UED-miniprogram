@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/contact/contact",
+    "pages/user/user"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#8a8a99",
+    "selectedColor": "#3b82f6",
+    "backgroundColor": "#f9fafb",
+   
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "立即咨询",
+        "pagePath": "pages/contact/contact"
+      },
+      {
+        "text": "用户",
+        "pagePath": "pages/user/user"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

@@ -1,0 +1,30 @@
+{
+  "appid": "wx4b52a7d322c58da9",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "unpackage/dist/dev/mp-weixin/",
+  "libVersion": "3.8.4",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "coverView": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "enhance": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmRelationList": [],
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "srcMiniprogramRoot": "unpackage/dist/dev/mp-weixin/"
+}
