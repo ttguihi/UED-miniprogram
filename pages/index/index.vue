@@ -1,21 +1,14 @@
 <template>
 	<view class="page">
 		<view class="headerBackground">
-			<view class="fill_box">填充区域</view>
+			<view class="fill_box" style="color: #fff;text-align: center;font-weight: 700;font-size: 50rpx;">填充区域</view>
 			<view class="swiperArea">
-				<swiper circular="true" indicator-dots indicator-active-color="#fff" autoplay="true">
-					轮播图区域
-					<swiper-item v-for="item in bannerList" :key="item._id">
-						<navigator v-if="item.target=='miniProgram'" :app-id="item.appid" :url="item.url" class="link"
-							target="miniProgram">
+				<swiper autoplay="false">
 
-							<image :src="item.picurl" mode=""></image>
-
-						</navigator>
-
-
-
+					<swiper-item>
+						<image src="/common/images/index/swipper.png" mode=""></image>
 					</swiper-item>
+
 
 				</swiper>
 			</view>
@@ -47,7 +40,7 @@
 								</view> -->
 								<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll"
 									style="white-space: nowrap;">
-									<view v-for="item in 5" :key="item+'item'" class="detail_pro">
+									<view v-for="item in 5" :key="item + 'item'" class="detail_pro">
 									</view>
 								</scroll-view>
 							</view>
@@ -80,7 +73,7 @@
 			</view>
 
 			<view class="lineCard">
-				<view class="line_item" v-for="(item,index) in itemList" :key="item + 'index'">
+				<view class="line_item" v-for="(item, index) in itemList" :key="item + 'index'">
 
 				</view>
 			</view>
@@ -89,9 +82,14 @@
 					最新资讯
 				</view>
 				<view class="news_detail">
-					<span>友益典签约江门新会互惠互赢(国资)</span>
-					<view class="date">
-						2025-5-14
+					<view class="">
+						<span>友益典签约江门新会互惠互赢(国资)</span>
+						<view class="date">
+							2025-5-14
+						</view>
+					</view>
+					<view class="right_arrow">
+						>
 					</view>
 				</view>
 			</view>
@@ -134,7 +132,6 @@
 			.fill_box {
 				height: 150rpx;
 				width: 100%;
-
 			}
 
 			.swiperArea {
@@ -326,7 +323,7 @@
 				margin-top: 20rpx;
 				height: 118rpx;
 				border-radius: 20rpx;
-				background: linear-gradient(to right, #f6f9ff, #bfd2ff);
+				background: linear-gradient(to right, #f6f9ff, #bfd2ff 35%);
 				display: flex;
 				align-items: center;
 
@@ -343,6 +340,9 @@
 					border-radius: 10rpx;
 					background-color: #f4f7ff;
 					margin-left: 40rpx;
+					display: flex;
+					align-items: center;
+					justify-content: space-around;
 				}
 			}
 		}
