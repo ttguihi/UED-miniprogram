@@ -33,20 +33,20 @@
 		"color": "#8a8a99",
 		"selectedColor": "#3b82f6",
 		"backgroundColor": "#f9fafb",
-		"borderStyle": "#e5e7eb",
+		// "borderStyle": "#e5e7eb",
 		"list": [{
-			"text": "首页",
+			"text": "",
 			"pagePath": "pages/index/index"
 			// "iconPath": "/static/首页@2x.png",
 			// "selectedIconPath": "/static/Group_1294@2x.png"
 		}, {
-			"text": "立即咨询",
+			"text": "",
 			"pagePath": "pages/contact/contact"
 			// "iconPath": "/static/Group_1235@2x.png",
 			// "selectedIconPath": "/static/Group_1235@2x.png"
 
 		}, {
-			"text": "用户",
+			"text": "",
 			"pagePath": "pages/user/user"
 			// "iconPath": "/static/我的@2x.png",
 			// "selectedIconPath": "/static/Group_1295@2x.png"

@@ -1,7 +1,7 @@
 {
   "appid": "wx4b52a7d322c58da9",
   "compileType": "miniprogram",
-  "miniprogramRoot": "unpackage/dist/dev/mp-weixin/",
+  "miniprogramRoot": "",
   "libVersion": "3.8.4",
   "packOptions": {
     "ignore": [],

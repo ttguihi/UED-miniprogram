@@ -14,18 +14,17 @@
     "color": "#8a8a99",
     "selectedColor": "#3b82f6",
     "backgroundColor": "#f9fafb",
-   
     "list": [
       {
-        "text": "首页",
+        "text": "",
         "pagePath": "pages/index/index"
       },
       {
-        "text": "立即咨询",
+        "text": "",
         "pagePath": "pages/contact/contact"
       },
       {
-        "text": "用户",
+        "text": "",
         "pagePath": "pages/user/user"
       }
     ]

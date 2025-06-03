@@ -1,4 +1,7 @@
-view {
-	box-sizing: border-box;
-	
+view ,swiper,swiper-item{
+	box-sizing: border-box;	
+}
+
+.safe-area-inset-bottom {
+	height: env(safe-area-inset-bottom);
 }

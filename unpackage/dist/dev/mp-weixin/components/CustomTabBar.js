@@ -28,6 +28,7 @@ const _sfc_main = {
     },
     updateActiveTab() {
       const pages = getCurrentPages();
+      common_vendor.index.__f__("log", "at components/CustomTabBar.vue:40", pages);
       const currentPage = pages[pages.length - 1];
       let path = currentPage.route || currentPage.__route__;
       if (!path.startsWith("/"))

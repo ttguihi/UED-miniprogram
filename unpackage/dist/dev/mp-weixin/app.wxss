@@ -24,6 +24,16 @@
 /* 透明度 */
 /* 文章场景相关 */
 /*每个页面公共css */
-view {
+view, swiper, swiper-item {
   box-sizing: border-box;
+}
+.safe-area-inset-bottom {
+  height: env(safe-area-inset-bottom);
+}
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: "niceTitle";
+  font-weight: 700;
+  src: url("//at.alicdn.com/wf/webfont/hvpHIzDwApzm/DzsQpQotCxkp.woff2") format("woff2"), url("//at.alicdn.com/wf/webfont/hvpHIzDwApzm/jYntGsjlesPU.woff") format("woff");
+  font-display: swap;
 }page{--status-bar-height:25px;--top-window-height:0px;--window-top:0px;--window-bottom:0px;--window-left:0px;--window-right:0px;--window-magin:0px}[data-c-h="true"]{display: none !important;}

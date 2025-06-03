@@ -37,6 +37,7 @@
 			updateActiveTab() {
 				// 获取当前页面路径
 				const pages = getCurrentPages();
+				console.log(pages);
 				const currentPage = pages[pages.length - 1];
 				let path = currentPage.route || currentPage.__route__;
 				if (!path.startsWith('/')) path = '/' + path;
@@ -66,7 +67,7 @@
 		background: radial-gradient(circle, #fff5e9 10%, #ffffff 30%);
 		height: 124rpx;
 		border-top: 4rpx solid #e4d3f7;
-		border-radius: 10rpx 10rpx 0 0;
+		border-radius: 40rpx 40rpx 0 0;
 		z-index: 1000;
 		/* 添加阴影效果 */
 	}
@@ -82,15 +83,15 @@
 		/* 选中状态的颜色 */
 	}
 
-	.tab-item:nth-child(2) {
-		background: url('../../static/Group_1235.png') no-repeat center center;
+	.tab-item:nth-child(1) {
+		background: url('/static/home.jpg') no-repeat center center;
 	}
 
-	.tab-item:nth-child(1) {
-		background: url('../../static/Group_1294.png') no-repeat center center;
+	.tab-item:nth-child(2) {
+		background: url('/static/contact.jpg') no-repeat center center;
 	}
 
 	.tab-item:nth-child(3) {
-		background: url('../../static/我的.png') no-repeat center center;
+		background: url('/static/user.jpg') no-repeat center center;
 	}
 </style>
