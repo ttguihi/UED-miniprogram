@@ -78,9 +78,12 @@
 		line-height: 124rpx;
 	}
 
-	.tab-item.active {
-		color: #e4d3f7;
-		/* 选中状态的颜色 */
+	.tab-item:nth-child(1).active {
+		background: url('/static/home_active.jpg') no-repeat center center;
+	}
+
+	.tab-item:nth-child(3).active {
+		background: url('/static/user_active.jpg') no-repeat center center;
 	}
 
 	.tab-item:nth-child(1) {
@@ -89,6 +92,7 @@
 
 	.tab-item:nth-child(2) {
 		background: url('/static/contact.jpg') no-repeat center center;
+		mix-blend-mode: multiply;
 	}
 
 	.tab-item:nth-child(3) {

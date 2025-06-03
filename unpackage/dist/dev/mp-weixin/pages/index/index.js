@@ -18,6 +18,11 @@ const _sfc_main = {
       iconPath: "/common/images/index/order_purple.jpg",
       text: "公司动态"
     }];
+    const navigatoExamples = () => {
+      common_vendor.index.navigateTo({
+        url: "/pages/examples/examples"
+      });
+    };
     return (_ctx, _cache) => {
       return {
         a: common_assets._imports_0,
@@ -38,7 +43,8 @@ const _sfc_main = {
             b: index + "index"
           };
         }),
-        j: common_assets._imports_5
+        j: common_assets._imports_5,
+        k: common_vendor.o(navigatoExamples)
       };
     };
   }

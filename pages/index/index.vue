@@ -178,15 +178,14 @@
 
 
 			</view>
-			<button class="more">查看更多</button>
+
+			<button class="more" @click="navigatoExamples">查看更多</button>
 
 
 		</view>
 
-		<view class="fill_box_bottom">
 
-		</view>
-		<view class="safe-area-inset-bottom"></view>
+		<view style="width: 100%;height: calc( 80rpx + env(safe-area-inset-bottom) / 2);"></view>
 		<CustomTabBar></CustomTabBar>
 	</view>
 </template>
@@ -194,6 +193,7 @@
 <script setup>
 	import CustomTabBar from '../../components/CustomTabBar.vue';
 	import SmallCard1Vue from '../../components/smallCard1.vue';
+	import ExampleCard from '../../components/ExampleCard.vue'
 
 	const itemList = [{
 		iconPath: '/common/images/index/service.jpg',
@@ -205,6 +205,11 @@
 		iconPath: '/common/images/index/order_purple.jpg',
 		text: '公司动态'
 	}, ]
+	const navigatoExamples = () => {
+		uni.navigateTo({
+			url: '/pages/examples/examples'
+		});
+	}
 </script>
 
 <style lang="scss" scoped>
@@ -455,6 +460,7 @@
 							}
 
 							.AItext {
+								font-size: 26rpx;
 								font-weight: 600;
 								text-align: center;
 								margin-top: 90rpx;

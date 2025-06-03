@@ -2,6 +2,7 @@
   "navigationBarTitleText": "立即咨询",
   "navigationStyle": "custom",
   "usingComponents": {
-    "custom-tab-bar": "../../components/CustomTabBar"
+    "custom-tab-bar": "../../components/CustomTabBar",
+    "example-card": "../../components/ExampleCard"
   }
 }

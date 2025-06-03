@@ -228,6 +228,7 @@
   mix-blend-mode: multiply;
 }
 .page .mainMenu .cardArea .otherCard .AIandkeyWordCard .AICard .AItext.data-v-1cf27b2a {
+  font-size: 26rpx;
   font-weight: 600;
   text-align: center;
   margin-top: 90rpx;

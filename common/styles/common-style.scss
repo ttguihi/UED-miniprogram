@@ -5,3 +5,10 @@ view ,swiper,swiper-item{
 .safe-area-inset-bottom {
 	height: env(safe-area-inset-bottom);
 }
+
+
+//比较小且细的字体 
+.small_font {
+	font-size: 20rpx;
+	font-weight: 300;
+}

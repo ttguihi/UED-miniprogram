@@ -1,0 +1,1 @@
+{"version":3,"file":"ExampleCard.js","sources":["../HBuilderX.4.57.2025032507/HBuilderX/plugins/uniapp-cli-vite/uniComponent:/RDovVUVEQUltaW5pcHJvZ3JhbS9jb21wb25lbnRzL0V4YW1wbGVDYXJkLnZ1ZQ"],"sourcesContent":["import Component from 'D:/UEDAIminiprogram/components/ExampleCard.vue'\nwx.createComponent(Component)"],"names":[],"mappings":";;;;;;;AACA,GAAG,gBAAgB,SAAS;"}

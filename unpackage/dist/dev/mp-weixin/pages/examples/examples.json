@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "精选案例",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "example-card": "../../components/ExampleCard"
+  }
+}

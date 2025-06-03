@@ -21,6 +21,13 @@
 				"navigationBarTitleText": "个人中心",
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/examples/examples",
+			"style": {
+				"navigationBarTitleText": "精选案例",
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {

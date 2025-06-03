@@ -1,8 +1,9 @@
 "use strict";
 if (!Math) {
-  CustomTabBar();
+  (ExampleCard + CustomTabBar)();
 }
 const CustomTabBar = () => "../../components/CustomTabBar.js";
+const ExampleCard = () => "../../components/ExampleCard.js";
 const _sfc_main = {
   __name: "contact",
   setup(__props) {
