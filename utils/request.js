@@ -7,8 +7,6 @@ export function request(config = {}) {
 		data = {} //接收一下data 
 	} = config
 	url = BASE_URL + url
-	// header["access-key"] = "103721"
-	//header["token"] = "12313213123"
 	return new Promise((resolve, reject) => {
 		uni.request({
 			url,
@@ -18,10 +16,7 @@ export function request(config = {}) {
 			success: res => {
 				if (res.data.errCode != 0) {
 					//向内走一层 获取数据时就不需要写res.data.data了
-
-
 					resolve(res.data)
-
 				} else if (res.data.errCode === 400) {
 					uni.showModal({
 						title: '错误提示',
@@ -36,12 +31,10 @@ export function request(config = {}) {
 					})
 					reject(res.data)
 				}
-
 			},
 			fail: err => {
 				reject(err)
 			}
 		})
 	})
-
 }

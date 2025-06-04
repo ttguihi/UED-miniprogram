@@ -137,6 +137,8 @@
   flex: 1;
   background: linear-gradient(to bottom, #7d6ffe, #9c4efc);
   box-shadow: 10rpx 10rpx 10rpx #7d6ffe;
+  position: relative;
+  border: 2rpx solid #7e70fe;
 }
 .page .mainMenu .cardArea .projectCard .goingProjects .detail_projects.data-v-1cf27b2a {
   height: 72rpx;
@@ -144,18 +146,28 @@
   overflow: hidden;
   display: flex;
 }
-.page .mainMenu .cardArea .projectCard .goingProjects .detail_projects .scroll-view_H.data-v-1cf27b2a {
+.page .mainMenu .cardArea .projectCard .goingProjects .detail_projects.data-v-1cf27b2a  .uni-scroll-view-content {
   display: flex;
-  /* 修改为 flex */
-  flex-direction: row;
-  /* 确保子元素水平排列 */
 }
-.page .mainMenu .cardArea .projectCard .goingProjects .detail_pro.data-v-1cf27b2a {
+.page .mainMenu .cardArea .projectCard .goingProjects .detail_projects .scroll-view_H.data-v-1cf27b2a {
+  display: flex !important;
+}
+.page .mainMenu .cardArea .projectCard .goingProjects .detail_projects .scroll-view_H .detail_pro.data-v-1cf27b2a {
   margin-right: 20rpx;
   height: 100%;
   aspect-ratio: 1;
   background-color: #e4e7ff;
   border-radius: 10rpx;
+}
+.page .mainMenu .cardArea .projectCard .goingProjects.data-v-1cf27b2a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 26rpx;
+  background: #8671fd;
+  height: 118rpx;
+  filter: blur(20rpx);
 }
 .page .mainMenu .cardArea .otherCard.data-v-1cf27b2a {
   display: flex;

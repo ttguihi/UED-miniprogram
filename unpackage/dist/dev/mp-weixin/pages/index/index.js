@@ -28,7 +28,7 @@ const _sfc_main = {
         a: common_assets._imports_0,
         b: common_assets._imports_0,
         c: common_assets._imports_1,
-        d: common_vendor.f(5, (item, k0, i0) => {
+        d: common_vendor.f(10, (item, k0, i0) => {
           return {
             a: item + "item"
           };

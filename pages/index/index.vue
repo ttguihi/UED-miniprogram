@@ -43,8 +43,10 @@
 								进行中的项目
 							</view>
 							<view class="detail_projects">
-								<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll">
-									<view v-for="item in 5" :key="item+'item'" class="detail_pro">
+
+								<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" enable-flex>
+
+									<view v-for="item in 10" :key="item+'item'" class="detail_pro">
 										<!-- 内容 -->
 									</view>
 								</scroll-view>
@@ -348,6 +350,8 @@
 						flex: 1;
 						background: linear-gradient(to bottom, #7d6ffe, #9c4efc);
 						box-shadow: 10rpx 10rpx 10rpx #7d6ffe;
+						position: relative;
+						border: 2rpx solid #7e70fe;
 
 						.detail_projects {
 							height: 72rpx;
@@ -355,23 +359,38 @@
 							overflow: hidden;
 							display: flex;
 
-							.scroll-view_H {
-								display: flex;
-								/* 修改为 flex */
-								flex-direction: row;
-								/* 确保子元素水平排列 */
 
+
+
+							:deep() {
+								.uni-scroll-view-content {
+									display: flex;
+								}
 							}
+
+							.scroll-view_H {
+								display: flex !important;
+
+								.detail_pro {
+									margin-right: 20rpx;
+									height: 100%;
+									aspect-ratio: 1;
+									background-color: #e4e7ff;
+									border-radius: 10rpx;
+								}
+							}
+
 						}
 
-
-
-						.detail_pro {
-							margin-right: 20rpx;
-							height: 100%;
-							aspect-ratio: 1;
-							background-color: #e4e7ff;
-							border-radius: 10rpx;
+						&::after {
+							content: '';
+							position: absolute;
+							bottom: 0;
+							right: 0;
+							width: 26rpx;
+							background: #8671fd;
+							height: 118rpx;
+							filter: blur(20rpx);
 						}
 
 					}
