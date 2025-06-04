@@ -90,9 +90,9 @@
 			</view>
 			<view class="lineCard">
 				<view class="line_item" v-for="(item,index)  in itemList" :key="index + 'index'">
-					<view class="iconBox">
+					<view :class="`iconBox${index+1}`">
 						<!-- <image :src="item.iconPath" alt=""></image> -->
-						<image src="/common/images/index/service.jpg" mode=""></image>
+
 					</view>
 					<view class="">
 						{{ item.text }}
@@ -196,8 +196,11 @@
 	import CustomTabBar from '../../components/CustomTabBar.vue';
 	import SmallCard1Vue from '../../components/smallCard1.vue';
 	import ExampleCard from '../../components/ExampleCard.vue'
-
-	const itemList = [{
+	import {
+		ref
+	} from 'vue';
+	let itemList = ref([])
+	itemList.value = [{
 		iconPath: '/common/images/index/service.jpg',
 		text: '平台客服'
 	}, {
@@ -206,7 +209,9 @@
 	}, {
 		iconPath: '/common/images/index/order_purple.jpg',
 		text: '公司动态'
-	}, ]
+	}]
+
+	console.log(itemList.value);
 	const navigatoExamples = () => {
 		uni.navigateTo({
 			url: '/pages/examples/examples'
@@ -385,7 +390,7 @@
 						&::after {
 							content: '';
 							position: absolute;
-							bottom: 0;
+							bottom: 24rpx;
 							right: 0;
 							width: 26rpx;
 							background: #8671fd;
@@ -514,16 +519,28 @@
 					box-shadow: 5rpx 5rpx 15rpx #f4f4fe;
 					font-size: 24rpx;
 
-					.iconBox {
+					.iconBox1 {
 						width: 50rpx;
 						height: 50rpx;
 						margin-right: 10rpx;
+						background: url("/common/images/index/service.jpg") no-repeat center center;
+						mix-blend-mode: multiply;
+					}
 
-						image {
-							width: 100%;
-							height: 100%;
-							mix-blend-mode: multiply;
-						}
+					.iconBox2 {
+						width: 50rpx;
+						height: 50rpx;
+						margin-right: 10rpx;
+						background: url("/common/images/index/order_green.jpg") no-repeat center center;
+						mix-blend-mode: multiply;
+					}
+
+					.iconBox3 {
+						width: 50rpx;
+						height: 50rpx;
+						margin-right: 10rpx;
+						background: url("/common/images/index/order_purple.jpg") no-repeat center center;
+						mix-blend-mode: multiply;
 					}
 
 					&:first-child {
