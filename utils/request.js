@@ -1,4 +1,4 @@
-const BASE_URL = "https://m1.apifoxmock.com/m1/6066905-5757134-default"
+const BASE_URL = "https://m1.apifoxmock.com/m1/6066905-5757134-default/api/user/v1"
 export function request(config = {}) {
 	let {
 		url,
@@ -16,7 +16,7 @@ export function request(config = {}) {
 			method,
 			header,
 			success: res => {
-				if (res.data.errCode === 0) {
+				if (res.data.errCode != 0) {
 					//向内走一层 获取数据时就不需要写res.data.data了
 
 

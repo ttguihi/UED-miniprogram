@@ -15,7 +15,7 @@
 			<view class="user_details">
 				<view class="user_name_settings">
 					<view class="user_name">
-						UED.001
+						{{userInfo.nickname}}
 					</view>
 					<view class="user_settings">
 						<uni-icons type="gear" size="24" color="#fff"></uni-icons>
@@ -31,7 +31,7 @@
 							</view>
 						</view>
 						<view class="">
-							177-5608-0942
+							{{userInfo.phone}}
 						</view>
 					</view>
 					<view class="user_address">
@@ -40,7 +40,7 @@
 							</view>
 						</view>
 						<view class="">
-							广东省佛山市南海区
+							{{userInfo.address.slice(0,11)}}
 						</view>
 					</view>
 					<view class="user_industry">
@@ -49,7 +49,7 @@
 							</view>
 						</view>
 						<view class="">
-							计算机
+							{{userInfo.industryId}}
 						</view>
 					</view>
 				</view>
@@ -62,7 +62,7 @@
 					企业认证
 				</view>
 				<view class="enterprise_name">
-					广东友益典文化科技有限公司
+					{{enterpriseInfo.companyName}}
 				</view>
 			</view>
 
@@ -73,7 +73,7 @@
 							业务范围
 						</view>
 						<view class="range_content">
-							市场营销策划
+							{{enterpriseInfo.businessId}}
 						</view>
 					</view>
 					<view class="range">
@@ -81,7 +81,7 @@
 							对公账户
 						</view>
 						<view class="range_content">
-							1654987613214651
+							{{enterpriseInfo.account}}
 						</view>
 					</view>
 					<view class="range">
@@ -89,12 +89,12 @@
 							对公账户地址
 						</view>
 						<view class="range_content">
-							广东省佛山市南海区XXXXXXX
+							{{enterpriseInfo.accountAddress}}
 						</view>
 					</view>
 				</view>
 				<view class="license">
-					<image src="" mode=""></image>
+					<image :src="enterpriseInfo.imageurl" mode=""></image>
 				</view>
 			</view>
 
@@ -153,6 +153,39 @@
 
 <script setup>
 	import CustomTabBar from "../../components/CustomTabBar.vue"
+	import {
+		apiGetUserInfo,
+		apiGetEnterpriseInfo
+	} from "@/api/api.js";
+	import {
+		ref
+	} from 'vue'
+	import EventEmitter from "events";
+	const userInfo = ref({})
+	const enterpriseInfo = ref({})
+	//获取用户信息接口
+	const getUserInfo = () => {
+		apiGetUserInfo().then(res => {
+			// console.log(res.data.userInfo);
+			userInfo.value = res.data.userInfo
+			// console.log(userInfo.value);
+		})
+	}
+
+
+	//获取企业信息接口
+
+	const getEnterpriseInfo = () => {
+		apiGetEnterpriseInfo().then(res => {
+			// console.log(res.data.userInfo);
+			enterpriseInfo.value = res
+			console.log(enterpriseInfo.value)
+		})
+	}
+
+	//接口调用区域
+	getUserInfo()
+	getEnterpriseInfo()
 </script>
 
 <style lang="scss" scoped>
