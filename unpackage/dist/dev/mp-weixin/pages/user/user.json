@@ -2,6 +2,6 @@
   "navigationBarTitleText": "个人中心",
   "navigationStyle": "custom",
   "usingComponents": {
-    "custom-tab-bar": "../../components/CustomTabBar"
+    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons"
   }
 }

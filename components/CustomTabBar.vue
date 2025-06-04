@@ -79,11 +79,11 @@
 	}
 
 	.tab-item:nth-child(1).active {
-		background: url('/static/home_active.jpg') no-repeat center center;
+		background: url('/static/home_active_word.jpg') no-repeat center center;
 	}
 
 	.tab-item:nth-child(3).active {
-		background: url('/static/user_active.jpg') no-repeat center center;
+		background: url('/static/user_active_word.jpg') no-repeat center center;
 	}
 
 	.tab-item:nth-child(1) {

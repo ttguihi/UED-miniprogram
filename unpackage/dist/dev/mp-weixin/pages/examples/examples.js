@@ -1,11 +1,12 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 if (!Array) {
-  const _component_uni_search_bar = common_vendor.resolveComponent("uni-search-bar");
-  _component_uni_search_bar();
+  const _easycom_uni_search_bar2 = common_vendor.resolveComponent("uni-search-bar");
+  _easycom_uni_search_bar2();
 }
+const _easycom_uni_search_bar = () => "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.js";
 if (!Math) {
-  ExampleCard();
+  (_easycom_uni_search_bar + ExampleCard)();
 }
 const ExampleCard = () => "../../components/ExampleCard.js";
 const _sfc_main = {
