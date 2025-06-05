@@ -23,6 +23,26 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.news_page.data-v-854ecef0 {
+  padding: 0 32rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.news_page .news_card.data-v-854ecef0 {
+  width: 336rpx;
+  height: 434rpx;
+  background-color: skyblue;
+  margin-bottom: 12rpx;
+  border-radius: 10rpx;
+}
+.news_page .news_card .news_item.data-v-854ecef0 {
+  width: 100%;
+  height: 288rpx;
+  background-color: pink;
+  border-radius: 10rpx;
+  margin-bottom: 16rpx;
+}
 .search.data-v-854ecef0 {
   padding: 0 10rpx;
 }

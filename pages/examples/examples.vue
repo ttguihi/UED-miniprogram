@@ -38,8 +38,25 @@
 				<ExampleCard></ExampleCard>
 				<ExampleCard></ExampleCard>
 			</view>
-			<view v-else>
-				<ExampleCard></ExampleCard>
+			<view v-else class="news_page">
+				<view class="news_card">
+					<view class="news_item">
+
+					</view>
+					<view class="news_info">
+
+					</view>
+				</view>
+				<view class="news_card">
+					<view class="news_item">
+
+					</view>
+				</view>
+				<view class="news_card">
+					<view class="news_item">
+
+					</view>
+				</view>
 			</view>
 
 
@@ -60,6 +77,31 @@
 </script>
 
 <style lang="scss" scoped>
+	.news_page {
+		padding: 0 32rpx;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		.news_card {
+			width: 336rpx;
+			height: 434rpx;
+			background-color: skyblue;
+			margin-bottom: 12rpx;
+			border-radius: 10rpx;
+
+			.news_item {
+				width: 100%;
+				height: 288rpx;
+				background-color: pink;
+				border-radius: 10rpx;
+				margin-bottom: 16rpx;
+
+			}
+		}
+
+	}
+
 	.search {
 		padding: 0 10rpx;
 	}

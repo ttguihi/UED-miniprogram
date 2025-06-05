@@ -26,5 +26,6 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "srcMiniprogramRoot": "unpackage/dist/dev/mp-weixin/"
+  "srcMiniprogramRoot": "unpackage/dist/dev/mp-weixin/",
+  "simulatorPluginLibVersion": {}
 }

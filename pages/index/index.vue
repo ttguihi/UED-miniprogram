@@ -128,20 +128,55 @@
 			<ExampleCard class="first_example"></ExampleCard>
 			<ExampleCard></ExampleCard>
 			<ExampleCard></ExampleCard>
+			<ExampleCard></ExampleCard>
+			<ExampleCard></ExampleCard>
+
 		</view>
+
+		<view class="news_area">
+
+			<view class="new_area_title">
+				最新资讯
+			</view>
+			<view class="new_area_main">
+				<view class="new_area_left">
+					<view class="news_item">
+
+					</view>
+					<view class="news_item">
+
+					</view>
+					<view class="news_item">
+
+					</view>
+				</view>
+				<view class="new_area_right">
+					<view class="news_item">
+
+					</view>
+					<view class="news_item">
+
+					</view>
+					<view class="news_item">
+
+					</view>
+				</view>
+			</view>
+		</view>
+
 
 
 
 		<view class="goTop" :class="{ 'goTop--show': flag }" @click="goTop" v-show="flag">
 			<view class="icon_goTop">
-
 			</view>
 			<view class="goTop_text">
 				返回顶部
 			</view>
 		</view>
 
-		<view style="width: 100%;height: calc( 80rpx + env(safe-area-inset-bottom) / 2);"></view>
+
+		<view style="width: 100%;height: calc( 180rpx + env(safe-area-inset-bottom) / 2);"></view>
 		<CustomTabBar></CustomTabBar>
 	</view>
 </template>
@@ -157,8 +192,9 @@
 		onPageScroll
 	} from '@dcloudio/uni-app';
 	let itemList = ref([])
-	const flag = ref(false)
 
+
+	const flag = ref(false)
 	const goTop = () => {
 		uni.pageScrollTo({
 			scrollTop: 0, //滚动到距离顶部为0
@@ -205,22 +241,25 @@
 		align-items: center;
 		padding: 12rpx;
 		opacity: 0; // 默认透明
-		transition: opacity 0.3s ease; // 过渡效果
+		transition: all 0.5s ease; // 过渡效果
 		pointer-events: none; // 隐藏时禁止点击
+		transform: translateX(198rpx);
 
 		&--show {
 			opacity: 1; // 显示时不透明
+			transform: translateX(0);
 			pointer-events: auto; // 显示时允许点击
 		}
 
 		.icon_goTop {
-			margin-top: 10rpx;
+			margin-top: 6rpx;
 			width: 56rpx;
 			height: 56rpx;
 			background: url('/common/images/index/goTop.svg');
 		}
 
 		.goTop_text {
+			font-size: 24rpx;
 			color: #fff;
 			white-space: nowrap;
 		}
@@ -638,16 +677,14 @@
 	}
 
 	.example {
-
 		background-color: #f5f5ff;
 		position: relative;
 		z-index: 1;
-
 		padding-top: 45rpx;
 
 		.more {
 			position: absolute;
-			right: 0;
+			right: 32rpx;
 			top: 0;
 			width: 128rpx;
 			height: 46rpx;
@@ -660,7 +697,6 @@
 			color: #ae68fc;
 			font-weight: 600;
 			border-color: transparent;
-			;
 		}
 
 		.example_title {
@@ -677,8 +713,61 @@
 			padding-left: 28rpx;
 
 		}
+	}
 
-		.enterprise {}
+	.news_area {
+		margin-top: 32rpx;
+		height: 300rpx;
+
+		position: relative;
+		background-color: #f5f5ff;
+		padding: 0 32rpx;
+
+		.new_area_title {
+			width: 192rpx;
+			height: 192rpx;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: url('/common/images/index/corner_right.svg') no-repeat center center;
+			background-size: 100% 100%;
+			color: #fff;
+			padding-left: 58rpx;
+
+			padding-top: 14rpx;
+			font-weight: 700;
+		}
+
+		.new_area_main {
+			width: 100%;
+			height: 300px;
+			display: flex;
+			justify-content: space-between;
+
+			.news_item {
+				width: 100%;
+				height: 288rpx;
+				background-color: skyblue;
+				border-radius: 10rpx;
+				margin-bottom: 16rpx;
+			}
+
+			.new_area_left {
+				width: 336rpx;
+
+				border-radius: 10rpx;
+
+
+			}
+
+			.new_area_right {
+				margin-top: 70rpx;
+				width: 336rpx;
+				z-index: 1;
+
+				border-radius: 10rpx;
+			}
+		}
 	}
 	}
 </style>
