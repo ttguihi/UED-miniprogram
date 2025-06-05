@@ -1,7 +1,6 @@
 <template>
 	<view class="AICard" :class="[type]">
 
-
 	</view>
 </template>
 

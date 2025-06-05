@@ -20,6 +20,11 @@ const _sfc_main = {
   setup(__props) {
     const userInfo = common_vendor.ref({});
     const enterpriseInfo = common_vendor.ref({});
+    const goBack = () => {
+      common_vendor.index.switchTab({
+        url: "/pages/index/index"
+      });
+    };
     const getUserInfo = () => {
       api_api.apiGetUserInfo().then((res) => {
         userInfo.value = res.data.userInfo;
@@ -28,31 +33,32 @@ const _sfc_main = {
     const getEnterpriseInfo = () => {
       api_api.apiGetEnterpriseInfo().then((res) => {
         enterpriseInfo.value = res;
-        common_vendor.index.__f__("log", "at pages/user/user.vue:182", enterpriseInfo.value);
+        common_vendor.index.__f__("log", "at pages/user/user.vue:192", enterpriseInfo.value);
       });
     };
     getUserInfo();
     getEnterpriseInfo();
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.t(userInfo.value.nickname),
-        b: common_vendor.p({
+        a: common_vendor.o(goBack),
+        b: common_vendor.t(userInfo.value.nickname),
+        c: common_vendor.p({
           type: "gear",
           size: "24",
           color: "#fff"
         }),
-        c: common_vendor.t(userInfo.value.phone),
-        d: common_vendor.t(userInfo.value.address.slice(0, 11)),
-        e: common_vendor.t(userInfo.value.industryId),
-        f: common_vendor.t(enterpriseInfo.value.companyName),
-        g: common_vendor.t(enterpriseInfo.value.businessId),
-        h: common_vendor.t(enterpriseInfo.value.account),
-        i: common_vendor.t(enterpriseInfo.value.accountAddress),
-        j: enterpriseInfo.value.imageurl,
-        k: common_assets._imports_0$1,
-        l: common_assets._imports_1$1,
-        m: common_assets._imports_2$1,
-        n: common_assets._imports_3$1
+        d: common_vendor.t(userInfo.value.phone),
+        e: common_vendor.t(userInfo.value.address.slice(0, 11)),
+        f: common_vendor.t(userInfo.value.industryId),
+        g: common_vendor.t(enterpriseInfo.value.companyName),
+        h: common_vendor.t(enterpriseInfo.value.businessId),
+        i: common_vendor.t(enterpriseInfo.value.account),
+        j: common_vendor.t(enterpriseInfo.value.accountAddress),
+        k: enterpriseInfo.value.imageurl,
+        l: common_assets._imports_0$1,
+        m: common_assets._imports_1$1,
+        n: common_assets._imports_2$1,
+        o: common_assets._imports_3$1
       };
     };
   }

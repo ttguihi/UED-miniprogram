@@ -20,4 +20,5 @@
 	/*每个页面公共css */
 	@import "/common/styles/common-style.scss";
 	@import "/common/font/font.scss";
+	@import "/common/styles/svg.scss";
 </style>

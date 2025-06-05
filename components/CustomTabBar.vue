@@ -64,7 +64,7 @@
 		right: 0;
 		display: flex;
 		justify-content: space-around;
-		background: radial-gradient(circle, #fff5e9 10%, #ffffff 30%);
+		background: linear-gradient(90deg, #FFFFFF 31%, #FFF3E4 50%, #FFFFFF 72%);
 		height: 124rpx;
 		border-top: 4rpx solid #e4d3f7;
 		border-radius: 40rpx 40rpx 0 0;
@@ -83,19 +83,19 @@
 	}
 
 	.tab-item:nth-child(3).active {
-		background: url('/static/user_active_word.jpg') no-repeat center center;
+		background: url('/static/user_active.svg') no-repeat center center;
 	}
 
 	.tab-item:nth-child(1) {
-		background: url('/static/home.jpg') no-repeat center center;
+		background: url('/static/home.svg') no-repeat center center;
 	}
 
 	.tab-item:nth-child(2) {
-		background: url('/static/contact.jpg') no-repeat center center;
+		background: url('/static/contact.svg') no-repeat center center;
 		mix-blend-mode: multiply;
 	}
 
 	.tab-item:nth-child(3) {
-		background: url('/static/user.jpg') no-repeat center center;
+		background: url('/static/user.svg') no-repeat center center;
 	}
 </style>

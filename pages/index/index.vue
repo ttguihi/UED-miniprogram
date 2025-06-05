@@ -46,7 +46,7 @@
 
 								<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" enable-flex>
 
-									<view v-for="item in 10" :key="item+'item'" class="detail_pro">
+									<view v-for="item in 10" :key="item+'item'" class="detail_pro ">
 										<!-- 内容 -->
 									</view>
 								</scroll-view>
@@ -69,7 +69,7 @@
 					</view>
 					<view class="AIandkeyWordCard">
 						<view class="AICard">
-							<view class="AI_image">
+							<view class="AI_image ">
 								<image src="/common/images/index/query.jpg" mode=""></image>
 							</view>
 							<view class="AItext">
@@ -77,10 +77,10 @@
 							</view>
 						</view>
 						<view class="AICard" style="background:linear-gradient(to bottom,#c5edff,#eefaff);">
-							<view class="AI_image" style="background-color: transparent;">
+							<view class="AI_image ">
 								<image src="/common/images/index/letter.jpg" mode=""></image>
 							</view>
-							<view class="AItext">
+							<view class="AItext ">
 								关键词管理
 							</view>
 						</view>
@@ -119,12 +119,12 @@
 			</view>
 		</view>
 		<view class="example">
-			<view class="example_title">
+			<view class="example_title svg-corner">
 				精选案例
 			</view>
 			<view class="enterprise">
 				<view class="upper_part">
-					<view class="default_pic">
+					<view class="default_pic ">
 
 					</view>
 					<view class="enterprise_info">
@@ -382,6 +382,8 @@
 									aspect-ratio: 1;
 									background-color: #e4e7ff;
 									border-radius: 10rpx;
+
+
 								}
 							}
 
@@ -475,6 +477,8 @@
 								top: -10%;
 								width: 108rpx;
 								height: 80rpx;
+								border-radius: 10rpx;
+								overflow: hidden;
 
 								image {
 									width: 100%;
@@ -523,24 +527,24 @@
 						width: 50rpx;
 						height: 50rpx;
 						margin-right: 10rpx;
-						background: url("/common/images/index/service.jpg") no-repeat center center;
-						mix-blend-mode: multiply;
+						background: url("/common/images/index/service.svg") no-repeat center center;
+
 					}
 
 					.iconBox2 {
 						width: 50rpx;
 						height: 50rpx;
 						margin-right: 10rpx;
-						background: url("/common/images/index/order_green.jpg") no-repeat center center;
-						mix-blend-mode: multiply;
+						background: url("/common/images/index/order_green.svg") no-repeat center center;
+
 					}
 
 					.iconBox3 {
 						width: 50rpx;
 						height: 50rpx;
 						margin-right: 10rpx;
-						background: url("/common/images/index/order_purple.jpg") no-repeat center center;
-						mix-blend-mode: multiply;
+						background: url("/common/images/index/order_purple.svg") no-repeat center center;
+
 					}
 
 					&:first-child {
@@ -655,7 +659,7 @@
 			left: 0;
 			width: 192rpx;
 			height: 192rpx;
-			background: url('/common/images/index/corner.jpg') no-repeat;
+
 
 			color: #fff;
 			font-weight: 500;
@@ -685,9 +689,11 @@
 
 					height: 208rpx;
 					aspect-ratio: 1;
-					background: url('/common/images/index/default.jpg') no-repeat;
+					background: url('/common/images/index/default.svg') no-repeat;
 					background-size: 100% 100%;
 					margin-right: 24rpx;
+					border-radius: 10rpx;
+
 				}
 
 				.enterprise_info {

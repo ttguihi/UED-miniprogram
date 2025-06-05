@@ -4,7 +4,11 @@
 	<view class="page_top_background">
 	</view>
 	<view class="fill_box" style="line-height: 200rpx;color: #fff; margin: 0 auto; ">
-		个人中心
+		<navigator open-type="switchTab" @click="goBack">
+			返回
+
+		</navigator>
+
 	</view>
 	<view class="user_page">
 
@@ -105,7 +109,7 @@
 				<navigator url="">
 					<view class="row">
 						<view class="row_icon ">
-							<image src="/common/images/user/frame.jpg" mode=""></image>
+							<image src="/common/images/user/frame.svg" mode=""></image>
 						</view>
 						<view class="row_text">
 							关于我们
@@ -116,7 +120,7 @@
 				<navigator url="">
 					<view class="row">
 						<view class="row_icon ">
-							<image src="/common/images/user/changeTheme.jpg" mode=""></image>
+							<image src="/common/images/user/change.svg" mode=""></image>
 						</view>
 						<view class="row_text">
 							更换主题
@@ -126,7 +130,7 @@
 				<navigator url="">
 					<view class="row">
 						<view class="row_icon ">
-							<image src="/common/images/user/contactService.jpg" mode=""></image>
+							<image src="/common/images/user/contactService.svg" mode=""></image>
 						</view>
 						<view class="row_text">
 							联系客服
@@ -137,7 +141,7 @@
 				<navigator url="">
 					<view class="row">
 						<view class="row_icon ">
-							<image src="/common/images/user/exit.jpg" mode=""></image>
+							<image src="/common/images/user/exit.svg" mode=""></image>
 						</view>
 						<view class="row_text">
 							退出登陆
@@ -163,6 +167,12 @@
 	import EventEmitter from "events";
 	const userInfo = ref({})
 	const enterpriseInfo = ref({})
+
+	const goBack = () => {
+		uni.switchTab({
+			url: '/pages/index/index'
+		})
+	}
 	//获取用户信息接口
 	const getUserInfo = () => {
 		apiGetUserInfo().then(res => {
@@ -192,15 +202,15 @@
 	//给不同小卡片设置不同的背景
 
 	.bg1 {
-		background: url('/common/images/user/phone.jpg') no-repeat center center !important;
+		background: url('/common/images/user/phone.svg') no-repeat center center !important;
 	}
 
 	.bg2 {
-		background: url('/common/images/user/area.jpg') no-repeat center center !important;
+		background: url('/common/images/user/area.svg') no-repeat center center !important;
 	}
 
 	.bg3 {
-		background: url('/common/images/user/industry.jpg') no-repeat center center !important;
+		background: url('/common/images/user/industry.svg') no-repeat center center !important;
 	}
 
 	//小卡片公共样式抽离出来
