@@ -4,22 +4,15 @@
 			@click="searchClick">
 			<view class="uni-searchbar__box-icon-search">
 				<slot name="searchIcon">
-					<uni-icons color="#c0c4cc" size="18" type="search" />
+					<uni-icons color="#c0c4cc" size="30" type="search" />
 				</slot>
 			</view>
-			<input v-if="show || searchVal" :focus="showSync" :disabled="readonly" :placeholder="placeholderText" :maxlength="maxlength"
-				class="uni-searchbar__box-search-input" confirm-type="search" type="text" v-model="searchVal" :style="{color:textColor}"
-				@confirm="confirm" @blur="blur" @focus="emitFocus"/>
+			<input v-if="show || searchVal" :focus="showSync" :disabled="readonly" :placeholder="placeholderText"
+				:maxlength="maxlength" class="uni-searchbar__box-search-input" confirm-type="search" type="text"
+				v-model="searchVal" :style="{color:textColor}" @confirm="confirm" @blur="blur" @focus="emitFocus" />
 			<text v-else class="uni-searchbar__text-placeholder">{{ placeholder }}</text>
-			<view v-if="show && (clearButton==='always'||clearButton==='auto'&&searchVal!=='') &&!readonly"
-				class="uni-searchbar__box-icon-clear" @click="clear">
-				<slot name="clearIcon">
-					<uni-icons color="#c0c4cc" size="20" type="clear" />
-				</slot>
-			</view>
+			<button class="my_button">搜索</button>
 		</view>
-		<text @click="cancel" class="uni-searchbar__cancel"
-			v-if="cancelButton ==='always' || show && cancelButton ==='auto'">{{cancelTextI18n}}</text>
 	</view>
 </template>
 
@@ -85,7 +78,7 @@
 			},
 			bgColor: {
 				type: String,
-				default: "#F8F8F8"
+				default: "#FFF"
 			},
 			textColor: {
 				type: String,
@@ -154,7 +147,7 @@
 				immediate: true,
 				handler(newVal) {
 					if (newVal) {
-						if(this.readonly) return
+						if (this.readonly) return
 						this.show = true;
 						this.$nextTick(() => {
 							this.showSync = true
@@ -171,7 +164,7 @@
 		},
 		methods: {
 			searchClick() {
-				if(this.readonly) return
+				if (this.readonly) return
 				if (this.show) {
 					return
 				}
@@ -183,11 +176,13 @@
 			clear() {
 				this.searchVal = ""
 				this.$nextTick(() => {
-					this.$emit("clear", { value: "" })
+					this.$emit("clear", {
+						value: ""
+					})
 				})
 			},
 			cancel() {
-				if(this.readonly) return
+				if (this.readonly) return
 				this.$emit("cancel", {
 					value: this.searchVal
 				});
@@ -231,7 +226,7 @@
 </script>
 
 <style lang="scss">
-	$uni-searchbar-height: 36px;
+	$uni-searchbar-height: 70rpx;
 
 	.uni-searchbar {
 		/* #ifndef APP-NVUE */
@@ -256,6 +251,17 @@
 		align-items: center;
 		height: $uni-searchbar-height;
 		padding: 5px 8px 5px 0px;
+
+		.my_button {
+			width: 132rpx;
+			height: 66rpx;
+			line-height: 66rpx;
+			font-size: 28rpx;
+			border-radius: 100rpx;
+			background: linear-gradient(to right, #3150f5, #863cfb);
+			color: #fff;
+			margin-right: -10rpx;
+		}
 	}
 
 	.uni-searchbar__box-icon-search {

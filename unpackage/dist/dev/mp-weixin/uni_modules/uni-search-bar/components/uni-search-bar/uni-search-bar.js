@@ -30,7 +30,7 @@ const _sfc_main = {
     },
     bgColor: {
       type: String,
-      default: "#F8F8F8"
+      default: "#FFF"
     },
     textColor: {
       type: String,
@@ -115,7 +115,9 @@ const _sfc_main = {
     clear() {
       this.searchVal = "";
       this.$nextTick(() => {
-        this.$emit("clear", { value: "" });
+        this.$emit("clear", {
+          value: ""
+        });
       });
     },
     cancel() {
@@ -158,7 +160,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
     a: common_vendor.p({
       color: "#c0c4cc",
-      size: "18",
+      size: "30",
       type: "search"
     }),
     b: $data.show || $data.searchVal
@@ -176,23 +178,10 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   } : {
     m: common_vendor.t($props.placeholder)
   }, {
-    n: $data.show && ($props.clearButton === "always" || $props.clearButton === "auto" && $data.searchVal !== "") && !$props.readonly
-  }, $data.show && ($props.clearButton === "always" || $props.clearButton === "auto" && $data.searchVal !== "") && !$props.readonly ? {
-    o: common_vendor.p({
-      color: "#c0c4cc",
-      size: "20",
-      type: "clear"
-    }),
-    p: common_vendor.o((...args) => $options.clear && $options.clear(...args))
-  } : {}, {
-    q: $props.radius + "px",
-    r: $props.bgColor,
-    s: common_vendor.o((...args) => $options.searchClick && $options.searchClick(...args)),
-    t: $props.cancelButton === "always" || $data.show && $props.cancelButton === "auto"
-  }, $props.cancelButton === "always" || $data.show && $props.cancelButton === "auto" ? {
-    v: common_vendor.t($options.cancelTextI18n),
-    w: common_vendor.o((...args) => $options.cancel && $options.cancel(...args))
-  } : {});
+    n: $props.radius + "px",
+    o: $props.bgColor,
+    p: common_vendor.o((...args) => $options.searchClick && $options.searchClick(...args))
+  });
 }
 const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);
 wx.createComponent(Component);

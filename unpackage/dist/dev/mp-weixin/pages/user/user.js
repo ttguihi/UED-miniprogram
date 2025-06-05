@@ -33,7 +33,6 @@ const _sfc_main = {
     const getEnterpriseInfo = () => {
       api_api.apiGetEnterpriseInfo().then((res) => {
         enterpriseInfo.value = res;
-        common_vendor.index.__f__("log", "at pages/user/user.vue:192", enterpriseInfo.value);
       });
     };
     getUserInfo();
@@ -48,7 +47,7 @@ const _sfc_main = {
           color: "#fff"
         }),
         d: common_vendor.t(userInfo.value.phone),
-        e: common_vendor.t(userInfo.value.address.slice(0, 11)),
+        e: common_vendor.t(userInfo.value.address),
         f: common_vendor.t(userInfo.value.industryId),
         g: common_vendor.t(enterpriseInfo.value.companyName),
         h: common_vendor.t(enterpriseInfo.value.businessId),

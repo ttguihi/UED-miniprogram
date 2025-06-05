@@ -44,7 +44,7 @@
 							</view>
 						</view>
 						<view class="">
-							{{userInfo.address.slice(0,11)}}
+							{{userInfo.address}}
 						</view>
 					</view>
 					<view class="user_industry">
@@ -168,6 +168,7 @@
 	const userInfo = ref({})
 	const enterpriseInfo = ref({})
 
+	//返回首页
 	const goBack = () => {
 		uni.switchTab({
 			url: '/pages/index/index'
@@ -189,7 +190,7 @@
 		apiGetEnterpriseInfo().then(res => {
 			// console.log(res.data.userInfo);
 			enterpriseInfo.value = res
-			console.log(enterpriseInfo.value)
+			//console.log(enterpriseInfo.value)
 		})
 	}
 

@@ -12,13 +12,24 @@ const ExampleCard = () => "../../components/ExampleCard.js";
 const _sfc_main = {
   __name: "examples",
   setup(__props) {
+    common_vendor.ref(["精选案例", "最新资讯"]);
+    const current = common_vendor.ref(1);
     return (_ctx, _cache) => {
-      return {
+      return common_vendor.e({
         a: common_vendor.p({
           focus: true,
-          placeholder: "搜索"
-        })
-      };
+          placeholder: "输入要搜索的关键词",
+          radius: 50,
+          cancelText: "",
+          clearButton: "none",
+          cancelButton: "none"
+        }),
+        b: current.value === 1 ? 1 : "",
+        c: common_vendor.o(($event) => current.value = 1),
+        d: current.value === 2 ? 1 : "",
+        e: common_vendor.o(($event) => current.value = 2),
+        f: current.value == 1
+      }, current.value == 1 ? {} : {});
     };
   }
 };

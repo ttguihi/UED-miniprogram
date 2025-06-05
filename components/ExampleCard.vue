@@ -65,13 +65,15 @@
 
 <style scoped lang="scss">
 	.enterprise {
+
 		height: 320rpx;
 		width: 690rpx;
 		background: linear-gradient(to bottom, #ebdaff, #ffffff 35%);
 		border-radius: 20rpx;
 		padding: 20rpx;
 		margin: 0 auto;
-		z-index: 1;
+		margin-top: 16rpx;
+		box-shadow: 2rpx 2rpx 2rpx #d9d9d9;
 
 		.upper_part {
 			display: flex;
@@ -81,7 +83,7 @@
 
 				height: 208rpx;
 				aspect-ratio: 1;
-				background: url('/common/images/index/default.jpg') no-repeat;
+				background: url('/common/images/index/default.svg') no-repeat;
 				background-size: 100% 100%;
 				margin-right: 24rpx;
 			}

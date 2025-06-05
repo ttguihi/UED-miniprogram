@@ -38,8 +38,18 @@
   flex: 1;
   flex-direction: row;
   align-items: center;
-  height: 36px;
+  height: 70rpx;
   padding: 5px 8px 5px 0px;
+}
+.uni-searchbar__box .my_button {
+  width: 132rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  font-size: 28rpx;
+  border-radius: 100rpx;
+  background: linear-gradient(to right, #3150f5, #863cfb);
+  color: #fff;
+  margin-right: -10rpx;
 }
 .uni-searchbar__box-icon-search {
   display: flex;
@@ -70,7 +80,7 @@
 }
 .uni-searchbar__cancel {
   padding-left: 10px;
-  line-height: 36px;
+  line-height: 70rpx;
   font-size: 14px;
   color: #333333;
 }

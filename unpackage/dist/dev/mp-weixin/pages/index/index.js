@@ -2,13 +2,35 @@
 const common_vendor = require("../../common/vendor.js");
 const common_assets = require("../../common/assets.js");
 if (!Math) {
-  CustomTabBar();
+  (ExampleCard + CustomTabBar)();
 }
 const CustomTabBar = () => "../../components/CustomTabBar.js";
+const ExampleCard = () => "../../components/ExampleCard.js";
 const _sfc_main = {
   __name: "index",
   setup(__props) {
     let itemList = common_vendor.ref([]);
+    const flag = common_vendor.ref(false);
+    const goTop = () => {
+      common_vendor.index.pageScrollTo({
+        scrollTop: 0,
+        //滚动到距离顶部为0
+        duration: 200
+        //滚动时长
+      });
+    };
+    common_vendor.onPageScroll((e) => {
+      if (e.scrollTop > 300) {
+        flag.value = true;
+      } else {
+        flag.value = false;
+      }
+    });
+    const navigatoExamples = () => {
+      common_vendor.index.navigateTo({
+        url: "/pages/examples/examples"
+      });
+    };
     itemList.value = [{
       iconPath: "/common/images/index/service.jpg",
       text: "平台客服"
@@ -19,12 +41,6 @@ const _sfc_main = {
       iconPath: "/common/images/index/order_purple.jpg",
       text: "公司动态"
     }];
-    common_vendor.index.__f__("log", "at pages/index/index.vue:214", itemList.value);
-    const navigatoExamples = () => {
-      common_vendor.index.navigateTo({
-        url: "/pages/examples/examples"
-      });
-    };
     return (_ctx, _cache) => {
       return {
         a: common_assets._imports_0,
@@ -46,11 +62,15 @@ const _sfc_main = {
             c: index + "index"
           };
         }),
-        j: common_vendor.o(navigatoExamples)
+        j: common_vendor.o(navigatoExamples),
+        k: flag.value ? 1 : "",
+        l: common_vendor.o(goTop),
+        m: flag.value
       };
     };
   }
 };
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-1cf27b2a"]]);
+_sfc_main.__runtimeHooks = 1;
 wx.createPage(MiniProgramPage);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/index/index.js.map
