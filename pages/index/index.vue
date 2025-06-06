@@ -255,7 +255,7 @@
 			margin-top: 6rpx;
 			width: 56rpx;
 			height: 56rpx;
-			background: url('/common/images/index/goTop.svg');
+			background: url('/common/images/index/goTop.svg') no-repeat center center;
 		}
 
 		.goTop_text {
@@ -705,8 +705,6 @@
 			left: 0;
 			width: 192rpx;
 			height: 192rpx;
-
-
 			color: #fff;
 			font-weight: 500;
 			padding-top: 12rpx;
@@ -718,7 +716,6 @@
 	.news_area {
 		margin-top: 32rpx;
 		height: 300rpx;
-
 		position: relative;
 		background-color: #f5f5ff;
 		padding: 0 32rpx;
@@ -733,7 +730,6 @@
 			background-size: 100% 100%;
 			color: #fff;
 			padding-left: 58rpx;
-
 			padding-top: 14rpx;
 			font-weight: 700;
 		}
@@ -754,10 +750,7 @@
 
 			.new_area_left {
 				width: 336rpx;
-
 				border-radius: 10rpx;
-
-
 			}
 
 			.new_area_right {

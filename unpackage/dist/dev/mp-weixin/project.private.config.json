@@ -3,18 +3,5 @@
   "projectname": "UEDAIminiprogram",
   "setting": {
     "compileHotReLoad": true
-  },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/examples/examples",
-          "pathName": "pages/examples/examples",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        }
-      ]
-    }
   }
 }

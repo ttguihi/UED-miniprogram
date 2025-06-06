@@ -45,18 +45,44 @@
 					</view>
 					<view class="news_info">
 
+						<view class="hot">
+							<view class="hot_text">
+								<text class="niceColor">
+									[AI行业今天热点 快来看看吧!]
+								</text>
+								<text class="normalText"> 深圳大学近期发布关于AI+前端融合最新消息 世人震惊</text>
+							</view>
+						</view>
+						<view class="hot_time">
+							2025-05-27
+						</view>
 					</view>
 				</view>
+
 				<view class="news_card">
 					<view class="news_item">
 
 					</view>
-				</view>
-				<view class="news_card">
-					<view class="news_item">
+					<view class="news_info">
 
+						<view class="hot">
+							<view class="hot_text">
+								<text class="niceColor">
+									[AI行业今天热点 快来看看吧!]
+								</text>
+								<text class="normalText"> 深圳大学近期发布关于AI+前端融合最新消息 世人震惊</text>
+							</view>
+						</view>
+						<view class="hot_time">
+							2025-05-27
+						</view>
 					</view>
 				</view>
+				<NewsCard></NewsCard>
+				<NewsCard></NewsCard>
+				<NewsCard></NewsCard>
+				<NewsCard></NewsCard>
+
 			</view>
 
 
@@ -69,6 +95,8 @@
 		ref
 	} from 'vue'
 	import ExampleCard from '../../components/ExampleCard.vue';
+	import SmartText from '../../components/SmartText/SmartText.vue'
+	import NewsCard from '../../components/NewsCard.vue';
 	const items = ref(['精选案例', '最新资讯'])
 
 	const current = ref(1)
@@ -86,17 +114,55 @@
 		.news_card {
 			width: 336rpx;
 			height: 434rpx;
-			background-color: skyblue;
+			background-color: white;
 			margin-bottom: 12rpx;
 			border-radius: 10rpx;
+			box-sizing: border-box;
 
 			.news_item {
 				width: 100%;
 				height: 288rpx;
+				border-radius: 10rpx;
+				background-color: pink;
+			}
+
+			.news_info {
+				width: 100%;
+				height: 146rpx;
 				background-color: pink;
 				border-radius: 10rpx;
 				margin-bottom: 16rpx;
+				padding: 16rpx;
+				background-color: #fff;
 
+				.hot {
+
+
+
+					width: 100%;
+					font-size: 24rpx;
+					font-weight: 600;
+
+					.hot_text {
+						display: -webkit-box;
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
+						overflow: hidden;
+						text-overflow: ellipsis;
+
+						.niceColor {
+							background: linear-gradient(to right, #9949fc, #6a89fa);
+							color: transparent;
+							-webkit-background-clip: text;
+						}
+					}
+				}
+
+				.hot_time {
+					font-size: 20rpx;
+					color: #888888;
+					margin-top: 16rpx;
+				}
 			}
 		}
 

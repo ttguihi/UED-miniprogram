@@ -6,9 +6,10 @@ if (!Array) {
 }
 const _easycom_uni_search_bar = () => "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.js";
 if (!Math) {
-  (_easycom_uni_search_bar + ExampleCard)();
+  (_easycom_uni_search_bar + ExampleCard + NewsCard)();
 }
 const ExampleCard = () => "../../components/ExampleCard.js";
+const NewsCard = () => "../../components/NewsCard.js";
 const _sfc_main = {
   __name: "examples",
   setup(__props) {
