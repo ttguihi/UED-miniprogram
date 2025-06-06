@@ -1,11 +1,9 @@
 <template>
 	<view class="">
 		<view class="headerBackground">
-
-
 		</view>
+		<CustomNavBar></CustomNavBar>
 		<view class="fill_box">
-
 		</view>
 		<view class="search">
 			<uni-search-bar focus placeholder="输入要搜索的关键词" :radius="50" cancelText="" clearButton="none"
@@ -39,50 +37,10 @@
 				<ExampleCard></ExampleCard>
 			</view>
 			<view v-else class="news_page">
-				<view class="news_card">
-					<view class="news_item">
-
-					</view>
-					<view class="news_info">
-
-						<view class="hot">
-							<view class="hot_text">
-								<text class="niceColor">
-									[AI行业今天热点 快来看看吧!]
-								</text>
-								<text class="normalText"> 深圳大学近期发布关于AI+前端融合最新消息 世人震惊</text>
-							</view>
-						</view>
-						<view class="hot_time">
-							2025-05-27
-						</view>
-					</view>
-				</view>
-
-				<view class="news_card">
-					<view class="news_item">
-
-					</view>
-					<view class="news_info">
-
-						<view class="hot">
-							<view class="hot_text">
-								<text class="niceColor">
-									[AI行业今天热点 快来看看吧!]
-								</text>
-								<text class="normalText"> 深圳大学近期发布关于AI+前端融合最新消息 世人震惊</text>
-							</view>
-						</view>
-						<view class="hot_time">
-							2025-05-27
-						</view>
-					</view>
-				</view>
 				<NewsCard></NewsCard>
 				<NewsCard></NewsCard>
 				<NewsCard></NewsCard>
 				<NewsCard></NewsCard>
-
 			</view>
 
 
@@ -95,8 +53,8 @@
 		ref
 	} from 'vue'
 	import ExampleCard from '../../components/ExampleCard.vue';
-	import SmartText from '../../components/SmartText/SmartText.vue'
 	import NewsCard from '../../components/NewsCard.vue';
+	import CustomNavBar from '../../components/CustomNavBar/CustomNavBar.vue';
 	const items = ref(['精选案例', '最新资讯'])
 
 	const current = ref(1)

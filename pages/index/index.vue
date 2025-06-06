@@ -185,6 +185,7 @@
 	import CustomTabBar from '../../components/CustomTabBar.vue';
 	import SmallCard1Vue from '../../components/smallCard1.vue';
 	import ExampleCard from '../../components/ExampleCard.vue'
+	import CustomNavBar from '../../components/CustomNavBar/CustomNavBar.vue';
 	import {
 		ref
 	} from 'vue';

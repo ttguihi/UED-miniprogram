@@ -2,12 +2,20 @@
 	<view class="layout">
 		<view class="navbar">
 			<view class="statusBar" :style="{height:getStatusBarHeight()+'px'}"></view>
-			<view class="titleBar" :style="{height:getTitleBarHeight()+'px',marginLeft:getLeftIconLeft()+'px'}">
-				<view class="title">{{title}}</view>
-				<navigator url="/pages/search/search" class="search">
+			<view class="titleBar" :style="{height:getTitleBarHeight()+'px'}">
+				<view class="title">
+					<navigator url="/pages/index/index" open-type="switchTab">
+						<uni-icons type="left" color="#fff" size="30"></uni-icons>
+					</navigator>
+					<view class="">
+						公司动态
+					</view>
+
+				</view>
+				<!-- <navigator url="/pages/search/search" class="search">
 					<uni-icons class="icon" type="search" color="#888" size="18"></uni-icons>
 
-				</navigator>
+				</navigator> -->
 			</view>
 		</view>
 
@@ -26,18 +34,18 @@
 		getStatusBarHeight,
 		getTitleBarHeight,
 		getNavBarHeight,
-		getLeftIconLeft
+
 	} from "@/utils/system.js"
 
 	// let system = uni.getSystemInfo()
 	// console.log(system);
 	//父传子
-	defineProps({
-		title: {
-			type: String,
-			default: "壁纸"
-		}
-	})
+	// defineProps({
+	// 	title: {
+	// 		type: String,
+	// 		default: "壁纸"
+	// 	}
+	// })
 </script>
 
 <style lang="scss" scoped>
@@ -49,9 +57,8 @@
 			left: 0;
 			width: 100%;
 			z-index: 10; //提高覆盖层级
-			background:
-				linear-gradient(to bottom, transparent, #fff 400rpx),
-				linear-gradient(to right, #beecd8 20%, #F4E2D8);
+			background: url('/common/images/index/header_background.jpg') no-repeat;
+			background-size: cover;
 
 			.statusBar {}
 
@@ -63,7 +70,9 @@
 				.title {
 					font-size: 22px;
 					font-weight: 700;
-					color: $text-font-color-1;
+					color: #fff;
+					display: flex;
+					align-items: center;
 				}
 
 				.search {

@@ -1,15 +1,8 @@
 {
-  "hash": "148a91ff",
+  "hash": "eba1bae6",
   "configHash": "1c6b1206",
-  "lockfileHash": "65fa10a4",
-  "browserHash": "cb592b3c",
-  "optimized": {
-    "lodash": {
-      "src": "../../../../../node_modules/lodash/lodash.js",
-      "file": "lodash.js",
-      "fileHash": "931bb980",
-      "needsInterop": true
-    }
-  },
+  "lockfileHash": "bf4b6218",
+  "browserHash": "5d8f5638",
+  "optimized": {},
   "chunks": {}
 }

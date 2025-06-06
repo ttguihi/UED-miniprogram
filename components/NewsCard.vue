@@ -1,10 +1,8 @@
 <template>
 	<view class="news_card">
 		<view class="news_item">
-
 		</view>
 		<view class="news_info">
-
 			<view class="hot">
 				<view class="hot_text">
 					<text class="niceColor">
