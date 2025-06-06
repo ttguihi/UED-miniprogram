@@ -26,11 +26,6 @@ const _sfc_main = {
         flag.value = false;
       }
     });
-    const navigatoExamples = () => {
-      common_vendor.index.navigateTo({
-        url: "/pages/examples/examples"
-      });
-    };
     itemList.value = [{
       iconPath: "/common/images/index/service.jpg",
       text: "平台客服"
@@ -62,10 +57,9 @@ const _sfc_main = {
             c: index + "index"
           };
         }),
-        j: common_vendor.o(navigatoExamples),
-        k: flag.value ? 1 : "",
-        l: common_vendor.o(goTop),
-        m: flag.value
+        j: flag.value ? 1 : "",
+        k: common_vendor.o(goTop),
+        l: flag.value
       };
     };
   }

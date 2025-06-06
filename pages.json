@@ -28,6 +28,27 @@
 				"navigationBarTitleText": "精选案例",
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/user/settings/settings",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/user/recognise/recognise",
+			"style": {
+				"navigationBarTitleText": "企业认证",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {

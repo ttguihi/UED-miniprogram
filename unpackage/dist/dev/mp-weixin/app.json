@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/contact/contact",
     "pages/user/user",
-    "pages/examples/examples"
+    "pages/examples/examples",
+    "pages/user/settings/settings",
+    "pages/user/recognise/recognise",
+    "pages/login/login"
   ],
   "window": {
     "navigationBarTextStyle": "black",

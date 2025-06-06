@@ -18,4 +18,5 @@
 	@import "/common/styles/common-style.scss";
 	@import "/common/font/font.scss";
 	@import "/common/styles/svg.scss";
+	@import '@/uni_modules/uni-scss/index.scss';
 </style>

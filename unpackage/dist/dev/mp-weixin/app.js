@@ -6,6 +6,9 @@ if (!Math) {
   "./pages/contact/contact.js";
   "./pages/user/user.js";
   "./pages/examples/examples.js";
+  "./pages/user/settings/settings.js";
+  "./pages/user/recognise/recognise.js";
+  "./pages/login/login.js";
 }
 const _sfc_main = {
   onLaunch: function() {

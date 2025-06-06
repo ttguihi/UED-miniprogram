@@ -21,12 +21,15 @@
 					<view class="user_name">
 						{{userInfo.nickname}}
 					</view>
-					<view class="user_settings">
-						<uni-icons type="gear" size="24" color="#fff"></uni-icons>
-						<view class="settings">
-							设置
+					<navigator url="/pages/user/settings/settings">
+						<view class="user_settings">
+							<uni-icons type="gear" size="24" color="#fff"></uni-icons>
+							<view class="settings">
+								设置
+							</view>
 						</view>
-					</view>
+					</navigator>
+
 				</view>
 				<view class="user_other_info">
 					<view class="user_phone">
@@ -157,6 +160,7 @@
 
 <script setup>
 	import CustomTabBar from "../../components/CustomTabBar.vue"
+	import EnterpriseCardVue from "../../components/EnterpriseCard.vue";
 	import {
 		apiGetUserInfo,
 		apiGetEnterpriseInfo

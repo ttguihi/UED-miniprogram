@@ -123,8 +123,10 @@
 			<view class="example_title svg-corner">
 				精选案例
 			</view>
+			<navigator url="/pages/examples/examples" open-type="navigate">
+				<button class="more">查看更多</button>
+			</navigator>
 
-			<button class="more" @click="navigatoExamples">查看更多</button>
 			<ExampleCard class="first_example"></ExampleCard>
 			<ExampleCard></ExampleCard>
 			<ExampleCard></ExampleCard>
@@ -211,11 +213,7 @@
 	})
 
 
-	const navigatoExamples = () => {
-		uni.navigateTo({
-			url: '/pages/examples/examples'
-		});
-	}
+
 	itemList.value = [{
 		iconPath: '/common/images/index/service.jpg',
 		text: '平台客服'

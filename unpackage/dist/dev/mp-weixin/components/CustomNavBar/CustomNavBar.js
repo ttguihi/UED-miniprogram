@@ -11,6 +11,12 @@ if (!Math) {
 }
 const _sfc_main = {
   __name: "CustomNavBar",
+  props: {
+    title: {
+      type: String,
+      default: "友益典文化科技有限公司"
+    }
+  },
   setup(__props) {
     return (_ctx, _cache) => {
       return {
@@ -20,8 +26,9 @@ const _sfc_main = {
           color: "#fff",
           size: "30"
         }),
-        c: common_vendor.unref(utils_system.getTitleBarHeight)() + "px",
-        d: common_vendor.unref(utils_system.getNavBarHeight)() + "px"
+        c: common_vendor.t(__props.title),
+        d: common_vendor.unref(utils_system.getTitleBarHeight)() + "px",
+        e: common_vendor.unref(utils_system.getNavBarHeight)() + "px"
       };
     };
   }
