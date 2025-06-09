@@ -14,6 +14,11 @@
 </script>
 
 <style lang="scss">
+	// html,
+	// body {
+	// 	height: 100%;
+	// }
+
 	/*每个页面公共css */
 	@import "/common/styles/common-style.scss";
 	@import "/common/font/font.scss";

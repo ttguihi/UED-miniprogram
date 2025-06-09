@@ -7277,9 +7277,9 @@ function isConsoleWritable() {
   return isWritable;
 }
 function initRuntimeSocketService() {
-  const hosts = "192.168.10.106,192.168.184.1,192.168.94.1,127.0.0.1";
+  const hosts = "192.168.10.109,192.168.184.1,192.168.94.1,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_LwlUpi";
+  const id = "mp-weixin_ezoa3B";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -8277,6 +8277,19 @@ const pages = [
     style: {
       navigationBarTitleText: "首页",
       navigationStyle: "custom"
+    }
+  },
+  {
+    path: "pages/user/user_info/user_info",
+    style: {
+      navigationStyle: "custom",
+      navigationBarTitleText: "个人资料"
+    }
+  },
+  {
+    path: "pages/user/change_phone/change_phone",
+    style: {
+      navigationBarTitleText: "更换手机号码\r"
     }
   }
 ];

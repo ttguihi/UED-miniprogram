@@ -1,11 +1,12 @@
 <template>
-	<view class="page">
-		<view class="page_top_background">
-		</view>
-		<CustomNavBar title="企业认证"></CustomNavBar>
+	<view class="page_top_background">
+
+	</view>
+	<CustomNavBar title="个人信息"></CustomNavBar>
+	<view class="layout">
 		<view class="settings">
 			<uni-forms>
-				<uni-forms-item label="企业LOGO">
+				<uni-forms-item label="客户头像">
 					<view class="avatar">
 
 					</view>
@@ -13,21 +14,17 @@
 
 					</view>
 				</uni-forms-item>
-				<uni-forms-item label="企业名称">
+				<uni-forms-item label="会员名称">
 					<uni-easyinput placeholder="" />
 				</uni-forms-item>
-				<uni-forms-item label="业务范围">
+				<uni-forms-item label="选择地区">
 					<uni-data-select v-model="value" :localdata="range" @change="change"></uni-data-select>
 				</uni-forms-item>
-				<uni-forms-item label="营业执照">
 
-				</uni-forms-item>
-				<uni-forms-item label="对公账户">
+				<uni-forms-item label="所属行业">
 					<uni-easyinput placeholder="" />
 				</uni-forms-item>
-				<uni-forms-item label="对公账户地址">
-					<uni-easyinput placeholder="" />
-				</uni-forms-item>
+
 			</uni-forms>
 
 
@@ -41,18 +38,14 @@
 </template>
 
 <script setup>
-	import {
-		ref
-	} from 'vue'
-	const value = ref(0)
-	const range = ref([])
-	const change = (e) => {
-		console.log("e:", e);
-	}
+	import CustomNavBar from '../../../components/CustomNavBar/CustomNavBar.vue';
 </script>
 
 <style lang="scss" scoped>
-	.page {
+	.layout {
+
+
+
 		.settings {
 			margin: 0 auto;
 			margin-top: 32rpx;

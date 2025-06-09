@@ -33,7 +33,7 @@
 	defineProps({
 		title: {
 			type: String,
-			default: "友益典文化科技有限公司"
+			default: "友益典·AI营销管理系统"
 		}
 	})
 </script>
@@ -45,7 +45,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			z-index: 100;
+			z-index: 1000;
 			background: url('/common/images/index/header_background.jpg') no-repeat;
 			background-size: cover; //确保与背景颜色自然过渡
 

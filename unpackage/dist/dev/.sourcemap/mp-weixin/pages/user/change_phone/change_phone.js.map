@@ -1,0 +1,1 @@
+{"version":3,"file":"change_phone.js","sources":["../HBuilderX.4.57.2025032507/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvdXNlci9jaGFuZ2VfcGhvbmUvY2hhbmdlX3Bob25lLnZ1ZQ"],"sourcesContent":["import MiniProgramPage from 'D:/UEDAIminiprogram/pages/user/change_phone/change_phone.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

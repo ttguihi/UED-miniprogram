@@ -49,6 +49,20 @@
 				"navigationBarTitleText": "首页",
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/user/user_info/user_info",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "个人资料"
+			}
+		},
+		{
+			"path": "pages/user/change_phone/change_phone",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "更换手机号码"
+			}
 		}
 	],
 	"globalStyle": {

@@ -14,7 +14,7 @@ const _sfc_main = {
   props: {
     title: {
       type: String,
-      default: "友益典文化科技有限公司"
+      default: "友益典·AI营销管理系统"
     }
   },
   setup(__props) {

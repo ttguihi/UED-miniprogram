@@ -17,28 +17,33 @@
 					</view>
 				</view>
 			</navigator>
-			<view class="enterprise_recognise">
-				<view class="">
-				</view>
-				<view class="settings_content">
-					<text>个人资料</text>
-					<view class="right">
+			<navigator url="/pages/user/user_info/user_info">
+				<view class="enterprise_recognise">
+					<view class="">
+					</view>
+					<view class="settings_content">
+						<text>个人资料</text>
+						<view class="right">
+						</view>
+					</view>
+					<view class="">
 					</view>
 				</view>
-				<view class="">
-				</view>
-			</view>
-			<view class="enterprise_recognise last">
-				<view class="">
-				</view>
-				<view class="settings_content">
-					<text>更换手机号码</text>
-					<view class="right">
+			</navigator>
+
+			<navigator url="/pages/user/change_phone/change_phone">
+				<view class="enterprise_recognise last">
+					<view class="">
+					</view>
+					<view class="settings_content">
+						<text>更换手机号码</text>
+						<view class="right">
+						</view>
+					</view>
+					<view class="">
 					</view>
 				</view>
-				<view class="">
-				</view>
-			</view>
+			</navigator>
 		</view>
 	</view>
 </template>

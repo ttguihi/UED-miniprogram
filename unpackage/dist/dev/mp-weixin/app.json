@@ -6,7 +6,9 @@
     "pages/examples/examples",
     "pages/user/settings/settings",
     "pages/user/recognise/recognise",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/user/user_info/user_info",
+    "pages/user/change_phone/change_phone"
   ],
   "window": {
     "navigationBarTextStyle": "black",

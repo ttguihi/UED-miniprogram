@@ -2,32 +2,21 @@
 	<view class="page">
 		<view class="page_top_background">
 		</view>
-		<CustomNavBar title="企业认证"></CustomNavBar>
+		<CustomNavBar title="更换手机号码"></CustomNavBar>
 		<view class="settings">
 			<uni-forms>
-				<uni-forms-item label="企业LOGO">
-					<view class="avatar">
 
+				<uni-forms-item label="新手机号">
+					<uni-easyinput placeholder="" />
+				</uni-forms-item>
+				<uni-forms-item label="验证码">
+					<view class="form-item">
+						<uni-easyinput placeholder="" />
+						<button>获取验证码</button>
 					</view>
-					<view class="right">
-
-					</view>
-				</uni-forms-item>
-				<uni-forms-item label="企业名称">
-					<uni-easyinput placeholder="" />
-				</uni-forms-item>
-				<uni-forms-item label="业务范围">
-					<uni-data-select v-model="value" :localdata="range" @change="change"></uni-data-select>
-				</uni-forms-item>
-				<uni-forms-item label="营业执照">
 
 				</uni-forms-item>
-				<uni-forms-item label="对公账户">
-					<uni-easyinput placeholder="" />
-				</uni-forms-item>
-				<uni-forms-item label="对公账户地址">
-					<uni-easyinput placeholder="" />
-				</uni-forms-item>
+
 			</uni-forms>
 
 
@@ -41,17 +30,21 @@
 </template>
 
 <script setup>
-	import {
-		ref
-	} from 'vue'
-	const value = ref(0)
-	const range = ref([])
-	const change = (e) => {
-		console.log("e:", e);
-	}
+
 </script>
 
 <style lang="scss" scoped>
+	.form-item {
+		display: flex;
+		align-items: center;
+
+		&>button {
+			color: #fff;
+			margin-left: 12rpx;
+			background: linear-gradient(to right, #394ff6, #833cfb);
+		}
+	}
+
 	.page {
 		.settings {
 			margin: 0 auto;
