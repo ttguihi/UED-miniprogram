@@ -63,6 +63,13 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "更换手机号码"
 			}
+		},
+		{
+			"path": "pages/user/about_us/about_us",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "关于我们"
+			}
 		}
 	],
 	"globalStyle": {

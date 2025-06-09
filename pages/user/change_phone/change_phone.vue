@@ -14,7 +14,6 @@
 						<uni-easyinput placeholder="" />
 						<button>获取验证码</button>
 					</view>
-
 				</uni-forms-item>
 
 			</uni-forms>

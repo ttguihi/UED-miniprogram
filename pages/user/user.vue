@@ -109,7 +109,7 @@
 
 		<view class="section">
 			<view class="list">
-				<navigator url="">
+				<navigator url="/pages/user/about_us/about_us">
 					<view class="row">
 						<view class="row_icon ">
 							<image src="/common/images/user/frame.svg" mode=""></image>

@@ -4,7 +4,7 @@
 			<view class="statusBar" :style="{height:getStatusBarHeight()+'px'}"></view>
 			<view class="titleBar" :style="{height:getTitleBarHeight()+'px'}">
 				<view class="title">
-					<navigator url="/pages/index/index" open-type="switchTab">
+					<navigator url="/pages/index/index" open-type="navigateBack">
 						<uni-icons type="left" color="#fff" size="30"></uni-icons>
 					</navigator>
 					<view class="">
