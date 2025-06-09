@@ -8,7 +8,8 @@
     "pages/user/recognise/recognise",
     "pages/login/login",
     "pages/user/user_info/user_info",
-    "pages/user/change_phone/change_phone"
+    "pages/user/change_phone/change_phone",
+    "pages/user/about_us/about_us"
   ],
   "window": {
     "navigationBarTextStyle": "black",

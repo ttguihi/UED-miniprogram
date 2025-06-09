@@ -9,17 +9,24 @@ new Proxy({}, {
 });
 if (!Array) {
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
-  _easycom_uni_icons2();
+  const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
+  (_easycom_uni_icons2 + _easycom_uni_popup2)();
 }
 const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
+const _easycom_uni_popup = () => "../../uni_modules/uni-popup/components/uni-popup/uni-popup.js";
 if (!Math) {
-  _easycom_uni_icons();
+  (_easycom_uni_icons + _easycom_uni_popup)();
 }
 const _sfc_main = {
   __name: "user",
   setup(__props) {
     const userInfo = common_vendor.ref({});
     const enterpriseInfo = common_vendor.ref({});
+    const popup = common_vendor.ref();
+    const open = () => {
+      common_vendor.index.__f__("log", "at pages/user/user.vue:251", 1);
+      popup.value.open("center");
+    };
     const goBack = () => {
       common_vendor.index.switchTab({
         url: "/pages/index/index"
@@ -57,7 +64,15 @@ const _sfc_main = {
         l: common_assets._imports_0$1,
         m: common_assets._imports_1$1,
         n: common_assets._imports_2$1,
-        o: common_assets._imports_3$1
+        o: common_vendor.o(open),
+        p: common_assets._imports_3$1,
+        q: common_vendor.sr(popup, "0f7520f0-1", {
+          "k": "popup"
+        }),
+        r: common_vendor.p({
+          type: "center",
+          ["border-radius"]: "10px 10px 0 0"
+        })
       };
     };
   }

@@ -20,22 +20,9 @@ const _sfc_main = {
   __name: "recognise",
   setup(__props) {
     const value = common_vendor.ref(0);
-    const range = common_vendor.ref([
-      {
-        value: 0,
-        text: "篮球"
-      },
-      {
-        value: 1,
-        text: "足球"
-      },
-      {
-        value: 2,
-        text: "游泳"
-      }
-    ]);
+    const range = common_vendor.ref([]);
     const change = (e) => {
-      common_vendor.index.__f__("log", "at pages/user/recognise/recognise.vue:62", "e:", e);
+      common_vendor.index.__f__("log", "at pages/user/recognise/recognise.vue:50", "e:", e);
     };
     return (_ctx, _cache) => {
       return {
