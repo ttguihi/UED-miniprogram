@@ -15,3 +15,11 @@ export function apiGetEnterpriseInfo() {
 		url: '/company/getCompany'
 	})
 }
+
+//获取首页信息接口
+
+export function apiGetHomeData() {
+	return request({
+		url: '/index/getHomeData'
+	})
+}

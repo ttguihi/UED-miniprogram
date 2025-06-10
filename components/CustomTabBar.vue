@@ -37,7 +37,7 @@
 			updateActiveTab() {
 				// 获取当前页面路径
 				const pages = getCurrentPages();
-				console.log(pages);
+				// console.log(pages);
 				const currentPage = pages[pages.length - 1];
 				let path = currentPage.route || currentPage.__route__;
 				if (!path.startsWith('/')) path = '/' + path;

@@ -1,31 +1,61 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 const common_assets = require("../../common/assets.js");
+const api_api = require("../../api/api.js");
 if (!Math) {
-  (ExampleCard + CustomTabBar)();
+  (CustomNavBar + ExampleCard + NewsCard + CustomTabBar)();
 }
 const CustomTabBar = () => "../../components/CustomTabBar.js";
 const ExampleCard = () => "../../components/ExampleCard.js";
+const CustomNavBar = () => "../../components/CustomNavBar/CustomNavBar.js";
+const NewsCard = () => "../../components/NewsCard.js";
 const _sfc_main = {
   __name: "index",
   setup(__props) {
     let itemList = common_vendor.ref([]);
     const flag = common_vendor.ref(false);
+    const homeData = common_vendor.ref();
+    const banner = common_vendor.ref([]);
+    const information = common_vendor.ref([]);
+    const informationLeft = common_vendor.ref([]);
+    const informationRight = common_vendor.ref([]);
+    const orderList = common_vendor.ref([]);
+    const project = common_vendor.ref({});
     const goTop = () => {
       common_vendor.index.pageScrollTo({
         scrollTop: 0,
         //滚动到距离顶部为0
-        duration: 200
+        duration: 300
         //滚动时长
       });
     };
     common_vendor.onPageScroll((e) => {
-      if (e.scrollTop > 300) {
+      if (e.scrollTop > 500) {
         flag.value = true;
       } else {
         flag.value = false;
       }
     });
+    const getHomeData = () => {
+      api_api.apiGetHomeData().then((res) => {
+        homeData.value = res;
+        banner.value = homeData.value.banner;
+        homeData.value.information.map((item) => {
+          item.create_time = item.create_time.slice(0, 10);
+        });
+        information.value = homeData.value.information;
+        informationLeft.value = information.value.filter((item, index) => {
+          common_vendor.index.__f__("log", "at pages/index/index.vue:224", index);
+          return index % 2 == 0;
+        });
+        informationRight.value = information.value.filter((item, index) => {
+          return index % 2 == 1;
+        });
+        orderList.value = homeData.value.orderList;
+        project.value = homeData.value.project;
+        common_vendor.index.__f__("log", "at pages/index/index.vue:232", informationLeft.value);
+      });
+    };
     itemList.value = [{
       iconPath: "/common/images/index/service.jpg",
       text: "平台客服"
@@ -36,30 +66,69 @@ const _sfc_main = {
       iconPath: "/common/images/index/order_purple.jpg",
       text: "公司动态"
     }];
+    getHomeData();
     return (_ctx, _cache) => {
       return {
-        a: common_assets._imports_0,
+        a: common_vendor.f(banner.value, (item, index, i0) => {
+          return {
+            a: item.imageurl,
+            b: item.linkurl,
+            c: index
+          };
+        }),
         b: common_assets._imports_0,
-        c: common_assets._imports_1,
-        d: common_vendor.f(10, (item, k0, i0) => {
+        c: common_vendor.f(10, (item, k0, i0) => {
           return {
             a: item + "item"
           };
         }),
-        e: common_vendor.o((...args) => _ctx.scroll && _ctx.scroll(...args)),
+        d: common_vendor.o((...args) => _ctx.scroll && _ctx.scroll(...args)),
+        e: common_assets._imports_1,
         f: common_assets._imports_2,
         g: common_assets._imports_3,
-        h: common_assets._imports_4,
-        i: common_vendor.f(common_vendor.unref(itemList), (item, index, i0) => {
+        h: common_vendor.f(common_vendor.unref(itemList), (item, index, i0) => {
           return {
             a: common_vendor.n(`iconBox${index + 1}`),
             b: common_vendor.t(item.text),
             c: index + "index"
           };
         }),
-        j: flag.value ? 1 : "",
-        k: common_vendor.o(goTop),
-        l: flag.value
+        i: common_vendor.t(information.value[0].title),
+        j: common_vendor.t(information.value[0].create_time),
+        k: common_vendor.f(orderList.value, (item, index, i0) => {
+          return {
+            a: index,
+            b: "1cf27b2a-1-" + i0,
+            c: common_vendor.p({
+              companyName: item.company_name,
+              orderIcon: item.ordericon,
+              orderName: item.order_name
+            })
+          };
+        }),
+        l: common_vendor.f(informationLeft.value, (item, index, i0) => {
+          return {
+            a: "1cf27b2a-2-" + i0,
+            b: common_vendor.p({
+              title: item.title,
+              createTime: item.create_time,
+              imageUrl: item.imageurl
+            })
+          };
+        }),
+        m: common_vendor.f(informationRight.value, (item, index, i0) => {
+          return {
+            a: "1cf27b2a-3-" + i0,
+            b: common_vendor.p({
+              title: item.title,
+              createTime: item.create_time,
+              imageUrl: item.imageurl
+            })
+          };
+        }),
+        n: flag.value ? 1 : "",
+        o: common_vendor.o(goTop),
+        p: flag.value
       };
     };
   }

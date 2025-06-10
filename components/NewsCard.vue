@@ -1,6 +1,6 @@
 <template>
 	<view class="news_card">
-		<view class="news_item">
+		<view class="news_item" :style="{backgroundImage: `url(${props.imageUrl})`}">
 		</view>
 		<view class="news_info">
 			<view class="hot">
@@ -8,18 +8,22 @@
 					<text class="niceColor">
 						[AI行业今天热点 快来看看吧!]
 					</text>
-					<text class="normalText"> 深圳大学近期发布关于AI+前端融合最新消息 世人震惊</text>
+					<text class="normalText"> {{props.title}}</text>
 				</view>
 			</view>
 			<view class="hot_time">
-				2025-05-27
+				{{props.createTime}}
 			</view>
 		</view>
 	</view>
 </template>
 
 <script setup>
-
+	const props = defineProps({
+		createTime: String,
+		imageUrl: String,
+		title: String
+	})
 </script>
 
 <style lang="scss" scoped>

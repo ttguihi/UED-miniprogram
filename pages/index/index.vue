@@ -1,23 +1,19 @@
 <template>
 	<view class="page">
-		<view class="headerBackground">
-			<view class="fill_box" style="color: #fff;text-align: center;font-weight: 700;font-size: 50rpx;">填充区域</view>
-			<view class="swiperArea">
-				<swiper autoplay="true" circular="true">
-					<swiper-item>
-						<!--  -->
-						<navigator url="" class="link">
-							<image src="/common/images/index/header_background.jpg" mode="widthFix"></image>
-						</navigator>
-					</swiper-item><swiper-item>
-						<!--  -->
-						<navigator url="" class="link">
-							<image src="/common/images/index/header_background.jpg" mode="widthFix"></image>
-						</navigator>
-					</swiper-item>
-				</swiper>
-			</view>
+		<view class="page_top_background">
+
 		</view>
+		<CustomNavBar></CustomNavBar>
+		<view class="swiperArea">
+			<swiper autoplay="true" circular="true" style="width: 690rpx; margin: 0 auto;">
+				<swiper-item v-for="(item, index) in banner" :key="index">
+					<navigator :url="item.linkurl" class="link" style="border-radius: 10rpx;">
+						<image :src="item.imageurl" mode="widthFix" style="border-radius: 10rpx;"></image>
+					</navigator>
+				</swiper-item>
+			</swiper>
+		</view>
+
 		<view class="mainMenu">
 			<view class="cardArea">
 				<view class="projectCard">
@@ -105,15 +101,14 @@
 				</view>
 				<view class="news_detail">
 					<view class="news_date">
-						<view class="news">友益典签约江门新会互惠互赢(国资)sssssss...</view>
+						<view class="news">{{information[0].title}}</view>
 						<view class="date">
-							2025-5-14
+							{{information[0].create_time}}
 						</view>
 					</view>
 
-
 					<view class="right_arrow">
-						>
+
 					</view>
 				</view>
 			</view>
@@ -127,11 +122,12 @@
 				<button class="more">查看更多</button>
 			</navigator>
 
-			<ExampleCard class="first_example"></ExampleCard>
+
+			<ExampleCard v-for="item,index in orderList" :companyName="item.company_name" :orderIcon="item.ordericon"
+				:orderName="item.order_name" :key="index"></ExampleCard>
+			<!-- <ExampleCard></ExampleCard>
 			<ExampleCard></ExampleCard>
-			<ExampleCard></ExampleCard>
-			<ExampleCard></ExampleCard>
-			<ExampleCard></ExampleCard>
+			<ExampleCard></ExampleCard> -->
 
 		</view>
 
@@ -142,26 +138,14 @@
 			</view>
 			<view class="new_area_main">
 				<view class="new_area_left">
-					<view class="news_item">
+					<NewsCard v-for="item,index in informationLeft" :title="item.title" :createTime="item.create_time"
+						:imageUrl="item.imageurl"></NewsCard>
 
-					</view>
-					<view class="news_item">
 
-					</view>
-					<view class="news_item">
-
-					</view>
 				</view>
 				<view class="new_area_right">
-					<view class="news_item">
-
-					</view>
-					<view class="news_item">
-
-					</view>
-					<view class="news_item">
-
-					</view>
+					<NewsCard v-for="item,index in informationRight" :title="item.title" :createTime="item.create_time"
+						:imageUrl="item.imageurl"></NewsCard>
 				</view>
 			</view>
 		</view>
@@ -188,30 +172,67 @@
 	import SmallCard1Vue from '../../components/smallCard1.vue';
 	import ExampleCard from '../../components/ExampleCard.vue'
 	import CustomNavBar from '../../components/CustomNavBar/CustomNavBar.vue';
+	import NewsCard from '../../components/NewsCard.vue';
 	import {
 		ref
 	} from 'vue';
 	import {
 		onPageScroll
 	} from '@dcloudio/uni-app';
+	import {
+		apiGetHomeData
+	} from '../../api/api';
 	let itemList = ref([])
+	const flag = ref(false) //判断是否显示返回顶部按钮
 
-
-	const flag = ref(false)
+	const homeData = ref()
+	//轮播图
+	const banner = ref([])
+	//最新资讯数据
+	const information = ref([])
+	const informationLeft = ref([])
+	const informationRight = ref([])
+	//精选案例
+	const orderList = ref([])
+	const project = ref({})
 	const goTop = () => {
 		uni.pageScrollTo({
 			scrollTop: 0, //滚动到距离顶部为0
-			duration: 200 //滚动时长
+			duration: 300 //滚动时长
 		})
 	}
+
 	onPageScroll(e => {
-		if (e.scrollTop > 300) {
+		if (e.scrollTop > 500) {
 			flag.value = true
 		} else {
 			flag.value = false
 		}
 	})
 
+	const getHomeData = () => {
+		apiGetHomeData().then(res => {
+			// console.log(res);
+			homeData.value = res
+			banner.value = homeData.value.banner
+			//处理数据
+			homeData.value.information.map(item => {
+				item.create_time = item.create_time.slice(0, 10)
+			})
+			information.value = homeData.value.information
+			informationLeft.value = information.value.filter((item, index) => {
+				console.log(index);
+				return index % 2 == 0
+			})
+			informationRight.value = information.value.filter((item, index) => {
+				return index % 2 == 1
+			})
+			orderList.value = homeData.value.orderList
+			project.value = homeData.value.project
+			console.log(informationLeft
+				.value);
+		})
+	}
 
 
 	itemList.value = [{
@@ -224,9 +245,19 @@
 		iconPath: '/common/images/index/order_purple.jpg',
 		text: '公司动态'
 	}]
+
+	getHomeData()
 </script>
 
 <style lang="scss" scoped>
+	.right_arrow {
+		width: 12rpx;
+		height: 12rpx;
+		border-bottom: 2rpx solid #888888;
+		border-right: 2rpx solid #888888;
+		transform: rotate(-45deg);
+	}
+
 	.goTop {
 		width: 198rpx;
 		height: 68rpx;
@@ -277,71 +308,59 @@
 		display: flex;
 		flex-direction: column;
 
-		.headerBackground {
+		.swiperArea {
 			width: 100%;
-			box-sizing: border-box;
-			height: 494rpx;
-			background: url("/common/images/index/header_background.jpg");
-			background-size: 100% 100%;
+
 			display: flex;
-			flex-direction: column;
+			justify-content: center;
+			border-radius: 10rpx !important;
+			margin-top: 40rpx;
+			overflow: hidden;
 
+			swiper {
+				width: 690rpx;
+				height: 340rpx;
+				border-radius: 10rpx;
+				overflow: hidden;
 
-			.fill_box {
-				height: 150rpx;
-				width: 100%;
-			}
+				&-item {
+					width: 100%;
+					height: 100%;
+					border-radius: 10rpx;
+					overflow: hidden;
 
-			.swiperArea {
-				box-sizing: border-box;
-				width: 100%;
-
-				flex: 1;
-				padding: 0 28rpx;
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-end;
-
-
-				swiper {
-					width: 700rpx;
-					height: 315rpx;
-					margin-bottom: auto;
-
-					&-item {
+					.link {
 						width: 100%;
 						height: 100%;
+						border-radius: 10rpx;
+						overflow: hidden;
 
-
-						.link {
+						image {
 							width: 100%;
 							height: 100%;
-
-							image {
-								width: 100%;
-								height: 100%;
-								border-radius: 10rpx;
-							}
+							border-radius: 10rpx;
 						}
-
-
 					}
 				}
 			}
 		}
 
+
 		.mainMenu {
-			margin-top: -30rpx;
+			margin-top: 0rpx;
 			box-sizing: border-box;
 			height: 640rpx;
 			width: 100%;
 			background: pink;
 			background: linear-gradient(to bottom, #ffffff 300rpx, #f3f3fd);
-			border-radius: 40rpx 40rpx 0 0;
+			border-radius: 50rpx 50rpx 0 0;
 			padding: 0 28rpx;
 			padding-top: 28rpx;
 			display: flex;
 			flex-direction: column;
+			z-index: 1;
+			border-top: 2rpx solid #ffffff;
+
 
 			.cardArea {
 				width: 100%;
@@ -632,7 +651,7 @@
 					height: 85%;
 					width: 540rpx;
 					border-radius: 10rpx;
-					padding: 0 30rpx;
+					padding: 0 20rpx;
 					background-color: #f4f7ff;
 					margin-left: 40rpx;
 					display: flex;
@@ -641,7 +660,7 @@
 
 
 					.news_date {
-						width: 100%;
+						width: 90%;
 						height: 100%;
 						display: flex;
 						flex-direction: column;
@@ -680,6 +699,8 @@
 		position: relative;
 		z-index: 1;
 		padding-top: 45rpx;
+		padding-bottom: 50rpx;
+
 
 		.more {
 			position: absolute;
@@ -708,16 +729,16 @@
 			font-weight: 500;
 			padding-top: 12rpx;
 			padding-left: 28rpx;
-
 		}
 	}
 
 	.news_area {
-		margin-top: 32rpx;
-		height: 300rpx;
+
+
 		position: relative;
 		background-color: #f5f5ff;
 		padding: 0 32rpx;
+
 
 		.new_area_title {
 			width: 192rpx;
@@ -735,7 +756,7 @@
 
 		.new_area_main {
 			width: 100%;
-			height: 300px;
+
 			display: flex;
 			justify-content: space-between;
 
