@@ -3,7 +3,7 @@
 		<view class="page_top_background">
 
 		</view>
-		<CustomNavBar></CustomNavBar>
+		<CustomNavBar ifShowIcon :ifShowArrow="false"></CustomNavBar>
 		<view class="swiperArea">
 			<swiper autoplay="true" circular="true" style="width: 690rpx; margin: 0 auto;">
 				<swiper-item v-for="(item, index) in banner" :key="index">
@@ -35,15 +35,18 @@
 
 					<view class="goingProjects">
 						<view class="" style="margin-left: 26rpx;margin-top: 26rpx;">
-							<view class="" style="color: #fff; font-size: 24rpx;margin-bottom: 26rpx;">
+							<view class="jinxinghzong" style="color: #fff; font-size: 24rpx;margin-bottom: 26rpx;">
 								进行中的项目
+								<view class="project_num">
+									35
+								</view>
 							</view>
 							<view class="detail_projects">
 
 								<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" enable-flex>
 
 									<view v-for="item in 10" :key="item+'item'" class="detail_pro ">
-										<!-- 内容 -->
+										奥
 									</view>
 								</scroll-view>
 							</view>
@@ -60,14 +63,13 @@
 								<image src="/common/images/index/transition.jpg" mode=""></image>
 							</view>
 							<view class="agentText">
-
 								<h4 class="agentTitle">代理管理</h4>
 								<view class="small_font">配置您的代理服务</view>
 							</view>
 						</view>
 					</navigator>
-					<view class="AIandkeyWordCard">
 
+					<view class="AIandkeyWordCard">
 						<navigator url="/pages/searchAIRO/searchAIRO">
 							<view class="AICard">
 								<view class="AI_image ">
@@ -79,7 +81,8 @@
 							</view>
 						</navigator>
 						<navigator url="">
-							<view class="AICard" style="background:linear-gradient(to bottom,#c5edff,#eefaff);">
+							<view class="AICard" style="	background: url('/common/images/index/tixing_blue.svg') no-repeat center center;
+					background-size: cover;">
 								<view class="AI_image ">
 									<image src="/common/images/index/letter.jpg" mode=""></image>
 								</view>
@@ -281,6 +284,26 @@
 </script>
 
 <style lang="scss" scoped>
+	//进行中的项目数量  后面补上的
+	.jinxinghzong {
+		display: flex;
+		gap: 10rpx;
+
+		.project_num {
+			width: 70rpx;
+			height: 30rpx;
+			border-radius: 40rpx;
+			background: rgba(255, 255, 255, 0.4);
+			color: #fff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 24rpx;
+		}
+	}
+
+
+	//右箭头CSS实现
 	.right_arrow {
 		width: 12rpx;
 		height: 12rpx;
@@ -344,32 +367,32 @@
 
 			display: flex;
 			justify-content: center;
-			border-radius: 10rpx !important;
+			border-radius: 10rpx 10rpx 0 0;
 			margin-top: 40rpx;
 			overflow: hidden;
 
 			swiper {
 				width: 690rpx;
 				height: 340rpx;
-				border-radius: 10rpx;
+				border-radius: 10rpx 10rpx 0 0;
 				overflow: hidden;
 
 				&-item {
 					width: 100%;
 					height: 100%;
-					border-radius: 10rpx;
+					border-radius: 10rpx 10rpx 0 0;
 					overflow: hidden;
 
 					.link {
 						width: 100%;
 						height: 100%;
-						border-radius: 10rpx;
+						border-radius: 10rpx 10rpx 0 0;
 						overflow: hidden;
 
 						image {
 							width: 100%;
 							height: 100%;
-							border-radius: 10rpx;
+							border-radius: 10rpx 10rpx 0 0;
 						}
 					}
 				}
@@ -476,7 +499,11 @@
 									aspect-ratio: 1;
 									background-color: #e4e7ff;
 									border-radius: 10rpx;
-
+									color: #8D28FC;
+									font-size: 34rpx;
+									display: flex;
+									justify-content: center;
+									align-items: center;
 
 								}
 							}
@@ -552,7 +579,9 @@
 				.AICard {
 					width: 166rpx;
 					height: 144rpx;
-					background: linear-gradient(to bottom, #b7e9e7, #e6f8f6);
+					// background: linear-gradient(to bottom, #b7e9e7, #e6f8f6);
+					background: url('/common/images/index/tixing_green.svg') no-repeat center center;
+					background-size: cover;
 					border-radius: 24rpx;
 					display: flex;
 					/* 使用flex布局 */
@@ -570,6 +599,7 @@
 						position: absolute;
 						top: -22rpx;
 						overflow: hidden;
+
 
 						image {
 							width: 100%;

@@ -3,13 +3,7 @@
 	</view>
 	<view class="page_top_background">
 	</view>
-	<view class="fill_box" style="line-height: 200rpx;color: #fff; margin: 0 auto; ">
-		<navigator open-type="switchTab" @click="goBack">
-			返回
-
-		</navigator>
-
-	</view>
+	<CustomNavBar title="个人中心" :ifShowArrow="false"></CustomNavBar>
 	<view class="user_page">
 
 		<view class="user_info_card">
@@ -19,7 +13,7 @@
 			<view class="user_details">
 				<view class="user_name_settings">
 					<view class="user_name">
-						{{userInfo.nickname}}
+						UED001
 					</view>
 					<navigator url="/pages/user/settings/settings">
 						<view class="user_settings">
@@ -47,7 +41,7 @@
 							</view>
 						</view>
 						<view class="">
-							{{userInfo.address}}
+							12354665
 						</view>
 					</view>
 					<view class="user_industry">
@@ -56,7 +50,7 @@
 							</view>
 						</view>
 						<view class="">
-							{{userInfo.industryId}}
+							465456
 						</view>
 					</view>
 				</view>
@@ -64,16 +58,37 @@
 		</view>
 
 		<view class="enterprise_card">
+			<view class="quick">
+				立即认证
+				<view class="right_arrow" style="margin-left: 10rpx;color: #a659fa;">
+
+				</view>
+			</view>
 			<view class="enterprise_card_title">
 				<view class="recognise">
 					企业认证
+
 				</view>
+
 				<view class="enterprise_name">
-					{{enterpriseInfo.companyName}}
+					广东省友益典文化科技有限公司
 				</view>
 			</view>
+			<view class="points">
+				<view class="remain_points">
+					剩余积分
+					<view class="points_num">
+						---
+					</view>
+				</view>
+				<view class="getPoints">
+					立即获取更多积分
+					<view class="right_arrow">
 
-			<view class="enterprise_info">
+					</view>
+				</view>
+			</view>
+			<!-- <view class="enterprise_info">
 				<view class="info_details">
 					<view class="range" style="margin-right: 52rpx;">
 						<view class="range_title">
@@ -103,13 +118,13 @@
 				<view class="license">
 					<image :src="enterpriseInfo.imageurl" mode=""></image>
 				</view>
-			</view>
+			</view> -->
 
 		</view>
 
 		<view class="section">
 			<view class="list">
-				<navigator url="/pages/user/about_us/about_us">
+				<navigator url="/pages/user/about_us/about_us" class="row">
 					<view class="row">
 						<view class="row_icon ">
 							<image src="/common/images/user/frame.svg" mode=""></image>
@@ -120,7 +135,7 @@
 					</view>
 				</navigator>
 
-				<navigator url="">
+				<navigator url="" class="row">
 					<view class="row">
 						<view class="row_icon ">
 							<image src="/common/images/user/change.svg" mode=""></image>
@@ -130,6 +145,8 @@
 						</view>
 					</view>
 				</navigator>
+
+
 
 				<view class="row" @click="open">
 					<view class="row_icon ">
@@ -284,6 +301,15 @@
 </script>
 
 <style lang="scss" scoped>
+	.right_arrow {
+		margin-left: 20rpx;
+		width: 10rpx;
+		height: 10rpx;
+		border-bottom: 2rpx solid #4E3900;
+		border-right: 2rpx solid #4E3900;
+		transform: rotate(-45deg);
+	}
+
 	.contact_service {
 		width: 650rpx;
 		height: 736rpx;
@@ -491,6 +517,7 @@
 		.user_info_card {
 			display: flex;
 			margin-bottom: 48rpx;
+			margin-top: 80rpx;
 
 			.user_avatar {
 				width: 150rpx;
@@ -543,7 +570,6 @@
 
 					.user_address {
 						display: flex;
-						align-items: center;
 						font-size: 22rpx;
 						margin-right: 46rpx;
 					}
@@ -559,7 +585,7 @@
 
 		.enterprise_card {
 			width: 100%;
-			height: 392rpx;
+			height: 228rpx;
 			background: #fefeff;
 			backdrop-filter: blur(80rpx);
 			border-radius: 20rpx;
@@ -567,14 +593,81 @@
 			position: relative;
 			overflow: hidden;
 
+			background: linear-gradient(to right, #ecf4fa, #f7f6f2);
 
+			.quick {
+				height: 30rpx;
+				line-height: 30rpx;
+				position: absolute;
+				right: 34rpx;
+				display: flex;
+				align-items: center;
+				color: #a659fa;
+				margin-top: 20rpx;
+				font-weight: 700;
+
+			}
+
+			.points {
+				width: 658rpx;
+				height: 84rpx;
+				background: linear-gradient(to right, #ffe3c0, #ffb668 50%, #ffd954);
+				padding: 0 16rpx;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin: 0 auto;
+				border-radius: 10rpx;
+				padding-right: 30rpx;
+
+				.remain_points {
+					padding-left: 18rpx;
+
+					width: 254rpx;
+					height: 52rpx;
+					background-color: #fff1dd;
+					border-radius: 6rpx;
+					display: flex;
+					color: #FF5900;
+					gap: 16rpx;
+					align-items: center;
+					font-size: 24rpx;
+
+					.points_num {
+						width: 120rpx;
+						height: 44rpx;
+						background: linear-gradient(90deg, #FF7C12 0%, #FFAF6E 100%);
+						border-radius: 6rpx 6rpx 6rpx 6rpx;
+						color: #fff;
+						font-weight: 700;
+						font-size: 24rpx;
+						text-align: center;
+						line-height: 44rpx;
+					}
+				}
+
+				.getPoints {
+					display: flex;
+					align-items: center;
+
+					.right_arrow {
+						margin-left: 20rpx;
+						width: 10rpx;
+						height: 10rpx;
+						border-bottom: 2rpx solid #4E3900;
+						border-right: 2rpx solid #4E3900;
+						transform: rotate(-45deg);
+					}
+				}
+			}
 
 			.enterprise_card_title {
 				width: 100%;
 				height: 132rpx;
-				background: linear-gradient(to right, #ecf4fa, #f7f6f2);
+
 
 				.recognise {
+
 					position: absolute;
 					left: 0;
 					top: 0;

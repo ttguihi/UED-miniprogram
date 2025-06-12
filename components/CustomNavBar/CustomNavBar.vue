@@ -5,7 +5,12 @@
 			<view class="titleBar" :style="{height:getTitleBarHeight()+'px'}">
 				<view class="title">
 					<navigator url="/pages/index/index" :open-type="navigateType">
-						<uni-icons type="left" color="#fff" size="30"></uni-icons>
+
+
+						<view class="icon" v-if="ifShowIcon"
+							style="background: url('/common/images/index/sign.svg') no-repeat center center;background-size: cover;">
+						</view>
+						<uni-icons type="left" color="#fff" size="30" v-if="ifShowArrow"></uni-icons>
 					</navigator>
 					<view class="">
 						{{title}}
@@ -28,22 +33,35 @@
 		getTitleBarHeight,
 		getNavBarHeight
 	} from "@/utils/system.js"
-
-
 	defineProps({
 		title: {
 			type: String,
 			default: "友益典·AI营销管理系统"
 		},
+		//确定跳转方式
 		navigateType: {
 			type: String,
 			default: "navigateBack"
-
+		},
+		ifShowIcon: {
+			type: Boolean,
+			default: false
+		},
+		ifShowArrow: {
+			type: Boolean,
+			default: true
 		}
+
 	})
 </script>
 
 <style lang="scss" scoped>
+	.icon {
+		width: 96rpx;
+		height: 50rpx;
+		margin-right: 18rpx;
+	}
+
 	.layout {
 		.navbar {
 			position: fixed;

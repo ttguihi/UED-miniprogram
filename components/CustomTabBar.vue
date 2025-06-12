@@ -83,7 +83,7 @@
 	}
 
 	.tab-item:nth-child(3).active {
-		background: url('/static/user_active.svg') no-repeat center center;
+		background: url('/static/user_active2.webp') no-repeat center center;
 	}
 
 	.tab-item:nth-child(1) {
