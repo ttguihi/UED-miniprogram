@@ -807,8 +807,7 @@
 			.new_area_right {
 				margin-top: 70rpx;
 				width: 336rpx;
-				z-index: 1;
-
+				z-index: 2;
 				border-radius: 10rpx;
 			}
 		}
