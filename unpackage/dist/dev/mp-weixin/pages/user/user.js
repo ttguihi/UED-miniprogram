@@ -15,8 +15,9 @@ if (!Array) {
 const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
 const _easycom_uni_popup = () => "../../uni_modules/uni-popup/components/uni-popup/uni-popup.js";
 if (!Math) {
-  (_easycom_uni_icons + _easycom_uni_popup)();
+  (_easycom_uni_icons + _easycom_uni_popup + CustomTabBar)();
 }
+const CustomTabBar = () => "../../components/CustomTabBar.js";
 const _sfc_main = {
   __name: "user",
   setup(__props) {
@@ -24,7 +25,7 @@ const _sfc_main = {
     const enterpriseInfo = common_vendor.ref({});
     const popup = common_vendor.ref();
     const open = () => {
-      common_vendor.index.__f__("log", "at pages/user/user.vue:251", 1);
+      common_vendor.index.__f__("log", "at pages/user/user.vue:252", 1);
       popup.value.open("center");
     };
     const goBack = () => {
@@ -61,7 +62,7 @@ const _sfc_main = {
         i: common_vendor.t(enterpriseInfo.value.account),
         j: common_vendor.t(enterpriseInfo.value.accountAddress),
         k: enterpriseInfo.value.imageurl,
-        l: common_assets._imports_0$1,
+        l: common_assets._imports_0$2,
         m: common_assets._imports_1$1,
         n: common_assets._imports_2$1,
         o: common_vendor.o(open),

@@ -209,7 +209,7 @@
   height: 326rpx;
   justify-content: space-between;
 }
-.page .mainMenu .cardArea .otherCard .agentCard.data-v-1cf27b2a {
+.page .mainMenu .cardArea .agentCard.data-v-1cf27b2a {
   width: 100%;
   height: 144rpx;
   background: linear-gradient(to bottom, #b1cbff, #fbfcff);
@@ -218,17 +218,19 @@
   align-items: center;
   padding: 0 24rpx;
 }
-.page .mainMenu .cardArea .otherCard .agentCard .Agent_image.data-v-1cf27b2a {
+.page .mainMenu .cardArea .Agent_image.data-v-1cf27b2a {
   width: 108rpx;
   height: 80rpx;
   background-color: transparent;
 }
-.page .mainMenu .cardArea .otherCard .agentCard .Agent_image image.data-v-1cf27b2a {
+.page .mainMenu .cardArea .Agent_image image.data-v-1cf27b2a {
   width: 100%;
   height: 100%;
   border-radius: 20rpx;
+  object-fit: cover;
+  /* 确保图片适应容器 */
 }
-.page .mainMenu .cardArea .otherCard .agentCard .agentText.data-v-1cf27b2a {
+.page .mainMenu .cardArea .agentText.data-v-1cf27b2a {
   margin-left: 20rpx;
   font-size: 34rpx;
   font-weight: 600;
@@ -236,49 +238,47 @@
   flex-direction: column;
   justify-content: space-around;
 }
-.page .mainMenu .cardArea .otherCard .agentCard .agentText .agentTitle.data-v-1cf27b2a {
+.page .mainMenu .cardArea .agentTitle.data-v-1cf27b2a {
   margin-bottom: 20rpx;
 }
-.page .mainMenu .cardArea .otherCard .AIandkeyWordCard.data-v-1cf27b2a {
+.page .mainMenu .cardArea .AIandkeyWordCard.data-v-1cf27b2a {
   display: flex;
   justify-content: space-between;
 }
-.page .mainMenu .cardArea .otherCard .AIandkeyWordCard .AICard.data-v-1cf27b2a {
+.page .mainMenu .cardArea .AICard.data-v-1cf27b2a {
   width: 166rpx;
-  height: 166rpx;
+  height: 144rpx;
   background: linear-gradient(to bottom, #b7e9e7, #e6f8f6);
   border-radius: 24rpx;
+  display: flex;
+  /* 使用flex布局 */
+  flex-direction: column;
+  align-items: center;
+  /* 居中对齐 */
+  justify-content: center;
+  /* 垂直居中 */
   position: relative;
 }
-.page .mainMenu .cardArea .otherCard .AIandkeyWordCard .AICard > img.data-v-1cf27b2a {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  top: -20rpx;
-}
-.page .mainMenu .cardArea .otherCard .AIandkeyWordCard .AICard .AI_image.data-v-1cf27b2a {
-  position: absolute;
-  background-color: transparent;
-  /*定位居中操作*/
-  left: 50%;
-  transform: translate(-50%);
-  top: -10%;
+.page .mainMenu .cardArea .AICard .AI_image.data-v-1cf27b2a {
   width: 108rpx;
   height: 80rpx;
   border-radius: 10rpx;
+  position: absolute;
+  top: -22rpx;
   overflow: hidden;
 }
-.page .mainMenu .cardArea .otherCard .AIandkeyWordCard .AICard .AI_image image.data-v-1cf27b2a {
+.page .mainMenu .cardArea .AICard .AI_image image.data-v-1cf27b2a {
   width: 100%;
   height: 100%;
-  mix-blend-mode: multiply;
+  object-fit: cover;
+  /* 确保图片适应容器 */
 }
-.page .mainMenu .cardArea .otherCard .AIandkeyWordCard .AICard .AItext.data-v-1cf27b2a {
+.page .mainMenu .cardArea .AICard .AItext.data-v-1cf27b2a {
   font-size: 26rpx;
   font-weight: 600;
   text-align: center;
-  margin-top: 90rpx;
+  margin-top: 10rpx;
+  /* 调整间距 */
 }
 .page .mainMenu .lineCard.data-v-1cf27b2a {
   height: 100rpx;
@@ -301,6 +301,10 @@
   font-weight: 500;
   box-shadow: 5rpx 5rpx 15rpx #f4f4fe;
   font-size: 24rpx;
+}
+.page .mainMenu .lineCard .line_item .line_box.data-v-1cf27b2a {
+  display: flex;
+  align-items: center;
 }
 .page .mainMenu .lineCard .line_item .iconBox1.data-v-1cf27b2a {
   width: 50rpx;

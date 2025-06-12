@@ -6,16 +6,19 @@ const _sfc_main = {
   props: {
     companyName: String,
     orderIcon: String,
-    orderName: String
+    orderName: String,
+    id: Number,
+    ifDetail: Boolean
   },
   setup(__props) {
     const props = __props;
+    common_vendor.index.__f__("log", "at components/ExampleCard.vue:59", props);
     const aiList = common_vendor.ref(["DeepSeek", "通义千问", "KIMI", "KIMI"]);
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: !props.orderIcon
       }, !props.orderIcon ? {
-        b: common_assets._imports_0$2
+        b: common_assets._imports_0$3
       } : {}, {
         c: `url(${props.orderIcon})`,
         d: common_vendor.t(props.orderName),
@@ -26,7 +29,8 @@ const _sfc_main = {
             b: index
           };
         }),
-        g: common_vendor.t(props.orderName)
+        g: common_vendor.t(props.orderName),
+        h: "/pages/example_detail/example_detail?id=" + props.id
       });
     };
   }

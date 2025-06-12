@@ -4,7 +4,7 @@
 			<view class="statusBar" :style="{height:getStatusBarHeight()+'px'}"></view>
 			<view class="titleBar" :style="{height:getTitleBarHeight()+'px'}">
 				<view class="title">
-					<navigator url="/pages/index/index" open-type="navigateBack">
+					<navigator url="/pages/index/index" :open-type="navigateType">
 						<uni-icons type="left" color="#fff" size="30"></uni-icons>
 					</navigator>
 					<view class="">
@@ -34,6 +34,11 @@
 		title: {
 			type: String,
 			default: "友益典·AI营销管理系统"
+		},
+		navigateType: {
+			type: String,
+			default: "navigateBack"
+
 		}
 	})
 </script>

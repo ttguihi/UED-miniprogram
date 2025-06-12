@@ -1,21 +1,23 @@
 <template>
-	<view class="news_card">
-		<view class="news_item" :style="{backgroundImage: `url(${props.imageUrl})`}">
-		</view>
-		<view class="news_info">
-			<view class="hot">
-				<view class="hot_text">
-					<text class="niceColor">
-						[AI行业今天热点 快来看看吧!]
-					</text>
-					<text class="normalText"> {{props.title}}</text>
+	<navigator url="/pages/news_detail/news_detail">
+		<view class="news_card">
+			<view class="news_item" :style="{backgroundImage: `url(${props.imageUrl})`}">
+			</view>
+			<view class="news_info">
+				<view class="hot">
+					<view class="hot_text">
+						<text class="niceColor">
+							[AI行业今天热点 快来看看吧!]
+						</text>
+						<text class="normalText"> {{props.title}}</text>
+					</view>
+				</view>
+				<view class="hot_time">
+					{{props.createTime}}
 				</view>
 			</view>
-			<view class="hot_time">
-				{{props.createTime}}
-			</view>
 		</view>
-	</view>
+	</navigator>
 </template>
 
 <script setup>

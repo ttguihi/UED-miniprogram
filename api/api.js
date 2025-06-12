@@ -23,3 +23,5 @@ export function apiGetHomeData() {
 		url: '/index/getHomeData'
 	})
 }
+
+//发送验证码

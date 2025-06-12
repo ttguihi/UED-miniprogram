@@ -228,6 +228,7 @@
 				</view>
 			</view>
 		</uni-popup>
+		<CustomTabBar></CustomTabBar>
 	</view>
 </template>
 
@@ -314,7 +315,7 @@
 				.weixin_pic {
 					width: 228rpx;
 					height: 228rpx;
-					background: url('/common/images/user/weixin.svg') no-repeat;
+					background: url('/common/images/user/weixin.webp') no-repeat;
 					background-size: cover;
 					border: 2rpx solid #ffc18f;
 					border-radius: 10rpx;
@@ -345,7 +346,7 @@
 				.gongzhonghao_pic {
 					width: 228rpx;
 					height: 228rpx;
-					background: url('/common/images/user/gongzhonghao.svg') no-repeat;
+					background: url('/common/images/user/gongzhonghao.webp') no-repeat;
 					background-size: cover;
 					border-radius: 10rpx;
 					border: 2rpx solid #ffc18f;
@@ -431,14 +432,13 @@
 			.time {
 				margin-left: 52rpx;
 				margin-right: 52rpx;
+
 			}
 
 			.bline {
 				width: 80rpx;
 				height: 0;
 				border-top: 2rpx solid #c8c5be;
-
-
 			}
 		}
 	}

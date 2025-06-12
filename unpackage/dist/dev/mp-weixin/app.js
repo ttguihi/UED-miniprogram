@@ -12,6 +12,9 @@ if (!Math) {
   "./pages/user/user_info/user_info.js";
   "./pages/user/change_phone/change_phone.js";
   "./pages/user/about_us/about_us.js";
+  "./pages/searchAIRO/searchAIRO.js";
+  "./pages/example_detail/example_detail.js";
+  "./pages/news_detail/news_detail.js";
 }
 const _sfc_main = {
   onLaunch: function() {
@@ -27,6 +30,9 @@ const _sfc_main = {
 };
 function createApp() {
   const app = common_vendor.createSSRApp(_sfc_main);
+  const pinia = common_vendor.createPinia();
+  pinia.use(common_vendor.src_default);
+  app.use(pinia);
   return {
     app
   };

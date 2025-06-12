@@ -37,13 +37,13 @@
 					<uni-forms-item label="验证码" class="verify">
 						<view class="form-item">
 							<uni-easyinput placeholder="" />
-							<button>发送验证码</button>
+							<button @click="sendCode">发送验证码</button>
 						</view>
 					</uni-forms-item>
 				</uni-forms>
 			</view>
 
-			<button class="login_wx" v-if="flag">
+			<button class="login_wx" v-if="flag" @click="wxLogin">
 				<view class="wx_icon">
 
 				</view>
@@ -100,16 +100,33 @@
 	import {
 		getNavBarHeight
 	} from "/utils/system.js"
+	import {
+		apiSendCode
+	} from '../../api/login/api';
 	import '/common/font/font.scss'
 	import {
 		ref
 	} from 'vue';
 
 	const flag = ref(true)
+	// const sendCode = ('17756080942') => {
+	// 	a
+	// }
+	const sendCode = async () => {
+		let res = await apiSendCode()
+		console.log(res);
+	}
+	const wxLogin = () => { // 获取登录凭证
+		uni.login({
+			provider: 'weixin',
+			success: res => {
+				console.log(res)
+			}
+		});
+	}
 	const handleClick = () => {
 		console.log(flag.value)
 		flag.value = !flag.value
-
 	}
 </script>
 

@@ -31,14 +31,16 @@
 				</view>
 			</view>
 		</view>
-		<view class="lower_part">
-			<view class="left_part">
-				{{props.orderName}}
+		<navigator :url="'/pages/example_detail/example_detail?id='+props.id">
+			<view class="lower_part">
+				<view class="left_part">
+					{{props.orderName}}
+				</view>
+				<view class="right_part">
+					查看详情&nbsp;&nbsp;>
+				</view>
 			</view>
-			<view class="right_part">
-				查看详情&nbsp;&nbsp;>
-			</view>
-		</view>
+		</navigator>
 	</view>
 </template>
 
@@ -50,8 +52,11 @@
 	const props = defineProps({
 		companyName: String,
 		orderIcon: String,
-		orderName: String
+		orderName: String,
+		id: Number,
+		ifDetail: Boolean
 	})
+	console.log(props);
 
 	// 使用ref管理AI列表
 	const aiList = ref(['DeepSeek', '通义千问', 'KIMI', 'KIMI']);

@@ -31,9 +31,9 @@ const isSet = (val) => toTypeString(val) === "[object Set]";
 const isFunction = (val) => typeof val === "function";
 const isString = (val) => typeof val === "string";
 const isSymbol = (val) => typeof val === "symbol";
-const isObject$1 = (val) => val !== null && typeof val === "object";
+const isObject$2 = (val) => val !== null && typeof val === "object";
 const isPromise = (val) => {
-  return (isObject$1(val) || isFunction(val)) && isFunction(val.then) && isFunction(val.catch);
+  return (isObject$2(val) || isFunction(val)) && isFunction(val.then) && isFunction(val.catch);
 };
 const objectToString = Object.prototype.toString;
 const toTypeString = (value) => objectToString.call(value);
@@ -101,7 +101,7 @@ function normalizeStyle(value) {
       }
     }
     return res;
-  } else if (isString(value) || isObject$1(value)) {
+  } else if (isString(value) || isObject$2(value)) {
     return value;
   }
 }
@@ -129,7 +129,7 @@ function normalizeClass(value) {
         res += normalized + " ";
       }
     }
-  } else if (isObject$1(value)) {
+  } else if (isObject$2(value)) {
     for (const name in value) {
       if (value[name]) {
         res += name + " ";
@@ -139,7 +139,7 @@ function normalizeClass(value) {
   return res.trim();
 }
 const toDisplayString = (val) => {
-  return isString(val) ? val : val == null ? "" : isArray(val) || isObject$1(val) && (val.toString === objectToString || !isFunction(val.toString)) ? JSON.stringify(val, replacer, 2) : String(val);
+  return isString(val) ? val : val == null ? "" : isArray(val) || isObject$2(val) && (val.toString === objectToString || !isFunction(val.toString)) ? JSON.stringify(val, replacer, 2) : String(val);
 };
 const replacer = (_key, val) => {
   if (val && val.__v_isRef) {
@@ -160,7 +160,7 @@ const replacer = (_key, val) => {
     };
   } else if (isSymbol(val)) {
     return stringifySymbol(val);
-  } else if (isObject$1(val) && !isArray(val) && !isPlainObject(val)) {
+  } else if (isObject$2(val) && !isArray(val) && !isPlainObject(val)) {
     return String(val);
   }
   return val;
@@ -169,7 +169,7 @@ const stringifySymbol = (v2, i2 = "") => {
   var _a;
   return isSymbol(v2) ? `Symbol(${(_a = v2.description) != null ? _a : i2})` : v2;
 };
-const isObject = (val) => val !== null && typeof val === "object";
+const isObject$1 = (val) => val !== null && typeof val === "object";
 const defaultDelimiters = ["{", "}"];
 class BaseFormatter {
   constructor() {
@@ -219,7 +219,7 @@ function parse(format, [startDelimiter, endDelimiter]) {
 function compile$1(tokens, values) {
   const compiled = [];
   let index2 = 0;
-  const mode = Array.isArray(values) ? "list" : isObject(values) ? "named" : "unknown";
+  const mode = Array.isArray(values) ? "list" : isObject$1(values) ? "named" : "unknown";
   if (mode === "unknown") {
     return compiled;
   }
@@ -769,6 +769,9 @@ class EffectScope {
     }
   }
 }
+function effectScope(detached) {
+  return new EffectScope(detached);
+}
 function recordEffectScope(effect2, scope = activeEffectScope) {
   if (scope && scope.active) {
     scope.effects.push(effect2);
@@ -1107,7 +1110,7 @@ class BaseReactiveHandler {
     if (isRef(res)) {
       return targetIsArray && isIntegerKey(key) ? res : res.value;
     }
-    if (isObject$1(res)) {
+    if (isObject$2(res)) {
       return isReadonly2 ? readonly(res) : reactive(res);
     }
     return res;
@@ -1201,7 +1204,7 @@ const shallowReactiveHandlers = /* @__PURE__ */ new MutableReactiveHandler(
 const shallowReadonlyHandlers = /* @__PURE__ */ new ReadonlyReactiveHandler(true);
 const toShallow = (value) => value;
 const getProto = (v2) => Reflect.getPrototypeOf(v2);
-function get(target, key, isReadonly2 = false, isShallow2 = false) {
+function get$1(target, key, isReadonly2 = false, isShallow2 = false) {
   target = target["__v_raw"];
   const rawTarget = toRaw(target);
   const rawKey = toRaw(key);
@@ -1353,7 +1356,7 @@ function createReadonlyMethod(type) {
 function createInstrumentations() {
   const mutableInstrumentations2 = {
     get(key) {
-      return get(this, key);
+      return get$1(this, key);
     },
     get size() {
       return size(this);
@@ -1367,7 +1370,7 @@ function createInstrumentations() {
   };
   const shallowInstrumentations2 = {
     get(key) {
-      return get(this, key, false, true);
+      return get$1(this, key, false, true);
     },
     get size() {
       return size(this);
@@ -1381,7 +1384,7 @@ function createInstrumentations() {
   };
   const readonlyInstrumentations2 = {
     get(key) {
-      return get(this, key, true);
+      return get$1(this, key, true);
     },
     get size() {
       return size(this, true);
@@ -1397,7 +1400,7 @@ function createInstrumentations() {
   };
   const shallowReadonlyInstrumentations2 = {
     get(key) {
-      return get(this, key, true, true);
+      return get$1(this, key, true, true);
     },
     get size() {
       return size(this, true);
@@ -1539,7 +1542,7 @@ function shallowReadonly(target) {
   );
 }
 function createReactiveObject(target, isReadonly2, baseHandlers, collectionHandlers, proxyMap) {
-  if (!isObject$1(target)) {
+  if (!isObject$2(target)) {
     {
       warn$2(`value cannot be made reactive: ${String(target)}`);
     }
@@ -1588,8 +1591,8 @@ function markRaw(value) {
   }
   return value;
 }
-const toReactive = (value) => isObject$1(value) ? reactive(value) : value;
-const toReadonly = (value) => isObject$1(value) ? readonly(value) : value;
+const toReactive = (value) => isObject$2(value) ? reactive(value) : value;
+const toReadonly = (value) => isObject$2(value) ? readonly(value) : value;
 const COMPUTED_SIDE_EFFECT_WARN = `Computed is still dirty after getter evaluation, likely because a computed is mutating its own dependency in its getter. State mutations in computed getters should be avoided.  Check the docs for more details: https://vuejs.org/guide/essentials/computed.html#getters-should-be-side-effect-free`;
 class ComputedRefImpl {
   constructor(getter, _setter, isReadonly2, isSSR) {
@@ -2340,7 +2343,7 @@ function normalizeEmitsOptions(comp, appContext, asMixin = false) {
     }
   }
   if (!raw && !hasExtends) {
-    if (isObject$1(comp)) {
+    if (isObject$2(comp)) {
       cache.set(comp, null);
     }
     return null;
@@ -2350,7 +2353,7 @@ function normalizeEmitsOptions(comp, appContext, asMixin = false) {
   } else {
     extend(normalized, raw);
   }
-  if (isObject$1(comp)) {
+  if (isObject$2(comp)) {
     cache.set(comp, normalized);
   }
   return normalized;
@@ -2611,7 +2614,7 @@ function createPathGetter(ctx, path) {
   };
 }
 function traverse(value, depth, currentDepth = 0, seen) {
-  if (!isObject$1(value) || value["__v_skip"]) {
+  if (!isObject$2(value) || value["__v_skip"]) {
     return value;
   }
   if (depth && depth > 0) {
@@ -2674,7 +2677,7 @@ function createAppAPI(render, hydrate) {
     if (!isFunction(rootComponent)) {
       rootComponent = extend({}, rootComponent);
     }
-    if (rootProps != null && !isObject$1(rootProps)) {
+    if (rootProps != null && !isObject$2(rootProps)) {
       warn$1(`root props passed to app.mount() must be an object.`);
       rootProps = null;
     }
@@ -3241,7 +3244,7 @@ function applyOptions$1(instance) {
         `data() returned a Promise - note data() cannot be async; If you intend to perform data fetching before component renders, use async setup() + <Suspense>.`
       );
     }
-    if (!isObject$1(data)) {
+    if (!isObject$2(data)) {
       warn$1(`data() should return an object.`);
     } else {
       instance.data = reactive(data);
@@ -3362,7 +3365,7 @@ function resolveInjections(injectOptions, ctx, checkDuplicateProperties = NOOP) 
   for (const key in injectOptions) {
     const opt = injectOptions[key];
     let injected;
-    if (isObject$1(opt)) {
+    if (isObject$2(opt)) {
       if ("default" in opt) {
         injected = inject(
           opt.from || key,
@@ -3408,7 +3411,7 @@ function createWatcher(raw, ctx, publicThis, key) {
     }
   } else if (isFunction(raw)) {
     watch(getter, raw.bind(publicThis));
-  } else if (isObject$1(raw)) {
+  } else if (isObject$2(raw)) {
     if (isArray(raw)) {
       raw.forEach((r2) => createWatcher(r2, ctx, publicThis, key));
     } else {
@@ -3448,7 +3451,7 @@ function resolveMergedOptions(instance) {
     }
     mergeOptions(resolved, base, optionMergeStrategies);
   }
-  if (isObject$1(base)) {
+  if (isObject$2(base)) {
     cache.set(base, resolved);
   }
   return resolved;
@@ -3791,7 +3794,7 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
     }
   }
   if (!raw && !hasExtends) {
-    if (isObject$1(comp)) {
+    if (isObject$2(comp)) {
       cache.set(comp, EMPTY_ARR);
     }
     return EMPTY_ARR;
@@ -3807,7 +3810,7 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
       }
     }
   } else if (raw) {
-    if (!isObject$1(raw)) {
+    if (!isObject$2(raw)) {
       warn$1(`invalid props options`, raw);
     }
     for (const key in raw) {
@@ -3834,7 +3837,7 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
     }
   }
   const res = [normalized, needCastKeys];
-  if (isObject$1(comp)) {
+  if (isObject$2(comp)) {
     cache.set(comp, res);
   }
   return res;
@@ -3926,7 +3929,7 @@ function assertType$1(value, type) {
       valid = value instanceof type;
     }
   } else if (expectedType === "Object") {
-    valid = isObject$1(value);
+    valid = isObject$2(value);
   } else if (expectedType === "Array") {
     valid = isArray(value);
   } else if (expectedType === "null") {
@@ -4236,7 +4239,7 @@ function handleSetupResult(instance, setupResult, isSSR) {
     {
       instance.render = setupResult;
     }
-  } else if (isObject$1(setupResult)) {
+  } else if (isObject$2(setupResult)) {
     if (isVNode(setupResult)) {
       warn$1(
         `setup() should not return VNodes directly - return a render function instead.`
@@ -4726,7 +4729,7 @@ function setRef$1(instance, isUnmount = false) {
   }
 }
 function toSkip(value) {
-  if (isObject$1(value)) {
+  if (isObject$2(value)) {
     markRaw(value);
   }
   return value;
@@ -5143,7 +5146,7 @@ function initHooks$1(options, instance, publicThis) {
 function applyOptions$2(options, instance, publicThis) {
   initHooks$1(options, instance, publicThis);
 }
-function set(target, key, val) {
+function set$2(target, key, val) {
   return target[key] = val;
 }
 function $callMethod(method, ...args) {
@@ -5255,7 +5258,7 @@ function initApp(app) {
     uniIdMixin(globalProperties);
   }
   {
-    globalProperties.$set = set;
+    globalProperties.$set = set$2;
     globalProperties.$applyOptions = applyOptions$2;
     globalProperties.$callMethod = $callMethod;
   }
@@ -5435,7 +5438,7 @@ function vFor(source, renderItem) {
     for (let i2 = 0; i2 < source; i2++) {
       ret[i2] = renderItem(i2 + 1, i2, i2);
     }
-  } else if (isObject$1(source)) {
+  } else if (isObject$2(source)) {
     if (source[Symbol.iterator]) {
       ret = Array.from(source, (item, i2) => renderItem(item, i2, i2));
     } else {
@@ -5549,7 +5552,7 @@ function assertType(value, type) {
       valid = value instanceof type;
     }
   } else if (expectedType === "Object") {
-    valid = isObject$1(value);
+    valid = isObject$2(value);
   } else if (expectedType === "Array") {
     valid = isArray(value);
   } else {
@@ -7282,9 +7285,9 @@ function isConsoleWritable() {
   return isWritable;
 }
 function initRuntimeSocketService() {
-  const hosts = "192.168.10.109,192.168.184.1,192.168.94.1,127.0.0.1";
+  const hosts = "192.168.10.107,192.168.184.1,192.168.94.1,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_xNmQ7X";
+  const id = "mp-weixin_HnXHu8";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -7998,7 +8001,7 @@ function parseComponent(vueOptions, { parse: parse2, mocks: mocks2, isPage: isPa
   };
   if (isArray(vueOptions.mixins)) {
     vueOptions.mixins.forEach((item) => {
-      if (isObject$1(item.options)) {
+      if (isObject$2(item.options)) {
         extend(options, item.options);
       }
     });
@@ -8230,6 +8233,233 @@ const createSubpackageApp = initCreateSubpackageApp();
   wx.createPluginApp = global.createPluginApp = createPluginApp;
   wx.createSubpackageApp = global.createSubpackageApp = createSubpackageApp;
 }
+var isVue2 = false;
+/*!
+ * pinia v2.1.7
+ * (c) 2023 Eduardo San Martin Morote
+ * @license MIT
+ */
+const piniaSymbol = Symbol("pinia");
+var MutationType;
+(function(MutationType2) {
+  MutationType2["direct"] = "direct";
+  MutationType2["patchObject"] = "patch object";
+  MutationType2["patchFunction"] = "patch function";
+})(MutationType || (MutationType = {}));
+const IS_CLIENT = typeof window !== "undefined";
+const USE_DEVTOOLS = IS_CLIENT;
+const componentStateTypes = [];
+const getStoreType = (id) => "🍍 " + id;
+function addStoreToDevtools(app, store) {
+  if (!componentStateTypes.includes(getStoreType(store.$id))) {
+    componentStateTypes.push(getStoreType(store.$id));
+  }
+}
+function patchActionForGrouping(store, actionNames, wrapWithProxy) {
+  const actions = actionNames.reduce((storeActions, actionName) => {
+    storeActions[actionName] = toRaw(store)[actionName];
+    return storeActions;
+  }, {});
+  for (const actionName in actions) {
+    store[actionName] = function() {
+      const trackedStore = wrapWithProxy ? new Proxy(store, {
+        get(...args) {
+          return Reflect.get(...args);
+        },
+        set(...args) {
+          return Reflect.set(...args);
+        }
+      }) : store;
+      const retValue = actions[actionName].apply(trackedStore, arguments);
+      return retValue;
+    };
+  }
+}
+function devtoolsPlugin({ app, store, options }) {
+  if (store.$id.startsWith("__hot:")) {
+    return;
+  }
+  store._isOptionsAPI = !!options.state;
+  patchActionForGrouping(store, Object.keys(options.actions), store._isOptionsAPI);
+  const originalHotUpdate = store._hotUpdate;
+  toRaw(store)._hotUpdate = function(newStore) {
+    originalHotUpdate.apply(this, arguments);
+    patchActionForGrouping(store, Object.keys(newStore._hmrPayload.actions), !!store._isOptionsAPI);
+  };
+  addStoreToDevtools(
+    app,
+    // FIXME: is there a way to allow the assignment from Store<Id, S, G, A> to StoreGeneric?
+    store
+  );
+}
+function createPinia() {
+  const scope = effectScope(true);
+  const state = scope.run(() => ref({}));
+  let _p = [];
+  let toBeInstalled = [];
+  const pinia = markRaw({
+    install(app) {
+      {
+        pinia._a = app;
+        app.provide(piniaSymbol, pinia);
+        app.config.globalProperties.$pinia = pinia;
+        toBeInstalled.forEach((plugin2) => _p.push(plugin2));
+        toBeInstalled = [];
+      }
+    },
+    use(plugin2) {
+      if (!this._a && !isVue2) {
+        toBeInstalled.push(plugin2);
+      } else {
+        _p.push(plugin2);
+      }
+      return this;
+    },
+    _p,
+    // it's actually undefined here
+    // @ts-expect-error
+    _a: null,
+    _e: scope,
+    _s: /* @__PURE__ */ new Map(),
+    state
+  });
+  if (USE_DEVTOOLS && typeof Proxy !== "undefined") {
+    pinia.use(devtoolsPlugin);
+  }
+  return pinia;
+}
+function isObject(v2) {
+  return typeof v2 === "object" && v2 !== null;
+}
+function normalizeOptions(options, factoryOptions) {
+  options = isObject(options) ? options : /* @__PURE__ */ Object.create(null);
+  return new Proxy(options, {
+    get(target, key, receiver) {
+      if (key === "key")
+        return Reflect.get(target, key, receiver);
+      return Reflect.get(target, key, receiver) || Reflect.get(factoryOptions, key, receiver);
+    }
+  });
+}
+function get(state, path) {
+  return path.reduce((obj, p2) => {
+    return obj == null ? void 0 : obj[p2];
+  }, state);
+}
+function set(state, path, val) {
+  return path.slice(0, -1).reduce((obj, p2) => {
+    if (/^(__proto__)$/.test(p2))
+      return {};
+    else
+      return obj[p2] = obj[p2] || {};
+  }, state)[path[path.length - 1]] = val, state;
+}
+function pick(baseState, paths) {
+  return paths.reduce((substate, path) => {
+    const pathArray = path.split(".");
+    return set(substate, pathArray, get(baseState, pathArray));
+  }, {});
+}
+function parsePersistence(factoryOptions, store) {
+  return (o2) => {
+    var _a;
+    try {
+      const {
+        storage = localStorage,
+        beforeRestore = void 0,
+        afterRestore = void 0,
+        serializer = {
+          serialize: JSON.stringify,
+          deserialize: JSON.parse
+        },
+        key = store.$id,
+        paths = null,
+        debug = false
+      } = o2;
+      return {
+        storage,
+        beforeRestore,
+        afterRestore,
+        serializer,
+        key: ((_a = factoryOptions.key) != null ? _a : (k) => k)(typeof key == "string" ? key : key(store.$id)),
+        paths,
+        debug
+      };
+    } catch (e2) {
+      if (o2.debug)
+        index.__f__("error", "at node_modules/pinia-plugin-persistedstate/dist/index.js:64", "[pinia-plugin-persistedstate]", e2);
+      return null;
+    }
+  };
+}
+function hydrateStore(store, { storage, serializer, key, debug }) {
+  try {
+    const fromStorage = storage == null ? void 0 : storage.getItem(key);
+    if (fromStorage)
+      store.$patch(serializer == null ? void 0 : serializer.deserialize(fromStorage));
+  } catch (e2) {
+    if (debug)
+      index.__f__("error", "at node_modules/pinia-plugin-persistedstate/dist/index.js:76", "[pinia-plugin-persistedstate]", e2);
+  }
+}
+function persistState(state, { storage, serializer, key, paths, debug }) {
+  try {
+    const toStore = Array.isArray(paths) ? pick(state, paths) : state;
+    storage.setItem(key, serializer.serialize(toStore));
+  } catch (e2) {
+    if (debug)
+      index.__f__("error", "at node_modules/pinia-plugin-persistedstate/dist/index.js:85", "[pinia-plugin-persistedstate]", e2);
+  }
+}
+function createPersistedState(factoryOptions = {}) {
+  return (context) => {
+    const { auto = false } = factoryOptions;
+    const {
+      options: { persist = auto },
+      store,
+      pinia
+    } = context;
+    if (!persist)
+      return;
+    if (!(store.$id in pinia.state.value)) {
+      const original_store = pinia._s.get(store.$id.replace("__hot:", ""));
+      if (original_store)
+        Promise.resolve().then(() => original_store.$persist());
+      return;
+    }
+    const persistences = (Array.isArray(persist) ? persist.map((p2) => normalizeOptions(p2, factoryOptions)) : [normalizeOptions(persist, factoryOptions)]).map(parsePersistence(factoryOptions, store)).filter(Boolean);
+    store.$persist = () => {
+      persistences.forEach((persistence) => {
+        persistState(store.$state, persistence);
+      });
+    };
+    store.$hydrate = ({ runHooks = true } = {}) => {
+      persistences.forEach((persistence) => {
+        const { beforeRestore, afterRestore } = persistence;
+        if (runHooks)
+          beforeRestore == null ? void 0 : beforeRestore(context);
+        hydrateStore(store, persistence);
+        if (runHooks)
+          afterRestore == null ? void 0 : afterRestore(context);
+      });
+    };
+    persistences.forEach((persistence) => {
+      const { beforeRestore, afterRestore } = persistence;
+      beforeRestore == null ? void 0 : beforeRestore(context);
+      hydrateStore(store, persistence);
+      afterRestore == null ? void 0 : afterRestore(context);
+      store.$subscribe(
+        (_mutation, state) => {
+          persistState(state, persistence);
+        },
+        {
+          detached: true
+        }
+      );
+    });
+  };
+}
+var src_default = createPersistedState();
 const createHook = (lifecycle) => (hook, target = getCurrentInstance()) => {
   !isInSSRComponentSetup && injectHook(lifecycle, hook, target);
 };
@@ -8303,6 +8533,27 @@ const pages = [
     style: {
       navigationStyle: "custom",
       navigationBarTitleText: "关于我们"
+    }
+  },
+  {
+    path: "pages/searchAIRO/searchAIRO",
+    style: {
+      navigationStyle: "custom",
+      navigationBarTitleText: "AIRO查询"
+    }
+  },
+  {
+    path: "pages/example_detail/example_detail",
+    style: {
+      navigationStyle: "custom",
+      navigationBarTitleText: "案例详情"
+    }
+  },
+  {
+    path: "pages/news_detail/news_detail",
+    style: {
+      navigationStyle: "custom",
+      navigationBarTitleText: "最新资讯"
     }
   }
 ];
@@ -11178,6 +11429,7 @@ let tr = new class {
 })();
 var nr = tr;
 exports._export_sfc = _export_sfc;
+exports.createPinia = createPinia;
 exports.createSSRApp = createSSRApp;
 exports.e = e$1;
 exports.f = f$1;
@@ -11192,6 +11444,7 @@ exports.ref = ref;
 exports.resolveComponent = resolveComponent;
 exports.s = s$1;
 exports.sr = sr;
+exports.src_default = src_default;
 exports.t = t$1;
 exports.unref = unref;
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

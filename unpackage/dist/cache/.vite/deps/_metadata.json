@@ -1,8 +1,15 @@
 {
-  "hash": "eba1bae6",
+  "hash": "aff50ce3",
   "configHash": "1c6b1206",
-  "lockfileHash": "bf4b6218",
-  "browserHash": "5d8f5638",
-  "optimized": {},
+  "lockfileHash": "96262559",
+  "browserHash": "67e6ba8a",
+  "optimized": {
+    "pinia-plugin-persistedstate": {
+      "src": "../../../../../node_modules/pinia-plugin-persistedstate/dist/index.js",
+      "file": "pinia-plugin-persistedstate.js",
+      "fileHash": "a61a4015",
+      "needsInterop": false
+    }
+  },
   "chunks": {}
 }

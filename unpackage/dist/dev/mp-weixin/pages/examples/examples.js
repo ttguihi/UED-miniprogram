@@ -19,6 +19,9 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.p({
+          title: "公司动态"
+        }),
+        b: common_vendor.p({
           focus: true,
           placeholder: "输入要搜索的关键词",
           radius: 50,
@@ -26,11 +29,11 @@ const _sfc_main = {
           clearButton: "none",
           cancelButton: "none"
         }),
-        b: current.value === 1 ? 1 : "",
-        c: common_vendor.o(($event) => current.value = 1),
-        d: current.value === 2 ? 1 : "",
-        e: common_vendor.o(($event) => current.value = 2),
-        f: current.value == 1
+        c: current.value === 1 ? 1 : "",
+        d: common_vendor.o(($event) => current.value = 1),
+        e: current.value === 2 ? 1 : "",
+        f: common_vendor.o(($event) => current.value = 2),
+        g: current.value == 1
       }, current.value == 1 ? {} : {});
     };
   }

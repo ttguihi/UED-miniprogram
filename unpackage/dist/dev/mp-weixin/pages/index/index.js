@@ -14,6 +14,11 @@ const _sfc_main = {
   setup(__props) {
     let itemList = common_vendor.ref([]);
     const flag = common_vendor.ref(false);
+    const gotoNews = () => {
+      common_vendor.index.navigateTo({
+        url: "/pages/news_detail/news_detail"
+      });
+    };
     const homeData = common_vendor.ref();
     const banner = common_vendor.ref([]);
     const information = common_vendor.ref([]);
@@ -40,38 +45,40 @@ const _sfc_main = {
       api_api.apiGetHomeData().then((res) => {
         homeData.value = res;
         banner.value = homeData.value.banner;
+        common_vendor.index.setStorageSync("bannerList", banner.value);
         homeData.value.information.map((item) => {
           item.create_time = item.create_time.slice(0, 10);
         });
         information.value = homeData.value.information;
         informationLeft.value = information.value.filter((item, index) => {
-          common_vendor.index.__f__("log", "at pages/index/index.vue:224", index);
           return index % 2 == 0;
         });
         informationRight.value = information.value.filter((item, index) => {
           return index % 2 == 1;
         });
-        orderList.value = homeData.value.orderList;
+        orderList.value = homeData.value.caseList;
         project.value = homeData.value.project;
-        common_vendor.index.__f__("log", "at pages/index/index.vue:232", informationLeft.value);
       });
     };
     itemList.value = [{
       iconPath: "/common/images/index/service.jpg",
-      text: "平台客服"
+      text: "平台客服",
+      navigateUrl: "/pages/examples/examples"
     }, {
       iconPath: "/common/images/index/order_green.jpg",
-      text: "我的业务线"
+      text: "我的业务线",
+      navigateUrl: "/pages/examples/examples"
     }, {
       iconPath: "/common/images/index/order_purple.jpg",
-      text: "公司动态"
+      text: "公司动态",
+      navigateUrl: "/pages/examples/examples"
     }];
     getHomeData();
     return (_ctx, _cache) => {
       return {
         a: common_vendor.f(banner.value, (item, index, i0) => {
           return {
-            a: item.imageurl,
+            a: item.image,
             b: item.linkurl,
             c: index
           };
@@ -90,45 +97,51 @@ const _sfc_main = {
           return {
             a: common_vendor.n(`iconBox${index + 1}`),
             b: common_vendor.t(item.text),
-            c: index + "index"
+            c: item.navigateUrl,
+            d: index + "index"
           };
         }),
         i: common_vendor.t(information.value[0].title),
         j: common_vendor.t(information.value[0].create_time),
-        k: common_vendor.f(orderList.value, (item, index, i0) => {
+        k: common_vendor.o(gotoNews),
+        l: common_vendor.f(orderList.value, (item, index, i0) => {
+          return {
+            a: item.id,
+            b: index,
+            c: "1cf27b2a-1-" + i0,
+            d: common_vendor.p({
+              companyName: item.companyName,
+              orderIcon: item.image,
+              id: item.id,
+              orderName: item.orderName
+            })
+          };
+        }),
+        m: common_vendor.f(informationLeft.value, (item, index, i0) => {
           return {
             a: index,
-            b: "1cf27b2a-1-" + i0,
+            b: "1cf27b2a-2-" + i0,
             c: common_vendor.p({
-              companyName: item.company_name,
-              orderIcon: item.ordericon,
-              orderName: item.order_name
-            })
-          };
-        }),
-        l: common_vendor.f(informationLeft.value, (item, index, i0) => {
-          return {
-            a: "1cf27b2a-2-" + i0,
-            b: common_vendor.p({
               title: item.title,
               createTime: item.create_time,
               imageUrl: item.imageurl
             })
           };
         }),
-        m: common_vendor.f(informationRight.value, (item, index, i0) => {
+        n: common_vendor.f(informationRight.value, (item, index, i0) => {
           return {
-            a: "1cf27b2a-3-" + i0,
-            b: common_vendor.p({
+            a: index,
+            b: "1cf27b2a-3-" + i0,
+            c: common_vendor.p({
               title: item.title,
               createTime: item.create_time,
               imageUrl: item.imageurl
             })
           };
         }),
-        n: flag.value ? 1 : "",
-        o: common_vendor.o(goTop),
-        p: flag.value
+        o: flag.value ? 1 : "",
+        p: common_vendor.o(goTop),
+        q: flag.value
       };
     };
   }

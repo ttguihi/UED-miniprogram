@@ -24,4 +24,6 @@
 	@import "/common/font/font.scss";
 	@import "/common/styles/svg.scss";
 	@import '@/uni_modules/uni-scss/index.scss';
+
+	@font-face {}
 </style>

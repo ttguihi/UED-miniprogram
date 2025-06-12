@@ -70,6 +70,27 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "关于我们"
 			}
+		},
+		{
+			"path": "pages/searchAIRO/searchAIRO",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "AIRO查询"
+			}
+		},
+		{
+			"path": "pages/example_detail/example_detail",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "案例详情"
+			}
+		},
+		{
+			"path": "pages/news_detail/news_detail",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "最新资讯"
+			}
 		}
 
 	],

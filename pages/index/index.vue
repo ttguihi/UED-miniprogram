@@ -8,7 +8,7 @@
 			<swiper autoplay="true" circular="true" style="width: 690rpx; margin: 0 auto;">
 				<swiper-item v-for="(item, index) in banner" :key="index">
 					<navigator :url="item.linkurl" class="link" style="border-radius: 10rpx;">
-						<image :src="item.imageurl" mode="widthFix" style="border-radius: 10rpx;"></image>
+						<image :src="item.image" mode="widthFix" style="border-radius: 10rpx;"></image>
 					</navigator>
 				</swiper-item>
 			</swiper>
@@ -53,53 +53,73 @@
 					</view>
 				</view>
 				<view class="otherCard">
-					<view class="agentCard">
-						<view class="Agent_image">
-							<image src="/common/images/index/transition.jpg" mode=""></image>
-						</view>
-						<view class="agentText">
 
-							<h4 class="agentTitle">代理管理</h4>
-							<view class="small_font">配置您的代理服务</view>
+					<navigator url="">
+						<view class="agentCard">
+							<view class="Agent_image">
+								<image src="/common/images/index/transition.jpg" mode=""></image>
+							</view>
+							<view class="agentText">
+
+								<h4 class="agentTitle">代理管理</h4>
+								<view class="small_font">配置您的代理服务</view>
+							</view>
 						</view>
-					</view>
+					</navigator>
 					<view class="AIandkeyWordCard">
-						<view class="AICard">
-							<view class="AI_image ">
-								<image src="/common/images/index/query.jpg" mode=""></image>
+
+						<navigator url="/pages/searchAIRO/searchAIRO">
+							<view class="AICard">
+								<view class="AI_image ">
+									<image src="/common/images/index/query.jpg" mode=""></image>
+								</view>
+								<view class="AItext">
+									AIRO查询
+								</view>
 							</view>
-							<view class="AItext">
-								AIRO查询
+						</navigator>
+						<navigator url="">
+							<view class="AICard" style="background:linear-gradient(to bottom,#c5edff,#eefaff);">
+								<view class="AI_image ">
+									<image src="/common/images/index/letter.jpg" mode=""></image>
+								</view>
+								<view class="AItext ">
+									关键词管理
+								</view>
 							</view>
-						</view>
-						<view class="AICard" style="background:linear-gradient(to bottom,#c5edff,#eefaff);">
-							<view class="AI_image ">
-								<image src="/common/images/index/letter.jpg" mode=""></image>
-							</view>
-							<view class="AItext ">
-								关键词管理
-							</view>
-						</view>
+						</navigator>
+
 					</view>
 
 				</view>
 			</view>
 			<view class="lineCard">
-				<view class="line_item" v-for="(item,index)  in itemList" :key="index + 'index'">
-					<view :class="`iconBox${index+1}`">
-						<!-- <image :src="item.iconPath" alt=""></image> -->
 
+				<!-- <view class="line_item" v-for="(item,index)  in itemList" :key="index + 'index'">
+					<view :class="`iconBox${index+1}`">
 					</view>
 					<view class="">
 						{{ item.text }}
 					</view>
-				</view>
+				</view> -->
+
+				<navigator v-for="(item,index)  in itemList" :url="item.navigateUrl" :key="index + 'index'"
+					class="line_item">
+					<view class="line_box">
+						<view :class="`iconBox${index+1}`">
+						</view>
+						<view class="">
+							{{ item.text }}
+						</view>
+					</view>
+				</navigator>
 			</view>
 			<view class="latestNews">
 				<view class="latestNews_text">
 					最新资讯
 				</view>
-				<view class="news_detail">
+
+				<view class="news_detail" @click="gotoNews">
 					<view class="news_date">
 						<view class="news">{{information[0].title}}</view>
 						<view class="date">
@@ -111,6 +131,8 @@
 
 					</view>
 				</view>
+
+
 			</view>
 		</view>
 
@@ -123,8 +145,8 @@
 			</navigator>
 
 
-			<ExampleCard v-for="item,index in orderList" :companyName="item.company_name" :orderIcon="item.ordericon"
-				:orderName="item.order_name" :key="index"></ExampleCard>
+			<ExampleCard v-for="item,index in orderList" :companyName="item.companyName" :orderIcon="item.image"
+				:id="item.id" :orderName="item.orderName" :key="index"></ExampleCard>
 			<!-- <ExampleCard></ExampleCard>
 			<ExampleCard></ExampleCard>
 			<ExampleCard></ExampleCard> -->
@@ -139,13 +161,13 @@
 			<view class="new_area_main">
 				<view class="new_area_left">
 					<NewsCard v-for="item,index in informationLeft" :title="item.title" :createTime="item.create_time"
-						:imageUrl="item.imageurl"></NewsCard>
+						:imageUrl="item.imageurl" :key="index"></NewsCard>
 
 
 				</view>
 				<view class="new_area_right">
 					<NewsCard v-for="item,index in informationRight" :title="item.title" :createTime="item.create_time"
-						:imageUrl="item.imageurl"></NewsCard>
+						:imageUrl="item.imageurl" :key="index"></NewsCard>
 				</view>
 			</view>
 		</view>
@@ -160,7 +182,6 @@
 				返回顶部
 			</view>
 		</view>
-
 
 		<view style="width: 100%;height: calc( 180rpx + env(safe-area-inset-bottom) / 2);"></view>
 		<CustomTabBar></CustomTabBar>
@@ -184,6 +205,13 @@
 	} from '../../api/api';
 	let itemList = ref([])
 	const flag = ref(false) //判断是否显示返回顶部按钮
+
+	//前往最新资讯
+	const gotoNews = () => {
+		uni.navigateTo({
+			url: "/pages/news_detail/news_detail"
+		})
+	}
 
 	const homeData = ref()
 	//轮播图
@@ -215,35 +243,38 @@
 			// console.log(res);
 			homeData.value = res
 			banner.value = homeData.value.banner
+			uni.setStorageSync('bannerList', banner.value)
 			//处理数据
 			homeData.value.information.map(item => {
 				item.create_time = item.create_time.slice(0, 10)
 			})
 			information.value = homeData.value.information
 			informationLeft.value = information.value.filter((item, index) => {
-				console.log(index);
+				// console.log(index);
 				return index % 2 == 0
 			})
 			informationRight.value = information.value.filter((item, index) => {
 				return index % 2 == 1
 			})
-			orderList.value = homeData.value.orderList
+			orderList.value = homeData.value.caseList
 			project.value = homeData.value.project
-			console.log(informationLeft
-				.value);
+			// console.log(informationLeft
+			// 	.value);
 		})
 	}
 
-
 	itemList.value = [{
 		iconPath: '/common/images/index/service.jpg',
-		text: '平台客服'
+		text: '平台客服',
+		navigateUrl: '/pages/examples/examples'
 	}, {
 		iconPath: '/common/images/index/order_green.jpg',
-		text: '我的业务线'
+		text: '我的业务线',
+		navigateUrl: '/pages/examples/examples'
 	}, {
 		iconPath: '/common/images/index/order_purple.jpg',
-		text: '公司动态'
+		text: '公司动态',
+		navigateUrl: '/pages/examples/examples'
 	}]
 
 	getHomeData()
@@ -474,93 +505,89 @@
 					width: 348rpx;
 					height: 326rpx;
 					justify-content: space-between;
+				}
 
-					.agentCard {
+				.agentCard {
+					width: 100%;
+					height: 144rpx;
+					background: linear-gradient(to bottom, #b1cbff, #fbfcff);
+					border-radius: 24rpx;
+					display: flex;
+					align-items: center;
+					padding: 0 24rpx;
+				}
+
+				.Agent_image {
+					width: 108rpx;
+					height: 80rpx;
+					background-color: transparent;
+
+					image {
 						width: 100%;
-						height: 144rpx;
-						background: linear-gradient(to bottom, #b1cbff, #fbfcff);
-						border-radius: 24rpx;
-						display: flex;
-						align-items: center;
-						padding: 0 24rpx;
-
-						.Agent_image {
-							width: 108rpx;
-							height: 80rpx;
-							background-color: transparent;
-
-							image {
-								width: 100%;
-								height: 100%;
-								border-radius: 20rpx;
-							}
-						}
-
-						.agentText {
-							margin-left: 20rpx;
-							font-size: 34rpx;
-							font-weight: 600;
-							display: flex;
-							flex-direction: column;
-							justify-content: space-around;
-
-
-
-							.agentTitle {
-								margin-bottom: 20rpx;
-							}
-						}
-					}
-
-					.AIandkeyWordCard {
-						display: flex;
-						justify-content: space-between;
-
-						.AICard {
-							width: 166rpx;
-							height: 166rpx;
-							background: linear-gradient(to bottom, #b7e9e7, #e6f8f6);
-							border-radius: 24rpx;
-							position: relative;
-
-							>img {
-								position: absolute;
-								left: 0;
-								right: 0;
-								margin: auto;
-								top: -20rpx;
-							}
-
-							.AI_image {
-								position: absolute;
-								background-color: transparent;
-								/*定位居中操作*/
-								left: 50%;
-								transform: translate(-50%);
-								top: -10%;
-								width: 108rpx;
-								height: 80rpx;
-								border-radius: 10rpx;
-								overflow: hidden;
-
-								image {
-									width: 100%;
-									height: 100%;
-									mix-blend-mode: multiply;
-								}
-							}
-
-							.AItext {
-								font-size: 26rpx;
-								font-weight: 600;
-								text-align: center;
-								margin-top: 90rpx;
-							}
-						}
-
-
+						height: 100%;
+						border-radius: 20rpx;
+						object-fit: cover;
+						/* 确保图片适应容器 */
 					}
 				}
+
+				.agentText {
+					margin-left: 20rpx;
+					font-size: 34rpx;
+					font-weight: 600;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+				}
+
+				.agentTitle {
+					margin-bottom: 20rpx;
+				}
+
+				.AIandkeyWordCard {
+					display: flex;
+					justify-content: space-between;
+				}
+
+				.AICard {
+					width: 166rpx;
+					height: 144rpx;
+					background: linear-gradient(to bottom, #b7e9e7, #e6f8f6);
+					border-radius: 24rpx;
+					display: flex;
+					/* 使用flex布局 */
+					flex-direction: column;
+					align-items: center;
+					/* 居中对齐 */
+					justify-content: center;
+					/* 垂直居中 */
+					position: relative;
+
+					.AI_image {
+						width: 108rpx;
+						height: 80rpx;
+						border-radius: 10rpx;
+						position: absolute;
+						top: -22rpx;
+						overflow: hidden;
+
+						image {
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+							/* 确保图片适应容器 */
+						}
+					}
+
+					.AItext {
+						font-size: 26rpx;
+						font-weight: 600;
+						text-align: center;
+						margin-top: 10rpx;
+						/* 调整间距 */
+					}
+				}
+
 
 			}
 
@@ -585,6 +612,11 @@
 					font-weight: 500;
 					box-shadow: 5rpx 5rpx 15rpx #f4f4fe;
 					font-size: 24rpx;
+
+					.line_box {
+						display: flex;
+						align-items: center;
+					}
 
 					.iconBox1 {
 						width: 50rpx;
@@ -738,7 +770,6 @@
 		position: relative;
 		background-color: #f5f5ff;
 		padding: 0 32rpx;
-
 
 		.new_area_title {
 			width: 192rpx;

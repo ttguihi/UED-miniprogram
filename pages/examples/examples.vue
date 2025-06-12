@@ -2,7 +2,7 @@
 	<view class="">
 		<view class="headerBackground">
 		</view>
-		<CustomNavBar></CustomNavBar>
+		<CustomNavBar title="公司动态"></CustomNavBar>
 		<view class="fill_box">
 		</view>
 		<view class="search">
@@ -29,11 +29,8 @@
 				</view>
 			</view>
 			<view v-if="current == 1">
-				<ExampleCard></ExampleCard>
-				<ExampleCard></ExampleCard>
-				<ExampleCard></ExampleCard>
-				<ExampleCard></ExampleCard>
-				<ExampleCard></ExampleCard>
+
+
 				<ExampleCard></ExampleCard>
 			</view>
 			<view v-else class="news_page">

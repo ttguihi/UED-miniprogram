@@ -15,6 +15,10 @@ const _sfc_main = {
     title: {
       type: String,
       default: "友益典·AI营销管理系统"
+    },
+    navigateType: {
+      type: String,
+      default: "navigateBack"
     }
   },
   setup(__props) {
@@ -26,9 +30,10 @@ const _sfc_main = {
           color: "#fff",
           size: "30"
         }),
-        c: common_vendor.t(__props.title),
-        d: common_vendor.unref(utils_system.getTitleBarHeight)() + "px",
-        e: common_vendor.unref(utils_system.getNavBarHeight)() + "px"
+        c: __props.navigateType,
+        d: common_vendor.t(__props.title),
+        e: common_vendor.unref(utils_system.getTitleBarHeight)() + "px",
+        f: common_vendor.unref(utils_system.getNavBarHeight)() + "px"
       };
     };
   }

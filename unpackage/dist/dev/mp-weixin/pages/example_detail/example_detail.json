@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "案例详情",
+  "usingComponents": {
+    "custom-nav-bar": "../../components/CustomNavBar/CustomNavBar",
+    "detail-example-card": "../../components/DetailExampleCard",
+    "a-i-kind-card": "../../components/AIKindCard"
+  }
+}

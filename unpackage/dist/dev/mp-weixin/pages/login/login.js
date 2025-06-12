@@ -1,6 +1,7 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 require("../../utils/system.js");
+const api_login_api = require("../../api/login/api.js");
 if (!Array) {
   const _easycom_uni_easyinput2 = common_vendor.resolveComponent("uni-easyinput");
   const _easycom_uni_forms_item2 = common_vendor.resolveComponent("uni-forms-item");
@@ -18,8 +19,20 @@ const _sfc_main = {
   __name: "login",
   setup(__props) {
     const flag = common_vendor.ref(true);
+    const sendCode = async () => {
+      let res = await api_login_api.apiSendCode();
+      common_vendor.index.__f__("log", "at pages/login/login.vue:117", res);
+    };
+    const wxLogin = () => {
+      common_vendor.index.login({
+        provider: "weixin",
+        success: (res) => {
+          common_vendor.index.__f__("log", "at pages/login/login.vue:123", res);
+        }
+      });
+    };
     const handleClick = () => {
-      common_vendor.index.__f__("log", "at pages/login/login.vue:110", flag.value);
+      common_vendor.index.__f__("log", "at pages/login/login.vue:128", flag.value);
       flag.value = !flag.value;
     };
     return (_ctx, _cache) => {
@@ -35,15 +48,18 @@ const _sfc_main = {
         d: common_vendor.p({
           placeholder: ""
         }),
-        e: common_vendor.p({
+        e: common_vendor.o(sendCode),
+        f: common_vendor.p({
           label: "验证码"
         })
       }, {
-        f: flag.value
-      }, flag.value ? {} : {}, {
         g: flag.value
+      }, flag.value ? {
+        h: common_vendor.o(wxLogin)
+      } : {}, {
+        i: flag.value
       }, flag.value ? {} : {}, {
-        h: common_vendor.o(handleClick)
+        j: common_vendor.o(handleClick)
       });
     };
   }
