@@ -12,7 +12,8 @@
     "pages/user/about_us/about_us",
     "pages/searchAIRO/searchAIRO",
     "pages/example_detail/example_detail",
-    "pages/news_detail/news_detail"
+    "pages/news_detail/news_detail",
+    "pages/projects_management/projects_management"
   ],
   "window": {
     "navigationBarTextStyle": "black",

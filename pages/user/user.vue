@@ -31,7 +31,7 @@
 							</view>
 						</view>
 						<view class="">
-							{{userInfo.phone}}
+							177-5608-0942
 						</view>
 					</view>
 					<view class="user_address">
@@ -40,7 +40,7 @@
 							</view>
 						</view>
 						<view class="">
-							12354665
+							广东省广州市番禺区
 						</view>
 					</view>
 					<view class="user_industry">
@@ -49,7 +49,7 @@
 							</view>
 						</view>
 						<view class="">
-							465456
+							建筑/建材
 						</view>
 					</view>
 				</view>

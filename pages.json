@@ -91,6 +91,21 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "最新资讯"
 			}
+		},
+		{
+			"path": "pages/projects_management/projects_management",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "项目管理"
+			}
+		},
+
+		{
+			"path": "pages/business_line/business_line",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "我的业务线"
+			}
 		}
 
 	],

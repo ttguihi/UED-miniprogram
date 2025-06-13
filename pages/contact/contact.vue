@@ -55,7 +55,7 @@
 					</uni-forms-item>
 
 				</uni-forms>
-				<button class="submit">提交</button>
+				<button class="submit" @click="open">提交</button>
 			</view>
 			<view class="last_part">
 				<view class="bline">
@@ -143,7 +143,20 @@
 
 			</view>
 		</view>
+		<uni-popup ref="popup" type="center" :is-mask-click="false">
+			<view class="success">
+				<view class="pic">
 
+				</view>
+				<view class="title">
+					已成功提交
+				</view>
+				<view class="tip">
+					相关负责人将在24小时之内与你联系
+				</view>
+				<button @click="close">确认</button>
+			</view>
+		</uni-popup>
 	</view>
 
 </template>
@@ -152,9 +165,71 @@
 	import CustomTabBar from "../../components/CustomTabBar.vue"
 	import ExampleCard from "../../components/ExampleCard.vue"
 	import CustomNavBar from "../../components/CustomNavBar/CustomNavBar.vue";
+	import {
+		ref
+	} from 'vue'
+	const popup = ref()
+	const open = () => {
+		popup.value.open('center')
+	}
+	const close = () => {
+		popup.value.close()
+	}
 </script>
 
 <style lang="scss" scoped>
+	//提交成功弹窗
+	.success {
+		width: 512rpx;
+		height: 402rpx;
+		background-color: #fff;
+		border-radius: 20rpx 20rpx 20rpx 20rpx;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.pic {
+
+			width: 160rpx;
+			height: 160rpx;
+			background: url('/common/images/index/chenggongtijiao.webp') no-repeat center center;
+			background-size: cover;
+			position: absolute;
+			left: 50%;
+			top: -56rpx;
+			transform: translateX(-50%);
+
+		}
+
+		.title {
+			margin-top: 110rpx;
+			font-size: 30rpx;
+			line-height: 48rpx;
+			margin-bottom: 16rpx;
+		}
+
+		.tip {
+			width: 302rpx;
+			text-align: center;
+			letter-spacing: 1rpx;
+			font-size: 26rpx;
+			color: #888888;
+			margin-bottom: 32rpx;
+		}
+
+		button {
+			width: 300rpx;
+			height: 70rpx;
+			border-radius: 60rpx;
+			color: #fff;
+			font-size: 24rpx;
+			background: linear-gradient(to right, #2e51f5, #893afb);
+
+		}
+	}
+
 	:deep() .uni-forms-item__content {
 		display: flex;
 		justify-content: flex-end !important;
@@ -185,8 +260,6 @@
 		width: 100%;
 		padding: 0 30rpx;
 		background-color: #f5f5ff;
-
-
 
 		.contact_card {
 			width: 100%;

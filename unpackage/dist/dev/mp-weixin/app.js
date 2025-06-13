@@ -15,6 +15,7 @@ if (!Math) {
   "./pages/searchAIRO/searchAIRO.js";
   "./pages/example_detail/example_detail.js";
   "./pages/news_detail/news_detail.js";
+  "./pages/projects_management/projects_management.js";
 }
 const _sfc_main = {
   onLaunch: function() {

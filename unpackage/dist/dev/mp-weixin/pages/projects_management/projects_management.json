@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "项目管理",
+  "usingComponents": {
+    "custom-nav-bar": "../../components/CustomNavBar/CustomNavBar"
+  }
+}

@@ -4,13 +4,13 @@
 			<view class="statusBar" :style="{height:getStatusBarHeight()+'px'}"></view>
 			<view class="titleBar" :style="{height:getTitleBarHeight()+'px'}">
 				<view class="title">
-					<navigator url="/pages/index/index" :open-type="navigateType">
+					<view class="icon" v-if="ifShowIcon"
+						style="background: url('/common/images/index/sign.svg') no-repeat center center;background-size: cover;">
+					</view>
+					<navigator url="/pages/index/index" :open-type="navigateType" v-if="ifShowArrow">
+						<view class="left_arrow">
 
-
-						<view class="icon" v-if="ifShowIcon"
-							style="background: url('/common/images/index/sign.svg') no-repeat center center;background-size: cover;">
 						</view>
-						<uni-icons type="left" color="#fff" size="30" v-if="ifShowArrow"></uni-icons>
 					</navigator>
 					<view class="">
 						{{title}}
@@ -56,6 +56,14 @@
 </script>
 
 <style lang="scss" scoped>
+	.left_arrow {
+		width: 20rpx;
+		height: 20rpx;
+		border-bottom: 4rpx solid #fff;
+		border-left: 4rpx solid #fff;
+		transform: rotate(45deg);
+	}
+
 	.icon {
 		width: 96rpx;
 		height: 50rpx;
@@ -82,6 +90,7 @@
 					color: #fff;
 					display: flex;
 					align-items: center;
+					gap: 16rpx;
 				}
 			}
 		}

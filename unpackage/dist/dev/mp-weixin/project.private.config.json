@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/projects_management/projects_management",
+          "pathName": "pages/projects_management/projects_management",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/user/about_us/about_us",
           "pathName": "pages/user/about_us/about_us",
           "query": "",

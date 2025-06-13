@@ -163,7 +163,7 @@
 				align-items: center;
 				justify-content: center;
 				background-color: #f5f5ff;
-				transition: all 0.3s;
+				transition: all 1s;
 
 				.text {
 					width: 104rpx;

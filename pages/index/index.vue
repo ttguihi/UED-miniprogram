@@ -19,16 +19,22 @@
 				<view class="projectCard">
 
 					<view class="project_title">
-						<view class="title_top">
-							<view class="arrow">
-								<view class="">
-									项目管理
 
+						<view class="title_top">
+							<navigator url="/pages/projects_management/projects_management">
+								<view class="arrow">
+									<view class="">
+										项目管理
+
+									</view>
+									<image src="/common/images/index/arrow.png" mode=""></image>
 								</view>
-								<image src="/common/images/index/arrow.png" mode=""></image>
-							</view>
+							</navigator>
+
 							<view class="small_font">高效管理您的业务和进度</view>
 						</view>
+
+
 
 					</view>
 
@@ -38,7 +44,7 @@
 							<view class="jinxinghzong" style="color: #fff; font-size: 24rpx;margin-bottom: 26rpx;">
 								进行中的项目
 								<view class="project_num">
-									35
+									{{projectsNum}}
 								</view>
 							</view>
 							<view class="detail_projects">
@@ -206,8 +212,12 @@
 	import {
 		apiGetHomeData
 	} from '../../api/api';
+	import {
+		apiGetProjectsNum
+	} from '../../api/index/api';
 	let itemList = ref([])
 	const flag = ref(false) //判断是否显示返回顶部按钮
+	const projectsNum = ref()
 
 	//前往最新资讯
 	const gotoNews = () => {
@@ -266,6 +276,12 @@
 		})
 	}
 
+	const getProjectsNum = () => {
+		apiGetProjectsNum().then(res => {
+			console.log(res);
+			projectsNum.value = res.projectNumber
+		})
+	}
 	itemList.value = [{
 		iconPath: '/common/images/index/service.jpg',
 		text: '平台客服',
@@ -273,7 +289,7 @@
 	}, {
 		iconPath: '/common/images/index/order_green.jpg',
 		text: '我的业务线',
-		navigateUrl: '/pages/examples/examples'
+		navigateUrl: '/pages/business_line/business_line'
 	}, {
 		iconPath: '/common/images/index/order_purple.jpg',
 		text: '公司动态',
@@ -281,7 +297,9 @@
 	}]
 
 	getHomeData()
+	getProjectsNum()
 </script>
+
 
 <style lang="scss" scoped>
 	//进行中的项目数量  后面补上的

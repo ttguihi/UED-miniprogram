@@ -58,17 +58,16 @@ const _sfc_main = {
           size: "24",
           color: "#fff"
         }),
-        c: common_vendor.t(userInfo.value.phone),
-        d: common_vendor.o(gotoRecognise),
-        e: common_assets._imports_0$2,
-        f: common_assets._imports_1$1,
-        g: common_assets._imports_2$1,
-        h: common_vendor.o(open),
-        i: common_assets._imports_3$1,
-        j: common_vendor.sr(popup, "0f7520f0-2", {
+        c: common_vendor.o(gotoRecognise),
+        d: common_assets._imports_0$2,
+        e: common_assets._imports_1$1,
+        f: common_assets._imports_2$1,
+        g: common_vendor.o(open),
+        h: common_assets._imports_3$1,
+        i: common_vendor.sr(popup, "0f7520f0-2", {
           "k": "popup"
         }),
-        k: common_vendor.p({
+        j: common_vendor.p({
           type: "center",
           ["border-radius"]: "10px 10px 0 0"
         })

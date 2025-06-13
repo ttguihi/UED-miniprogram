@@ -8555,6 +8555,13 @@ const pages = [
       navigationStyle: "custom",
       navigationBarTitleText: "最新资讯"
     }
+  },
+  {
+    path: "pages/projects_management/projects_management",
+    style: {
+      navigationStyle: "custom",
+      navigationBarTitleText: "项目管理"
+    }
   }
 ];
 const globalStyle = {
