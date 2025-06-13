@@ -5,7 +5,6 @@
 	</view>
 	<CustomNavBar title="个人中心" :ifShowArrow="false"></CustomNavBar>
 	<view class="user_page">
-
 		<view class="user_info_card">
 			<view class="user_avatar">
 
@@ -58,7 +57,7 @@
 		</view>
 
 		<view class="enterprise_card">
-			<view class="quick">
+			<view class="quick" @click="gotoRecognise">
 				立即认证
 				<view class="right_arrow" style="margin-left: 10rpx;color: #a659fa;">
 
@@ -265,6 +264,14 @@
 
 	//定义组件
 	const popup = ref()
+
+
+	const gotoRecognise = () => {
+		uni.navigateTo({
+			url: "/pages/user/recognise/recognise"
+		})
+	}
+	//联系客服弹窗
 	const open = () => {
 		console.log(1);
 		popup.value.open('center')
@@ -605,7 +612,7 @@
 				color: #a659fa;
 				margin-top: 20rpx;
 				font-weight: 700;
-
+				font-size: 26rpx;
 			}
 
 			.points {

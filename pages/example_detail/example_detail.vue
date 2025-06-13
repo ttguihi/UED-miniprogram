@@ -14,7 +14,7 @@
 				已覆盖的AI
 			</view>
 			<view class="AIs">
-				<AIKindCard v-for="item in AIList" :key="index">{{item}}</AIKindCard>
+				<AIKindCard v-for="item in AIList">{{item}}</AIKindCard>
 
 			</view>
 		</view>

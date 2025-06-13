@@ -5,12 +5,14 @@
 		<CustomNavBar title="企业认证"></CustomNavBar>
 		<view class="settings">
 			<uni-forms>
-				<uni-forms-item label="企业LOGO">
-					<view class="avatar">
+				<uni-forms-item label="企业LOGO" label-width="50">
+					<view class="logo">
+						<view class="logo_pic">
 
-					</view>
-					<view class="right">
+						</view>
+						<view class="right_arrow">
 
+						</view>
 					</view>
 				</uni-forms-item>
 				<uni-forms-item label="企业名称">
@@ -20,6 +22,14 @@
 					<uni-data-select v-model="value" :localdata="range" @change="change"></uni-data-select>
 				</uni-forms-item>
 				<uni-forms-item label="营业执照">
+					<view class="zhizhao">
+						<view class="certificate">
+
+						</view>
+						<view class="right_arrow">
+
+						</view>
+					</view>
 
 				</uni-forms-item>
 				<uni-forms-item label="对公账户">
@@ -52,7 +62,66 @@
 </script>
 
 <style lang="scss" scoped>
+	.right_arrow {
+		width: 16rpx;
+		height: 16rpx;
+		border-bottom: 4rpx solid #000;
+		border-right: 4rpx solid #000;
+		transform: rotate(-45deg);
+
+	}
+
+	//logo部分
+	.zhizhao,
+	.logo {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 16rpx;
+
+		.certificate {
+			width: 80rpx;
+			height: 60rpx;
+			background-color: pink;
+		}
+
+		.logo_pic {
+			width: 68rpx;
+			height: 68rpx;
+			border-radius: 10rpx;
+			background-color: skyblue;
+		}
+	}
+
+	//营业执照部分
+	.zhizhao {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 16rpx;
+
+		.certificate {
+			text-align: right;
+			display: flex;
+			justify-content: flex-end;
+			width: 80rpx;
+			height: 60rpx;
+			background-color: pink;
+		}
+
+	}
+
+	//改变select框右边箭头大小
+	:deep() .uniui-bottom {
+		font-size: 24rpx !important;
+		font-weight: 700;
+	}
+
+
 	.page {
+		padding-bottom: 100rpx;
+
+		// background-color: #f5f5ff;
 		.settings {
 			margin: 0 auto;
 			margin-top: 32rpx;
@@ -100,6 +169,7 @@
 			margin: 0 auto;
 			margin-top: 66rpx;
 			display: flex;
+
 
 			button {
 				width: 300rpx;

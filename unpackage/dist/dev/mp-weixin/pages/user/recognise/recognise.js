@@ -22,7 +22,7 @@ const _sfc_main = {
     const value = common_vendor.ref(0);
     const range = common_vendor.ref([]);
     const change = (e) => {
-      common_vendor.index.__f__("log", "at pages/user/recognise/recognise.vue:50", "e:", e);
+      common_vendor.index.__f__("log", "at pages/user/recognise/recognise.vue:60", "e:", e);
     };
     return (_ctx, _cache) => {
       return {
@@ -30,7 +30,8 @@ const _sfc_main = {
           title: "企业认证"
         }),
         b: common_vendor.p({
-          label: "企业LOGO"
+          label: "企业LOGO",
+          ["label-width"]: "50"
         }),
         c: common_vendor.p({
           placeholder: ""

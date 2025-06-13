@@ -7,11 +7,13 @@
 		<view class="settings">
 			<uni-forms>
 				<uni-forms-item label="客户头像">
-					<view class="avatar">
+					<view class="logo">
+						<view class="logo_pic">
 
-					</view>
-					<view class="right">
+						</view>
+						<view class="right_arrow">
 
+						</view>
 					</view>
 				</uni-forms-item>
 				<uni-forms-item label="会员名称">
@@ -22,7 +24,7 @@
 				</uni-forms-item>
 
 				<uni-forms-item label="所属行业">
-					<uni-easyinput placeholder="" />
+					<uni-data-select v-model="value" :localdata="range" @change="change"></uni-data-select>
 				</uni-forms-item>
 
 			</uni-forms>
@@ -42,6 +44,41 @@
 </script>
 
 <style lang="scss" scoped>
+	.zhizhao,
+	.logo {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 16rpx;
+
+		.certificate {
+			width: 80rpx;
+			height: 60rpx;
+			background-color: pink;
+		}
+
+		.logo_pic {
+			width: 68rpx;
+			height: 68rpx;
+			border-radius: 10rpx;
+			background-color: skyblue;
+		}
+	}
+
+	.right_arrow {
+		width: 16rpx;
+		height: 16rpx;
+		border-bottom: 4rpx solid #000;
+		border-right: 4rpx solid #000;
+		transform: rotate(-45deg);
+
+	}
+
+	:deep() .uniui-bottom {
+		font-size: 24rpx !important;
+		font-weight: 700;
+	}
+
 	.layout {
 
 

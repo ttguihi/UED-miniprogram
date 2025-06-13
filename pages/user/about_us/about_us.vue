@@ -16,45 +16,27 @@
 			</view>
 
 			<view class="card_content">
-				<view class="card1">
-					<view class="card_main1">
-						<view class="icon">
+				<view class="card1 pg1">
 
-						</view>
-					</view>
 
 					<view class="text">
 						广泛覆盖
 					</view>
 				</view>
-				<view class="card1">
-					<view class="card_main1">
-						<view class="icon">
-
-						</view>
-					</view>
-
+				<view class="card1 pg2">
 					<view class="text">
 						词包矩阵
 					</view>
 				</view>
-				<view class="card1">
-					<view class="card_main1">
-						<view class="icon">
+				<view class="card1 pg3">
 
-						</view>
-					</view>
 
 					<view class="text">
 						持续展现
 					</view>
 				</view>
-				<view class="card1">
-					<view class="card_main1">
-						<view class="icon">
+				<view class="card1 pg4">
 
-						</view>
-					</view>
 
 					<view class="text">
 						AI拓客
@@ -72,6 +54,30 @@
 </script>
 
 <style lang="scss" scoped>
+	.pg1 {
+		background: url('/common/images/user/fugai.svg') no-repeat center center;
+		background-size: cover;
+	}
+
+	.pg2 {
+		background: url('/common/images/user/juzhen.svg') no-repeat center center;
+		background-size: cover;
+	}
+
+	.pg3 {
+		background: url('/common/images/user/zhanxian.svg') no-repeat center center;
+		background-size: cover;
+	}
+
+	.pg4 {
+		background: url('/common/images/user/tuoke.svg') no-repeat center center;
+		background-size: cover;
+	}
+
+	.text {
+		margin-top: 84rpx;
+	}
+
 	.page {
 		.frame_text {
 			margin: 0 auto;
@@ -95,7 +101,6 @@
 			height: 282rpx;
 			margin: 0 auto;
 			margin-top: 46rpx;
-
 			background-color: skyblue;
 			border: 1px solid transparent;
 			background-image: linear-gradient(#fff, #fff),
@@ -129,8 +134,8 @@
 				justify-content: space-around;
 
 				.card1 {
-					width: 130rpx;
-					height: 125rpx;
+					width: 166rpx;
+					height: 84rpx;
 					display: flex;
 					flex-direction: column;
 					align-items: center;

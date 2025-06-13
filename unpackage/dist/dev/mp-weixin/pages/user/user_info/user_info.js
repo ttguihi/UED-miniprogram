@@ -41,10 +41,13 @@ const _sfc_main = {
         h: common_vendor.p({
           label: "选择地区"
         }),
-        i: common_vendor.p({
-          placeholder: ""
+        i: common_vendor.o(_ctx.change),
+        j: common_vendor.o(($event) => _ctx.value = $event),
+        k: common_vendor.p({
+          localdata: _ctx.range,
+          modelValue: _ctx.value
         }),
-        j: common_vendor.p({
+        l: common_vendor.p({
           label: "所属行业"
         })
       };

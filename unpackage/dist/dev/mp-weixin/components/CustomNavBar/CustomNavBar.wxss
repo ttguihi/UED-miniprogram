@@ -23,6 +23,11 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.icon.data-v-eb837262 {
+  width: 96rpx;
+  height: 50rpx;
+  margin-right: 18rpx;
+}
 .layout .navbar.data-v-eb837262 {
   position: fixed;
   top: 0;

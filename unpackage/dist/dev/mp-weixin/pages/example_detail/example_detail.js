@@ -37,8 +37,7 @@ const _sfc_main = {
             b: "6cd3ce7b-2-" + i0
           };
         }),
-        c: _ctx.index,
-        d: common_vendor.f(5, (item, k0, i0) => {
+        c: common_vendor.f(5, (item, k0, i0) => {
           return {};
         })
       };

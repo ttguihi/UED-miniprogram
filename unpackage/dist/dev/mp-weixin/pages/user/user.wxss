@@ -23,6 +23,14 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.right_arrow.data-v-0f7520f0 {
+  margin-left: 20rpx;
+  width: 10rpx;
+  height: 10rpx;
+  border-bottom: 2rpx solid #4E3900;
+  border-right: 2rpx solid #4E3900;
+  transform: rotate(-45deg);
+}
 .contact_service.data-v-0f7520f0 {
   width: 650rpx;
   height: 736rpx;
@@ -192,6 +200,7 @@
 .user_page .user_info_card.data-v-0f7520f0 {
   display: flex;
   margin-bottom: 48rpx;
+  margin-top: 80rpx;
 }
 .user_page .user_info_card .user_avatar.data-v-0f7520f0 {
   width: 150rpx;
@@ -237,7 +246,6 @@
 }
 .user_page .user_info_card .user_details .user_other_info .user_address.data-v-0f7520f0 {
   display: flex;
-  align-items: center;
   font-size: 22rpx;
   margin-right: 46rpx;
 }
@@ -248,18 +256,77 @@
 }
 .user_page .enterprise_card.data-v-0f7520f0 {
   width: 100%;
-  height: 392rpx;
+  height: 228rpx;
   background: #fefeff;
   -webkit-backdrop-filter: blur(80rpx);
           backdrop-filter: blur(80rpx);
   border-radius: 20rpx;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(to right, #ecf4fa, #f7f6f2);
+}
+.user_page .enterprise_card .quick.data-v-0f7520f0 {
+  height: 30rpx;
+  line-height: 30rpx;
+  position: absolute;
+  right: 34rpx;
+  display: flex;
+  align-items: center;
+  color: #a659fa;
+  margin-top: 20rpx;
+  font-weight: 700;
+  font-size: 26rpx;
+}
+.user_page .enterprise_card .points.data-v-0f7520f0 {
+  width: 658rpx;
+  height: 84rpx;
+  background: linear-gradient(to right, #ffe3c0, #ffb668 50%, #ffd954);
+  padding: 0 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  padding-right: 30rpx;
+}
+.user_page .enterprise_card .points .remain_points.data-v-0f7520f0 {
+  padding-left: 18rpx;
+  width: 254rpx;
+  height: 52rpx;
+  background-color: #fff1dd;
+  border-radius: 6rpx;
+  display: flex;
+  color: #FF5900;
+  gap: 16rpx;
+  align-items: center;
+  font-size: 24rpx;
+}
+.user_page .enterprise_card .points .remain_points .points_num.data-v-0f7520f0 {
+  width: 120rpx;
+  height: 44rpx;
+  background: linear-gradient(90deg, #FF7C12 0%, #FFAF6E 100%);
+  border-radius: 6rpx 6rpx 6rpx 6rpx;
+  color: #fff;
+  font-weight: 700;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 44rpx;
+}
+.user_page .enterprise_card .points .getPoints.data-v-0f7520f0 {
+  display: flex;
+  align-items: center;
+}
+.user_page .enterprise_card .points .getPoints .right_arrow.data-v-0f7520f0 {
+  margin-left: 20rpx;
+  width: 10rpx;
+  height: 10rpx;
+  border-bottom: 2rpx solid #4E3900;
+  border-right: 2rpx solid #4E3900;
+  transform: rotate(-45deg);
 }
 .user_page .enterprise_card .enterprise_card_title.data-v-0f7520f0 {
   width: 100%;
   height: 132rpx;
-  background: linear-gradient(to right, #ecf4fa, #f7f6f2);
 }
 .user_page .enterprise_card .enterprise_card_title .recognise.data-v-0f7520f0 {
   position: absolute;

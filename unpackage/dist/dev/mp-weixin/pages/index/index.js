@@ -76,24 +76,28 @@ const _sfc_main = {
     getHomeData();
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.f(banner.value, (item, index, i0) => {
+        a: common_vendor.p({
+          ifShowIcon: true,
+          ifShowArrow: false
+        }),
+        b: common_vendor.f(banner.value, (item, index, i0) => {
           return {
             a: item.image,
             b: item.linkurl,
             c: index
           };
         }),
-        b: common_assets._imports_0,
-        c: common_vendor.f(10, (item, k0, i0) => {
+        c: common_assets._imports_0,
+        d: common_vendor.f(10, (item, k0, i0) => {
           return {
             a: item + "item"
           };
         }),
-        d: common_vendor.o((...args) => _ctx.scroll && _ctx.scroll(...args)),
-        e: common_assets._imports_1,
-        f: common_assets._imports_2,
-        g: common_assets._imports_3,
-        h: common_vendor.f(common_vendor.unref(itemList), (item, index, i0) => {
+        e: common_vendor.o((...args) => _ctx.scroll && _ctx.scroll(...args)),
+        f: common_assets._imports_1,
+        g: common_assets._imports_2,
+        h: common_assets._imports_3,
+        i: common_vendor.f(common_vendor.unref(itemList), (item, index, i0) => {
           return {
             a: common_vendor.n(`iconBox${index + 1}`),
             b: common_vendor.t(item.text),
@@ -101,10 +105,10 @@ const _sfc_main = {
             d: index + "index"
           };
         }),
-        i: common_vendor.t(information.value[0].title),
-        j: common_vendor.t(information.value[0].create_time),
-        k: common_vendor.o(gotoNews),
-        l: common_vendor.f(orderList.value, (item, index, i0) => {
+        j: common_vendor.t(information.value[0].title),
+        k: common_vendor.t(information.value[0].create_time),
+        l: common_vendor.o(gotoNews),
+        m: common_vendor.f(orderList.value, (item, index, i0) => {
           return {
             a: item.id,
             b: index,
@@ -117,7 +121,7 @@ const _sfc_main = {
             })
           };
         }),
-        m: common_vendor.f(informationLeft.value, (item, index, i0) => {
+        n: common_vendor.f(informationLeft.value, (item, index, i0) => {
           return {
             a: index,
             b: "1cf27b2a-2-" + i0,
@@ -128,7 +132,7 @@ const _sfc_main = {
             })
           };
         }),
-        n: common_vendor.f(informationRight.value, (item, index, i0) => {
+        o: common_vendor.f(informationRight.value, (item, index, i0) => {
           return {
             a: index,
             b: "1cf27b2a-3-" + i0,
@@ -139,9 +143,9 @@ const _sfc_main = {
             })
           };
         }),
-        o: flag.value ? 1 : "",
-        p: common_vendor.o(goTop),
-        q: flag.value
+        p: flag.value ? 1 : "",
+        q: common_vendor.o(goTop),
+        r: flag.value
       };
     };
   }

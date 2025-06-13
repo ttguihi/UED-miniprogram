@@ -8,8 +8,22 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/contact/contact",
-          "pathName": "pages/contact/contact",
+          "name": "pages/user/about_us/about_us",
+          "pathName": "pages/user/about_us/about_us",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/searchAIRO/searchAIRO",
+          "pathName": "pages/searchAIRO/searchAIRO",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
           "query": "",
           "launchMode": "default",
           "scene": null

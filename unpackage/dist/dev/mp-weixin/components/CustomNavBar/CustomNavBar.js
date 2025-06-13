@@ -16,25 +16,39 @@ const _sfc_main = {
       type: String,
       default: "友益典·AI营销管理系统"
     },
+    //确定跳转方式
     navigateType: {
       type: String,
       default: "navigateBack"
+    },
+    ifShowIcon: {
+      type: Boolean,
+      default: false
+    },
+    ifShowArrow: {
+      type: Boolean,
+      default: true
     }
   },
   setup(__props) {
     return (_ctx, _cache) => {
-      return {
+      return common_vendor.e({
         a: common_vendor.unref(utils_system.getStatusBarHeight)() + "px",
-        b: common_vendor.p({
+        b: __props.ifShowIcon
+      }, __props.ifShowIcon ? {} : {}, {
+        c: __props.ifShowArrow
+      }, __props.ifShowArrow ? {
+        d: common_vendor.p({
           type: "left",
           color: "#fff",
           size: "30"
-        }),
-        c: __props.navigateType,
-        d: common_vendor.t(__props.title),
-        e: common_vendor.unref(utils_system.getTitleBarHeight)() + "px",
-        f: common_vendor.unref(utils_system.getNavBarHeight)() + "px"
-      };
+        })
+      } : {}, {
+        e: __props.navigateType,
+        f: common_vendor.t(__props.title),
+        g: common_vendor.unref(utils_system.getTitleBarHeight)() + "px",
+        h: common_vendor.unref(utils_system.getNavBarHeight)() + "px"
+      });
     };
   }
 };

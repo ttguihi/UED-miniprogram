@@ -1,6 +1,7 @@
 <template>
 	<!-- #ifdef H5 -->
-	<td class="uni-table-td" :rowspan="rowspan" :colspan="colspan" :class="{'table--border':border}" :style="{width:width + 'px','text-align':align}">
+	<td class="uni-table-td" :rowspan="rowspan" :colspan="colspan" :class="{'table--border':border}"
+		:style="{width:width + 'px','text-align':align}">
 		<slot></slot>
 	</td>
 	<!-- #endif -->
@@ -40,11 +41,11 @@
 				default: 'left'
 			},
 			rowspan: {
-				type: [Number,String],
+				type: [Number, String],
 				default: 1
 			},
 			colspan: {
-					type: [Number,String],
+				type: [Number, String],
 				default: 1
 			}
 		},
@@ -76,7 +77,7 @@
 </script>
 
 <style lang="scss">
-	$border-color:#EBEEF5;
+	$border-color: #EBEEF5;
 
 	.uni-table-td {
 		display: table-cell;

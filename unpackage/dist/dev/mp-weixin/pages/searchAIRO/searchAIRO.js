@@ -1,12 +1,14 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 if (!Array) {
-  const _easycom_uni_search_bar2 = common_vendor.resolveComponent("uni-search-bar");
-  _easycom_uni_search_bar2();
+  const _easycom_uni_easyinput2 = common_vendor.resolveComponent("uni-easyinput");
+  const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
+  (_easycom_uni_easyinput2 + _easycom_uni_icons2)();
 }
-const _easycom_uni_search_bar = () => "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.js";
+const _easycom_uni_easyinput = () => "../../uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput.js";
+const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
 if (!Math) {
-  (CustomNavBar + _easycom_uni_search_bar)();
+  (CustomNavBar + _easycom_uni_easyinput + _easycom_uni_icons)();
 }
 const CustomNavBar = () => "../../components/CustomNavBar/CustomNavBar.js";
 const _sfc_main = {
@@ -26,7 +28,16 @@ const _sfc_main = {
           };
         }),
         c: common_vendor.p({
-          placeholder: "请输入关键词"
+          placeholder: "请输入关键词",
+          placeholderStyle: "fontSize:24rpx; margin-left:14rpx;"
+        }),
+        d: common_vendor.p({
+          type: "search",
+          color: "#fff",
+          size: "30"
+        }),
+        e: common_vendor.f(8, (item, k0, i0) => {
+          return {};
         })
       };
     };

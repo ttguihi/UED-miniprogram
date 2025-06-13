@@ -8,14 +8,16 @@ new Proxy({}, {
   }
 });
 if (!Array) {
+  const _easycom_CustomNavBar2 = common_vendor.resolveComponent("CustomNavBar");
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
   const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
-  (_easycom_uni_icons2 + _easycom_uni_popup2)();
+  (_easycom_CustomNavBar2 + _easycom_uni_icons2 + _easycom_uni_popup2)();
 }
+const _easycom_CustomNavBar = () => "../../components/CustomNavBar/CustomNavBar.js";
 const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
 const _easycom_uni_popup = () => "../../uni_modules/uni-popup/components/uni-popup/uni-popup.js";
 if (!Math) {
-  (_easycom_uni_icons + _easycom_uni_popup + CustomTabBar)();
+  (_easycom_CustomNavBar + _easycom_uni_icons + _easycom_uni_popup + CustomTabBar)();
 }
 const CustomTabBar = () => "../../components/CustomTabBar.js";
 const _sfc_main = {
@@ -24,14 +26,14 @@ const _sfc_main = {
     const userInfo = common_vendor.ref({});
     const enterpriseInfo = common_vendor.ref({});
     const popup = common_vendor.ref();
-    const open = () => {
-      common_vendor.index.__f__("log", "at pages/user/user.vue:252", 1);
-      popup.value.open("center");
-    };
-    const goBack = () => {
-      common_vendor.index.switchTab({
-        url: "/pages/index/index"
+    const gotoRecognise = () => {
+      common_vendor.index.navigateTo({
+        url: "/pages/user/recognise/recognise"
       });
+    };
+    const open = () => {
+      common_vendor.index.__f__("log", "at pages/user/user.vue:276", 1);
+      popup.value.open("center");
     };
     const getUserInfo = () => {
       api_api.apiGetUserInfo().then((res) => {
@@ -47,30 +49,26 @@ const _sfc_main = {
     getEnterpriseInfo();
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.o(goBack),
-        b: common_vendor.t(userInfo.value.nickname),
-        c: common_vendor.p({
+        a: common_vendor.p({
+          title: "个人中心",
+          ifShowArrow: false
+        }),
+        b: common_vendor.p({
           type: "gear",
           size: "24",
           color: "#fff"
         }),
-        d: common_vendor.t(userInfo.value.phone),
-        e: common_vendor.t(userInfo.value.address),
-        f: common_vendor.t(userInfo.value.industryId),
-        g: common_vendor.t(enterpriseInfo.value.companyName),
-        h: common_vendor.t(enterpriseInfo.value.businessId),
-        i: common_vendor.t(enterpriseInfo.value.account),
-        j: common_vendor.t(enterpriseInfo.value.accountAddress),
-        k: enterpriseInfo.value.imageurl,
-        l: common_assets._imports_0$2,
-        m: common_assets._imports_1$1,
-        n: common_assets._imports_2$1,
-        o: common_vendor.o(open),
-        p: common_assets._imports_3$1,
-        q: common_vendor.sr(popup, "0f7520f0-1", {
+        c: common_vendor.t(userInfo.value.phone),
+        d: common_vendor.o(gotoRecognise),
+        e: common_assets._imports_0$2,
+        f: common_assets._imports_1$1,
+        g: common_assets._imports_2$1,
+        h: common_vendor.o(open),
+        i: common_assets._imports_3$1,
+        j: common_vendor.sr(popup, "0f7520f0-2", {
           "k": "popup"
         }),
-        r: common_vendor.p({
+        k: common_vendor.p({
           type: "center",
           ["border-radius"]: "10px 10px 0 0"
         })
