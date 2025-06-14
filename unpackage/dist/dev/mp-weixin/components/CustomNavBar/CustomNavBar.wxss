@@ -23,6 +23,13 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.left_arrow.data-v-eb837262 {
+  width: 20rpx;
+  height: 20rpx;
+  border-bottom: 4rpx solid #fff;
+  border-left: 4rpx solid #fff;
+  transform: rotate(45deg);
+}
 .icon.data-v-eb837262 {
   width: 96rpx;
   height: 50rpx;
@@ -47,4 +54,5 @@
   color: #fff;
   display: flex;
   align-items: center;
+  gap: 16rpx;
 }

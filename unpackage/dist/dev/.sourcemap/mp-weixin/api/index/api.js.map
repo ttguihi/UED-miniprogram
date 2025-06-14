@@ -1,0 +1,1 @@
+{"version":3,"file":"api.js","sources":["api/index/api.js"],"sourcesContent":["import {\r\n\trequest\r\n} from \"../../utils/request\";\r\n\r\nexport function apiGetProjectsNum() {\r\n\treturn request({\r\n\t\turl: '/project/getNumber',\r\n\t})\r\n}"],"names":["request"],"mappings":";;AAIO,SAAS,oBAAoB;AACnC,SAAOA,sBAAQ;AAAA,IACd,KAAK;AAAA,EACP,CAAE;AACF;;"}

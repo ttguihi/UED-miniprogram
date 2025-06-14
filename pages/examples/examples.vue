@@ -34,10 +34,8 @@
 				<ExampleCard></ExampleCard>
 			</view>
 			<view v-else class="news_page">
-				<NewsCard></NewsCard>
-				<NewsCard></NewsCard>
-				<NewsCard></NewsCard>
-				<NewsCard></NewsCard>
+				<NewsCard v-for="item in newsData" :newsCard="item"></NewsCard>
+
 			</view>
 
 
@@ -53,7 +51,12 @@
 	import NewsCard from '../../components/NewsCard.vue';
 	import CustomNavBar from '../../components/CustomNavBar/CustomNavBar.vue';
 	const items = ref(['精选案例', '最新资讯'])
-
+	const newsData = ref([])
+	import {
+		useSwiperStore
+	} from '../../store/swiper';
+	const swiperStore = useSwiperStore()
+	newsData.value = swiperStore.newsData
 	const current = ref(1)
 
 	//事件冒泡 携带id值 进行菜单切换

@@ -1,6 +1,10 @@
 "use strict";
 const common_vendor = require("../common/vendor.js");
 const common_assets = require("../common/assets.js");
+if (!Math) {
+  AIKindCard();
+}
+const AIKindCard = () => "./AIKindCard.js";
 const _sfc_main = {
   __name: "ExampleCard",
   props: {
@@ -12,8 +16,13 @@ const _sfc_main = {
   },
   setup(__props) {
     const props = __props;
-    common_vendor.index.__f__("log", "at components/ExampleCard.vue:59", props);
-    const aiList = common_vendor.ref(["DeepSeek", "通义千问", "KIMI", "KIMI"]);
+    common_vendor.index.__f__("log", "at components/ExampleCard.vue:61", props);
+    const aiList = common_vendor.ref(["DeepSeek", "通义千问", "通义千问", "通义千问", "KIMI", "KIMI", "KIMI", "KIMI"]);
+    if (aiList.value.length >= 7) {
+      aiList.value[6] = "......";
+      aiList.value = aiList.value.slice(0, 7);
+      common_vendor.index.__f__("log", "at components/ExampleCard.vue:69", aiList.value);
+    }
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: !props.orderIcon
@@ -23,14 +32,17 @@ const _sfc_main = {
         c: `url(${props.orderIcon})`,
         d: common_vendor.t(props.orderName),
         e: common_vendor.t(props.companyName),
-        f: common_vendor.f(aiList.value, (ai, index, i0) => {
+        f: common_vendor.f(aiList.value, (item, k0, i0) => {
           return {
-            a: common_vendor.t(ai),
-            b: index
+            a: common_vendor.t(item),
+            b: "410fa80a-0-" + i0
           };
         }),
-        g: common_vendor.t(props.orderName),
-        h: "/pages/example_detail/example_detail?id=" + props.id
+        g: common_vendor.p({
+          size: "small"
+        }),
+        h: common_vendor.t(props.orderName),
+        i: "/pages/example_detail/example_detail?id=" + props.id
       });
     };
   }

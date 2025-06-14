@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "我的业务线",
+  "usingComponents": {
+    "custom-nav-bar": "../../components/CustomNavBar/CustomNavBar",
+    "uni-easyinput": "../../uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput",
+    "business-card": "../../components/BusinessCard"
+  }
+}

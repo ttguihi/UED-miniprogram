@@ -25,7 +25,6 @@ export function createApp() {
 	const pinia = createPinia()
 	//持久化
 	pinia.use(piniaPluginPersistedstate)
-
 	//传递给项目应用
 	app.use(pinia)
 	return {

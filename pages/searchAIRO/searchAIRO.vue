@@ -6,7 +6,7 @@
 	<view class="page">
 		<view class="swiperArea">
 			<swiper autoplay="true" circular="true" style="width: 690rpx; margin: 0 auto;">
-				<swiper-item v-for="(item, index) in banner" :key="index">
+				<swiper-item v-for="(item, index) in swiperStore.swiperData" :key="index">
 					<navigator :url="item.linkurl" class="link" style="border-radius: 10rpx;">
 						<image :src="item.image" mode="widthFix" style="border-radius: 10rpx;"></image>
 					</navigator>
@@ -67,7 +67,10 @@
 
 <script setup>
 	import CustomNavBar from '../../components/CustomNavBar/CustomNavBar.vue';
-	const banner = uni.getStorageSync('bannerList')
+	import {
+		useSwiperStore
+	} from '../../store/swiper';
+	const swiperStore = useSwiperStore()
 </script>
 
 <style lang="scss" scoped>

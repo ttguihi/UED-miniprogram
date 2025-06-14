@@ -13,7 +13,8 @@
     "pages/searchAIRO/searchAIRO",
     "pages/example_detail/example_detail",
     "pages/news_detail/news_detail",
-    "pages/projects_management/projects_management"
+    "pages/projects_management/projects_management",
+    "pages/business_line/business_line"
   ],
   "window": {
     "navigationBarTextStyle": "black",

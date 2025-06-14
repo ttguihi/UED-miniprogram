@@ -1,0 +1,111 @@
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/*动态类*/
+.bg-green.data-v-82dbb4f5 {
+  background: linear-gradient(90deg, #EFFFF2 0%, #FFFFFF 100%);
+  box-shadow: 0rpx 4rpx 10rpx 0rpx rgba(0, 0, 0, 0.05);
+}
+.bg-orange.data-v-82dbb4f5 {
+  background: linear-gradient(90deg, #FFFBEF 0%, #FFFFFF 100%);
+  box-shadow: 0rpx 4rpx 10rpx 0rpx rgba(0, 0, 0, 0.05);
+}
+.bg-white.data-v-82dbb4f5 {
+  background: #FFFFFF;
+  box-shadow: 0rpx 4rpx 10rpx 0rpx rgba(0, 0, 0, 0.05);
+}
+.status_green.data-v-82dbb4f5 {
+  background: linear-gradient(to right, #90e8c3, #26b987);
+  background-size: cover;
+  border-bottom-left-radius: 10rpx;
+}
+.status_orange.data-v-82dbb4f5 {
+  background: linear-gradient(to right, #ffb070, #ff7d13);
+  background-size: cover;
+  border-bottom-left-radius: 10rpx;
+}
+.status_white.data-v-82dbb4f5 {
+  background: linear-gradient(to right, #c1c1c1, #e4e4e4);
+  background-size: cover;
+  border-bottom-left-radius: 10rpx;
+}
+
+/*动态类*/
+/*基本样式*/
+.cardArea.data-v-82dbb4f5 {
+  width: 100%;
+  height: 154rpx;
+  border-radius: 10rpx;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  padding-top: 20rpx;
+  margin-bottom: 16rpx;
+  position: relative;
+  overflow: hidden;
+}
+.cardArea .business_status.data-v-82dbb4f5 {
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 110rpx;
+  height: 44rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+}
+.cardArea .business_name.data-v-82dbb4f5 {
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #000000;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+.cardArea .business_target.data-v-82dbb4f5 {
+  font-weight: 400;
+  font-size: 22rpx;
+  color: #454545;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+.cardArea .business_date_id.data-v-82dbb4f5 {
+  display: flex;
+  font-weight: 400;
+  font-size: 22rpx;
+  color: #454545;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+.cardArea .business_date_id .business_date.data-v-82dbb4f5 {
+  margin-right: 32rpx;
+}
+
+/*基本样式*/

@@ -180,13 +180,13 @@
 			}
 
 			.font3 {
-				font-family: "niceTitle";
-				background: linear-gradient(0deg, #2254F4 0%, #9438FC 100%);
+				font-family: "youshebiaoti";
+				background: linear-gradient(to right, #2254F4 0%, #9438FC 100%);
 				color: transparent;
 				-webkit-background-clip: text;
 				font-size: 52rpx;
 				transform: translateY(-30rpx);
-				font-weight: 700;
+
 			}
 		}
 

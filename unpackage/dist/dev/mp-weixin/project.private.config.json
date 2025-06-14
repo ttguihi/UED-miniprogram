@@ -3,39 +3,5 @@
   "projectname": "UEDAIminiprogram",
   "setting": {
     "compileHotReLoad": true
-  },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/projects_management/projects_management",
-          "pathName": "pages/projects_management/projects_management",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/user/about_us/about_us",
-          "pathName": "pages/user/about_us/about_us",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/searchAIRO/searchAIRO",
-          "pathName": "pages/searchAIRO/searchAIRO",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/login/login",
-          "pathName": "pages/login/login",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        }
-      ]
-    }
   }
 }

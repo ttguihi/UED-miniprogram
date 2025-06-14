@@ -1,7 +1,7 @@
 <template>
-	<navigator url="/pages/news_detail/news_detail">
+	<navigator :url="`/pages/news_detail/news_detail?id=${data.id}`">
 		<view class="news_card">
-			<view class="news_item" :style="{backgroundImage: `url(${props.imageUrl})`}">
+			<view class="news_item" :style="{backgroundImage: `url(${data.image})`}">
 			</view>
 			<view class="news_info">
 				<view class="hot">
@@ -9,11 +9,11 @@
 						<text class="niceColor">
 							[AI行业今天热点 快来看看吧!]
 						</text>
-						<text class="normalText"> {{props.title}}</text>
+						<text class="normalText"> {{data.title}}</text>
 					</view>
 				</view>
 				<view class="hot_time">
-					{{props.createTime}}
+					{{data.create_time}}
 				</view>
 			</view>
 		</view>
@@ -21,11 +21,22 @@
 </template>
 
 <script setup>
+	// const props = defineProps({
+	// 	createTime: String,
+	// 	imageUrl: String,
+	// 	title: String
+	// })
 	const props = defineProps({
-		createTime: String,
-		imageUrl: String,
-		title: String
+		newsCard: {
+			type: Object,
+			default: () => ({})
+		}
 	})
+	//解构出newsCard并重命名为data
+	const {
+		newsCard: data
+	} = props
+	// console.log(data);
 </script>
 
 <style lang="scss" scoped>

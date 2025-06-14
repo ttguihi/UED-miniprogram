@@ -1,14 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 const utils_system = require("../../utils/system.js");
-if (!Array) {
-  const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
-  _easycom_uni_icons2();
-}
-const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
-if (!Math) {
-  _easycom_uni_icons();
-}
 const _sfc_main = {
   __name: "CustomNavBar",
   props: {
@@ -38,16 +30,11 @@ const _sfc_main = {
       }, __props.ifShowIcon ? {} : {}, {
         c: __props.ifShowArrow
       }, __props.ifShowArrow ? {
-        d: common_vendor.p({
-          type: "left",
-          color: "#fff",
-          size: "30"
-        })
+        d: __props.navigateType
       } : {}, {
-        e: __props.navigateType,
-        f: common_vendor.t(__props.title),
-        g: common_vendor.unref(utils_system.getTitleBarHeight)() + "px",
-        h: common_vendor.unref(utils_system.getNavBarHeight)() + "px"
+        e: common_vendor.t(__props.title),
+        f: common_vendor.unref(utils_system.getTitleBarHeight)() + "px",
+        g: common_vendor.unref(utils_system.getNavBarHeight)() + "px"
       });
     };
   }

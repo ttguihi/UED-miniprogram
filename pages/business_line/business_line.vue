@@ -32,39 +32,22 @@
 
 			<view class="content_part">
 				<view class="" v-show="current==0">
-					<view class="cardArea bg-green" v-for="item in 5">
-						<view class="business_name">
-							佛山中秋月饼
-						</view>
-						<view class="business_target">
-							优化目标:&nbsp;苏式饼家
-						</view>
-						<view class="business_date_id">
-							<view class="business_date">
-								创建日期:&nbsp;&nbsp;2024-12-12
-							</view>
-							<view class="business_id">
-								项目ID:&nbsp;&nbsp;UED00000111
-							</view>
-						</view>
-
-						<view class="business_status">
-							已生效
-						</view>
-					</view>
+					<BusinessCard status="green"></BusinessCard>
+					<BusinessCard status="green"></BusinessCard>
+					<BusinessCard status="white"></BusinessCard>
+					<BusinessCard status="orange"></BusinessCard>
 				</view>
 				<view class="" v-show="current==1">
-					<view class="cardArea bg-orange">
-
-					</view>
+					<BusinessCard status="orange"></BusinessCard>
 				</view>
 				<view class="" v-show="current==2">
-					<view class="cardArea bg-green">
-
-					</view>
+					<BusinessCard status="green"></BusinessCard>
+					<BusinessCard status="green"></BusinessCard>
 				</view>
 				<view class="" v-show="current==3">
 					<BusinessCard status="white"></BusinessCard>
+					<BusinessCard status="white"></BusinessCard>
+
 				</view>
 			</view>
 		</view>
@@ -181,13 +164,14 @@
 						position: absolute;
 						width: 110rpx;
 						height: 44rpx;
-						background: url('/common/images/business/business_ green.svg') no-repeat center center;
+
 						background-size: cover;
 						color: #fff;
 						display: flex;
 						align-items: center;
 						justify-content: center;
 						font-size: 24rpx;
+
 					}
 
 

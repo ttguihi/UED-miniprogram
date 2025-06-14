@@ -1,0 +1,145 @@
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.bg-green.data-v-5a647fe1 {
+  background: linear-gradient(90deg, #EFFFF2 0%, #FFFFFF 100%);
+  box-shadow: 0rpx 4rpx 10rpx 0rpx rgba(0, 0, 0, 0.05);
+}
+.bg-orange.data-v-5a647fe1 {
+  background: linear-gradient(90deg, #FFFBEF 0%, #FFFFFF 100%);
+  box-shadow: 0rpx 4rpx 10rpx 0rpx rgba(0, 0, 0, 0.05);
+}
+.bg-white.data-v-5a647fe1 {
+  background: #FFFFFF;
+  box-shadow: 0rpx 4rpx 10rpx 0rpx rgba(0, 0, 0, 0.05);
+}
+.data-v-5a647fe1  .uni-easyinput__content-input {
+  height: 68rpx !important;
+  width: 450rpx !important;
+}
+.search-icon.data-v-5a647fe1 {
+  width: 40rpx;
+  height: 40rpx;
+  background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IiYjMjMwOyYjMTU5OyYjMTY1OyYjMjMyOyYjMTc1OyYjMTYyOyAxIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfMV84NjEpIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTE0LjkwNjggMTMuNzI3NUwxOS4xNjY4IDE3Ljk4ODRMMTcuOTg4NSAxOS4xNjY3TDEzLjcyNzcgMTQuOTA2N0MxMi4zMjAxIDE2LjA0OCAxMC41NjIzIDE2LjY2OTYgOC43NTAxNyAxNi42NjY3QzcuMTg0NCAxNi42NjY3IDUuNjUzNzkgMTYuMjAyNCA0LjM1MTkgMTUuMzMyNUMzLjA1MDAxIDE0LjQ2MjYgMi4wMzUzMSAxMy4yMjYyIDEuNDM2MTIgMTEuNzc5NkMwLjgzNjkyNiAxMC4zMzMgMC42ODAxNSA4Ljc0MTI2IDAuOTg1NjE2IDcuMjA1NThDMS4yOTEwOCA1LjY2OTkgMi4wNDUwNyA0LjI1OTI4IDMuMTUyMjQgMy4xNTIxMkM0LjI1OTQgMi4wNDQ5NSA1LjY3MDAyIDEuMjkwOTYgNy4yMDU3IDAuOTg1NDk0QzguNzQxMzggMC42ODAwMjggMTAuMzMzMiAwLjgzNjgwNCAxMS43Nzk3IDEuNDM2QzEzLjIyNjMgMi4wMzUxOSAxNC40NjI3IDMuMDQ5ODkgMTUuMzMyNiA0LjM1MTc4QzE2LjIwMjUgNS42NTM2NyAxNi42NjY4IDcuMTg0MjggMTYuNjY2OCA4Ljc1MDA0QzE2LjY2OTcgMTAuNTYyMiAxNi4wNDgyIDEyLjMyIDE0LjkwNjggMTMuNzI3NVpNOC43NTAxNyAxNUMxMC40MDc4IDE1IDExLjk5NzUgMTQuMzQxNiAxMy4xNjk2IDEzLjE2OTVDMTQuMzQxNyAxMS45OTc0IDE1LjAwMDIgMTAuNDA3NiAxNS4wMDAyIDguNzUwMDRDMTUuMDAwMiA3LjA5MjQ0IDE0LjM0MTcgNS41MDI3MyAxMy4xNjk2IDQuMzMwNjNDMTEuOTk3NSAzLjE1ODUyIDEwLjQwNzggMi41MDAwNCA4Ljc1MDE3IDIuNTAwMDRDNy4wOTI1NiAyLjUwMDA0IDUuNTAyODUgMy4xNTg1MiA0LjMzMDc1IDQuMzMwNjNDMy4xNTg2NSA1LjUwMjczIDIuNTAwMTcgNy4wOTI0NCAyLjUwMDE3IDguNzUwMDRDMi41MDAxNyAxMC40MDc2IDMuMTU4NjUgMTEuOTk3NCA0LjMzMDc1IDEzLjE2OTVDNS41MDI4NSAxNC4zNDE2IDcuMDkyNTYgMTUgOC43NTAxNyAxNVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8xXzg2MSkiLz4KPC9nPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzFfODYxIiB4MT0iMC44MzM0OTYiIHkxPSIxMCIgeDI9IjE5LjE2NjgiIHkyPSIxMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMjI1NEY0Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzk0MzhGQyIvPgo8L2xpbmVhckdyYWRpZW50Pgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzFfODYxIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=") no-repeat center center;
+  background-size: cover;
+  margin-right: 26rpx;
+}
+.page_top_background.data-v-5a647fe1 {
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+.page.data-v-5a647fe1 {
+  width: 100%;
+  background-color: #f5f5ff;
+  padding: 0 30rpx;
+}
+.page .business_card.data-v-5a647fe1 {
+  width: 100%;
+  height: 1476rpx;
+  padding: 32rpx;
+  border-radius: 20rpx;
+  background: rgba(255, 255, 255, 0.7);
+  margin-top: 20rpx;
+  position: relative;
+}
+.page .business_card .search-part.data-v-5a647fe1 {
+  display: flex;
+  margin-bottom: 22rpx;
+}
+.page .business_card .select_part.data-v-5a647fe1 {
+  width: 100%;
+  height: 68rpx;
+  margin-bottom: 22rpx;
+  display: flex;
+  border-radius: 10rpx 10rpx 10rpx 10rpx;
+  background: #fff;
+  overflow: hidden;
+}
+.page .business_card .select_part .select.data-v-5a647fe1 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  transition: all 0.3s;
+}
+.page .business_card .select_part .active.data-v-5a647fe1 {
+  background: linear-gradient(to right, #3050f2, #893afb);
+  color: #fff;
+  border-radius: 10rpx;
+}
+.page .business_card .content_part .cardArea.data-v-5a647fe1 {
+  width: 100%;
+  height: 154rpx;
+  border-radius: 10rpx;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  padding-top: 20rpx;
+  margin-bottom: 16rpx;
+  position: relative;
+}
+.page .business_card .content_part .cardArea .business_status.data-v-5a647fe1 {
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 110rpx;
+  height: 44rpx;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+}
+.page .business_card .content_part .cardArea .business_name.data-v-5a647fe1 {
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #000000;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+.page .business_card .content_part .cardArea .business_target.data-v-5a647fe1 {
+  font-weight: 400;
+  font-size: 22rpx;
+  color: #454545;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+.page .business_card .content_part .cardArea .business_date_id.data-v-5a647fe1 {
+  display: flex;
+  font-weight: 400;
+  font-size: 22rpx;
+  color: #454545;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+.page .business_card .content_part .cardArea .business_date_id .business_date.data-v-5a647fe1 {
+  margin-right: 32rpx;
+}

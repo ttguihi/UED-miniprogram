@@ -7285,9 +7285,9 @@ function isConsoleWritable() {
   return isWritable;
 }
 function initRuntimeSocketService() {
-  const hosts = "192.168.10.107,192.168.184.1,192.168.94.1,127.0.0.1";
+  const hosts = "192.168.10.105,192.168.184.1,192.168.94.1,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_QifYW-";
+  const id = "mp-weixin_KsU4dD";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -8562,6 +8562,13 @@ const pages = [
       navigationStyle: "custom",
       navigationBarTitleText: "项目管理"
     }
+  },
+  {
+    path: "pages/business_line/business_line",
+    style: {
+      navigationStyle: "custom",
+      navigationBarTitleText: "我的业务线"
+    }
   }
 ];
 const globalStyle = {
@@ -8569,6 +8576,10 @@ const globalStyle = {
   navigationBarTitleText: "uni-app",
   navigationBarBackgroundColor: "#F8F8F8",
   backgroundColor: "#F8F8F8"
+};
+const lazyCodeLoading = "requiredComponents";
+const optimization = {
+  subPackages: true
 };
 const tabBar = {
   color: "#8a8a99",
@@ -8593,6 +8604,8 @@ const uniIdRouter = {};
 const e = {
   pages,
   globalStyle,
+  lazyCodeLoading,
+  optimization,
   tabBar,
   uniIdRouter
 };
@@ -11436,6 +11449,7 @@ let tr = new class {
 })();
 var nr = tr;
 exports._export_sfc = _export_sfc;
+exports.computed = computed;
 exports.createPinia = createPinia;
 exports.createSSRApp = createSSRApp;
 exports.e = e$1;
@@ -11447,6 +11461,7 @@ exports.nr = nr;
 exports.o = o$1;
 exports.onPageScroll = onPageScroll;
 exports.p = p$1;
+exports.reactive = reactive;
 exports.ref = ref;
 exports.resolveComponent = resolveComponent;
 exports.s = s$1;

@@ -2,6 +2,7 @@
 const common_vendor = require("../../common/vendor.js");
 const common_assets = require("../../common/assets.js");
 const api_api = require("../../api/api.js");
+const api_index_api = require("../../api/index/api.js");
 if (!Math) {
   (CustomNavBar + ExampleCard + NewsCard + CustomTabBar)();
 }
@@ -14,6 +15,7 @@ const _sfc_main = {
   setup(__props) {
     let itemList = common_vendor.ref([]);
     const flag = common_vendor.ref(false);
+    const projectsNum = common_vendor.ref();
     const gotoNews = () => {
       common_vendor.index.navigateTo({
         url: "/pages/news_detail/news_detail"
@@ -44,12 +46,14 @@ const _sfc_main = {
     const getHomeData = () => {
       api_api.apiGetHomeData().then((res) => {
         homeData.value = res;
+        common_vendor.index.__f__("log", "at pages/index/index.vue:257", homeData.value);
         banner.value = homeData.value.banner;
         common_vendor.index.setStorageSync("bannerList", banner.value);
-        homeData.value.information.map((item) => {
+        common_vendor.index.__f__("log", "at pages/index/index.vue:263", homeData.value.information);
+        homeData.value.informationList.map((item) => {
           item.create_time = item.create_time.slice(0, 10);
         });
-        information.value = homeData.value.information;
+        information.value = homeData.value.informationList;
         informationLeft.value = information.value.filter((item, index) => {
           return index % 2 == 0;
         });
@@ -60,6 +64,12 @@ const _sfc_main = {
         project.value = homeData.value.project;
       });
     };
+    const getProjectsNum = () => {
+      api_index_api.apiGetProjectsNum().then((res) => {
+        common_vendor.index.__f__("log", "at pages/index/index.vue:286", res);
+        projectsNum.value = res.projectNumber;
+      });
+    };
     itemList.value = [{
       iconPath: "/common/images/index/service.jpg",
       text: "平台客服",
@@ -67,13 +77,14 @@ const _sfc_main = {
     }, {
       iconPath: "/common/images/index/order_green.jpg",
       text: "我的业务线",
-      navigateUrl: "/pages/examples/examples"
+      navigateUrl: "/pages/business_line/business_line"
     }, {
       iconPath: "/common/images/index/order_purple.jpg",
       text: "公司动态",
       navigateUrl: "/pages/examples/examples"
     }];
     getHomeData();
+    getProjectsNum();
     return (_ctx, _cache) => {
       return {
         a: common_vendor.p({
@@ -88,16 +99,17 @@ const _sfc_main = {
           };
         }),
         c: common_assets._imports_0,
-        d: common_vendor.f(10, (item, k0, i0) => {
+        d: common_vendor.t(projectsNum.value),
+        e: common_vendor.f(10, (item, k0, i0) => {
           return {
             a: item + "item"
           };
         }),
-        e: common_vendor.o((...args) => _ctx.scroll && _ctx.scroll(...args)),
-        f: common_assets._imports_1,
-        g: common_assets._imports_2,
-        h: common_assets._imports_3,
-        i: common_vendor.f(common_vendor.unref(itemList), (item, index, i0) => {
+        f: common_vendor.o((...args) => _ctx.scroll && _ctx.scroll(...args)),
+        g: common_assets._imports_1,
+        h: common_assets._imports_2,
+        i: common_assets._imports_3,
+        j: common_vendor.f(common_vendor.unref(itemList), (item, index, i0) => {
           return {
             a: common_vendor.n(`iconBox${index + 1}`),
             b: common_vendor.t(item.text),
@@ -105,10 +117,10 @@ const _sfc_main = {
             d: index + "index"
           };
         }),
-        j: common_vendor.t(information.value[0].title),
-        k: common_vendor.t(information.value[0].create_time),
-        l: common_vendor.o(gotoNews),
-        m: common_vendor.f(orderList.value, (item, index, i0) => {
+        k: common_vendor.t(information.value[0].title),
+        l: common_vendor.t(information.value[0].create_time),
+        m: common_vendor.o(gotoNews),
+        n: common_vendor.f(orderList.value, (item, index, i0) => {
           return {
             a: item.id,
             b: index,
@@ -121,31 +133,31 @@ const _sfc_main = {
             })
           };
         }),
-        n: common_vendor.f(informationLeft.value, (item, index, i0) => {
+        o: common_vendor.f(informationLeft.value, (item, index, i0) => {
           return {
             a: index,
             b: "1cf27b2a-2-" + i0,
             c: common_vendor.p({
               title: item.title,
               createTime: item.create_time,
-              imageUrl: item.imageurl
+              imageUrl: item.image
             })
           };
         }),
-        o: common_vendor.f(informationRight.value, (item, index, i0) => {
+        p: common_vendor.f(informationRight.value, (item, index, i0) => {
           return {
             a: index,
             b: "1cf27b2a-3-" + i0,
             c: common_vendor.p({
               title: item.title,
               createTime: item.create_time,
-              imageUrl: item.imageurl
+              imageUrl: item.image
             })
           };
         }),
-        p: flag.value ? 1 : "",
-        q: common_vendor.o(goTop),
-        r: flag.value
+        q: flag.value ? 1 : "",
+        r: common_vendor.o(goTop),
+        s: flag.value
       };
     };
   }

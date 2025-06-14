@@ -104,13 +104,12 @@
   font-size: 36rpx;
 }
 .page .decoration_part .font3.data-v-e4e4508d {
-  font-family: "niceTitle";
-  background: linear-gradient(0deg, #2254F4 0%, #9438FC 100%);
+  font-family: "youshebiaoti";
+  background: linear-gradient(to right, #2254F4 0%, #9438FC 100%);
   color: transparent;
   -webkit-background-clip: text;
   font-size: 52rpx;
   transform: translateY(-30rpx);
-  font-weight: 700;
 }
 .page .login_part.data-v-e4e4508d {
   z-index: 0;

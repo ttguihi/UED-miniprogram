@@ -5,12 +5,16 @@ const _sfc_main = {
   props: {
     size: {
       type: String,
-      default: "small"
+      default: "large"
     }
   },
   setup(__props) {
+    const props = __props;
+    const sizeStyle = common_vendor.computed(() => `font-${props.size}`);
     return (_ctx, _cache) => {
-      return {};
+      return {
+        a: common_vendor.n(sizeStyle.value)
+      };
     };
   }
 };

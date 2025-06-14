@@ -23,8 +23,13 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.font-small.data-v-7f9dbb03 {
+  font-size: 20rpx !important;
+}
+.font-large.data-v-7f9dbb03 {
+  font-size: 26rpx !important;
+}
 .AI_category.data-v-7f9dbb03 {
-  font-size: 20rpx;
   box-sizing: border-box;
   border: 1px solid transparent;
   background-image: linear-gradient(#fff, #fff), linear-gradient(to bottom left, #5587fb, #a456fc, #a456fc);
@@ -40,7 +45,7 @@
 .AI_category .category_name.data-v-7f9dbb03 {
   font-size: 26rpx;
   font-weight: 600;
-  margin: 5rpx 20rpx;
+  margin: 5rpx 16rpx;
   background: linear-gradient(to right, #bc85fd, #95a7fb);
   color: transparent;
   -webkit-background-clip: text;

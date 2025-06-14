@@ -31,7 +31,6 @@
 		status: String
 	})
 	const card_status = computed(() => `bg-${props.status}`)
-
 	// const card_status_corner = computed(() => `status_${props.status}`)
 	// const status_text = ref('')
 	const obj = reactive({
@@ -40,8 +39,8 @@
 		'orange': '进行中'
 	})
 </script>
-
 <style lang="scss" scoped>
+	/*动态类*/
 	.bg-green {
 		background: linear-gradient(90deg, #EFFFF2 0%, #FFFFFF 100%);
 		box-shadow: 0rpx 4rpx 10rpx 0rpx rgba(0, 0, 0, 0.05);
@@ -58,20 +57,26 @@
 	}
 
 	.status_green {
-		background: url('/common/images/business/business_green.svg') no-repeat center center;
+		background: linear-gradient(to right, #90e8c3, #26b987);
 		background-size: cover;
+		border-bottom-left-radius: 10rpx;
 	}
 
 	.status_orange {
-		background: url('/common/images/business/business_orange.svg') no-repeat center center;
+		background: linear-gradient(to right, #ffb070, #ff7d13);
 		background-size: cover;
+		border-bottom-left-radius: 10rpx;
 	}
 
 	.status_white {
-		background: url('/common/images/business/business_white.svg') no-repeat center center;
+		background: linear-gradient(to right, #c1c1c1, #e4e4e4);
 		background-size: cover;
+		border-bottom-left-radius: 10rpx;
 	}
 
+	/*动态类*/
+
+	/*基本样式*/
 	.cardArea {
 		width: 100%;
 		height: 154rpx;
@@ -83,9 +88,9 @@
 		padding-top: 20rpx;
 		margin-bottom: 16rpx;
 		position: relative;
+		overflow: hidden;
 
 		.business_status {
-			/* 只保留基本样式，移除默认背景 */
 			top: 0;
 			right: 0;
 			position: absolute;
@@ -98,9 +103,7 @@
 			font-size: 24rpx;
 		}
 
-
 		.business_name {
-
 			font-weight: bold;
 			font-size: 28rpx;
 			color: #000000;
@@ -132,4 +135,6 @@
 			}
 		}
 	}
+
+	/*基本样式*/
 </style>

@@ -168,7 +168,9 @@
 	import {
 		ref
 	} from 'vue'
+	//获取popup组件
 	const popup = ref()
+	//关闭和打开弹窗
 	const open = () => {
 		popup.value.open('center')
 	}
@@ -222,6 +224,7 @@
 		button {
 			width: 300rpx;
 			height: 70rpx;
+			line-height: 70rpx;
 			border-radius: 60rpx;
 			color: #fff;
 			font-size: 24rpx;

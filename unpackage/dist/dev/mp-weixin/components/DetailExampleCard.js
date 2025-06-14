@@ -13,7 +13,6 @@ const _sfc_main = {
   setup(__props) {
     const props = __props;
     common_vendor.index.__f__("log", "at components/DetailExampleCard.vue:42", props);
-    common_vendor.ref(["DeepSeek", "通义千问", "KIMI", "KIMI"]);
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: !props.orderIcon

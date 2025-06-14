@@ -1,1 +1,1 @@
-<view class="AI_category data-v-7f9dbb03"><view class="category_name data-v-7f9dbb03"><slot></slot></view></view>
+<view class="AI_category data-v-7f9dbb03"><view class="{{['category_name', 'data-v-7f9dbb03', a]}}"><slot></slot></view></view>

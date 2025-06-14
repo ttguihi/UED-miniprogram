@@ -3,12 +3,12 @@
 	<CustomNavBar title=""></CustomNavBar>
 	<view class="page">
 		<view class="news_title">
-			友益典签约江门新会互惠互盈（国资） 以AI营销助力崖门乡村振兴百千万工程高质量发展
+			{{params.title}}
 		</view>
 		<view class="date_transition">
 			<view class="date">
 				<view class="font">
-					2025-05-27
+					{{params.updateTime}}
 				</view>
 			</view>
 			<view class="transition">
@@ -18,18 +18,18 @@
 		</view>
 		<view class="mainArea">
 			<view class="content">
-				为了解与交流AI营销创新技术、带动江门新会区崖门乡村振兴项目的有效发展，2025年5月12日，江门市新会区互惠互盈采购有限公司（以下简称：互惠互盈公司）总经理余进东带队到广东友益典文化科技有限公司（以下简称：友益典）进行交流考察。双方就AI与延伸的新质营销技术进行了交流，并达成通过AI结果优化（AIRO）技术推动崖门乡村振兴的合作项目。
+				{{params.texts}}
 				<view class="img">
 
 				</view>
-				关于江门市新会区互惠互盈采购有限公司
+
 			</view>
 			<view class="recommend">
 				<view class="recommend_title">
 					相关推荐
 				</view>
 				<view class="newsArea">
-					<NewsCard v-for="item in 10"></NewsCard>
+					<NewsCard v-for="item in newsData" :newsCard="item"></NewsCard>
 
 				</view>
 			</view>
@@ -40,6 +40,36 @@
 <script setup>
 	import CustomNavBar from '../../components/CustomNavBar/CustomNavBar.vue';
 	import NewsCard from '../../components/NewsCard.vue';
+	import {
+		onLoad
+	} from '@dcloudio/uni-app';
+	import {
+		apiGetNewsDetail
+	} from '../../api/news/api';
+	import {
+		ref
+	} from 'vue';
+	import {
+		useSwiperStore
+	} from '../../store/swiper';
+	const swiperStore = useSwiperStore()
+	onLoad(() => {
+		swiperStore.fetchSwiperData()
+	})
+
+	const newsData = ref([])
+	newsData.value = swiperStore.newsData
+	console.log(newsData.value);
+	const InformationId = ref()
+	const params = ref()
+	onLoad(async (e) => {
+		InformationId.value = e.id
+		let res = await apiGetNewsDetail({
+			InformationId: InformationId.value
+		})
+		params.value = res
+		// console.log(params.value);
+	})
 </script>
 
 <style lang="scss" scoped>
@@ -65,6 +95,7 @@
 			margin-top: 20rpx;
 
 			.date {
+
 				width: 190rpx;
 				height: 50rpx;
 				border-radius: 10rpx;
@@ -76,7 +107,7 @@
 
 				.font {
 					color: #fff;
-					font-size: 24rpx;
+					font-size: 28rpx;
 				}
 			}
 

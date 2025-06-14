@@ -7,7 +7,7 @@
 	<view class="" style="height: 20rpx;">
 
 	</view>
-	<DetailExampleCard></DetailExampleCard>
+	<DetailExampleCard :data="data" v-if="data"></DetailExampleCard>
 	<view class="mainArea">
 		<view class="coverAI">
 			<view class="AI_title">
@@ -27,7 +27,7 @@
 			</view>
 			<view class="picArea">
 				<view class="pic" v-for="item in 5">
-					<image src="" mode=""></image>
+					<image :src="params.listImage" mode=""></image>
 				</view>
 			</view>
 		</view>
@@ -37,19 +37,47 @@
 <script setup>
 	import CustomNavBar from '../../components/CustomNavBar/CustomNavBar.vue';
 	import DetailExampleCard from '../../components/DetailExampleCard.vue';
+
 	import {
 		ref
 	} from 'vue'
 	import AIKindCard from '../../components/AIKindCard.vue';
-	const ifDetail = ref(false)
+	import {
+		apiGetExampleDetail
+	} from '../../api/example/api';
+	import {
+		onLoad
+	} from '@dcloudio/uni-app'
+	const params = ref()
+	const caseId = ref()
+	const data = ref()
+	//onLoad 获取 页面id
+	onLoad(async (e) => {
+		caseId.value = e.id
+		let res = await apiGetExampleDetail({
+			caseId: caseId.value
+		})
+		params.value = res
+		//解构赋值 
+		data.value = {
+			companyName: res.companyName,
+			orderName: res.orderName,
+			projectName: res.projectName,
+			image: res.image
+		};
+	})
+
+
 	const AIList = ref(['DeepSeek', '豆包', '腾讯元宝', "KIMI", "通义千问", "chatGPT", 'KIMI', 'KIMI',
 		'DeepSeek',
 	])
+
+
 	// AI个数过多就显示...
 	if (AIList.value.length >= 9) {
 		AIList.value[8] = "......"
 		AIList.value = AIList.value.slice(0, 9)
-		console.log(AIList.value);
+		// console.log(AIList.value);
 	}
 </script>
 

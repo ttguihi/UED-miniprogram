@@ -110,7 +110,7 @@
   align-items: center;
   justify-content: center;
   background-color: #f5f5ff;
-  transition: all 0.3s;
+  transition: all 1s;
 }
 .menu .select_part .select .text.data-v-854ecef0 {
   width: 104rpx;

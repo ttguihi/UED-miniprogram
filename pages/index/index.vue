@@ -6,7 +6,7 @@
 		<CustomNavBar ifShowIcon :ifShowArrow="false"></CustomNavBar>
 		<view class="swiperArea">
 			<swiper autoplay="true" circular="true" style="width: 690rpx; margin: 0 auto;">
-				<swiper-item v-for="(item, index) in banner" :key="index">
+				<swiper-item v-for="(item, index) in swiperStore.swiperData" :key="index">
 					<navigator :url="item.linkurl" class="link" style="border-radius: 10rpx;">
 						<image :src="item.image" mode="widthFix" style="border-radius: 10rpx;"></image>
 					</navigator>
@@ -17,25 +17,18 @@
 		<view class="mainMenu">
 			<view class="cardArea">
 				<view class="projectCard">
-
 					<view class="project_title">
-
 						<view class="title_top">
 							<navigator url="/pages/projects_management/projects_management">
 								<view class="arrow">
 									<view class="">
 										项目管理
-
 									</view>
 									<image src="/common/images/index/arrow.png" mode=""></image>
 								</view>
 							</navigator>
-
 							<view class="small_font">高效管理您的业务和进度</view>
 						</view>
-
-
-
 					</view>
 
 
@@ -154,12 +147,10 @@
 			</navigator>
 
 
-			<ExampleCard v-for="item,index in orderList" :companyName="item.companyName" :orderIcon="item.image"
-				:id="item.id" :orderName="item.orderName" :key="index"></ExampleCard>
+			<ExampleCard v-for="item,index in orderList" :key="index" :exampleCard="item"></ExampleCard>
 			<!-- <ExampleCard></ExampleCard>
 			<ExampleCard></ExampleCard>
 			<ExampleCard></ExampleCard> -->
-
 		</view>
 
 		<view class="news_area">
@@ -169,14 +160,12 @@
 			</view>
 			<view class="new_area_main">
 				<view class="new_area_left">
-					<NewsCard v-for="item,index in informationLeft" :title="item.title" :createTime="item.create_time"
-						:imageUrl="item.imageurl" :key="index"></NewsCard>
-
-
+					<NewsCard v-for="item,index in informationLeft" :key="index+ `${item.id}`" :newsCard="item">
+					</NewsCard>
 				</view>
 				<view class="new_area_right">
-					<NewsCard v-for="item,index in informationRight" :title="item.title" :createTime="item.create_time"
-						:imageUrl="item.imageurl" :key="index"></NewsCard>
+					<NewsCard v-for="item,index in informationRight" :key="index+ `${item.id}`" :newsCard="item">
+					</NewsCard>
 				</view>
 			</view>
 		</view>
@@ -203,11 +192,19 @@
 	import ExampleCard from '../../components/ExampleCard.vue'
 	import CustomNavBar from '../../components/CustomNavBar/CustomNavBar.vue';
 	import NewsCard from '../../components/NewsCard.vue';
+
+	// const bannerStore = useBannerStore()
+
+	// bannerStore.getBanner()
+	// const myBanner = ref(bannerStore.banner)
+	// console.log(myBanner.value);
 	import {
 		ref
-	} from 'vue';
+	}
+	from 'vue';
 	import {
-		onPageScroll
+		onPageScroll,
+		onLoad
 	} from '@dcloudio/uni-app';
 	import {
 		apiGetHomeData
@@ -215,6 +212,13 @@
 	import {
 		apiGetProjectsNum
 	} from '../../api/index/api';
+	import {
+		useSwiperStore
+	} from '../../store/swiper';
+	const swiperStore = useSwiperStore()
+	onLoad(() => {
+		swiperStore.fetchSwiperData()
+	})
 	let itemList = ref([])
 	const flag = ref(false) //判断是否显示返回顶部按钮
 	const projectsNum = ref()
@@ -231,10 +235,13 @@
 	const banner = ref([])
 	//最新资讯数据
 	const information = ref([])
+	//首页最新资讯展示栏左边部分
 	const informationLeft = ref([])
+	//首页最新资讯展示栏右边部分
 	const informationRight = ref([])
 	//精选案例
 	const orderList = ref([])
+
 	const project = ref({})
 	const goTop = () => {
 		uni.pageScrollTo({
@@ -242,7 +249,6 @@
 			duration: 300 //滚动时长
 		})
 	}
-
 	onPageScroll(e => {
 		if (e.scrollTop > 500) {
 			flag.value = true
@@ -255,13 +261,18 @@
 		apiGetHomeData().then(res => {
 			// console.log(res);
 			homeData.value = res
-			banner.value = homeData.value.banner
-			uni.setStorageSync('bannerList', banner.value)
+			// console.log(homeData.value);
+			// banner.value = homeData.value.banner
+			// console.log(banner.value);
+			// uni.setStorageSync('bannerList', banner.value)
 			//处理数据
-			homeData.value.information.map(item => {
+			// information.value = homeData.value.information
+			// console.log(homeData.value.information);
+			homeData.value.informationList.map(item => {
 				item.create_time = item.create_time.slice(0, 10)
 			})
-			information.value = homeData.value.information
+			information.value = homeData.value.informationList
+			//首页最新资讯展示栏左边部分
 			informationLeft.value = information.value.filter((item, index) => {
 				// console.log(index);
 				return index % 2 == 0
@@ -270,6 +281,7 @@
 				return index % 2 == 1
 			})
 			orderList.value = homeData.value.caseList
+			// console.log(orderList.value);
 			project.value = homeData.value.project
 			// console.log(informationLeft
 			// 	.value);
@@ -278,7 +290,7 @@
 
 	const getProjectsNum = () => {
 		apiGetProjectsNum().then(res => {
-			console.log(res);
+			// console.log(res);
 			projectsNum.value = res.projectNumber
 		})
 	}
@@ -296,6 +308,8 @@
 		navigateUrl: '/pages/examples/examples'
 	}]
 
+
+	//调用接口区域
 	getHomeData()
 	getProjectsNum()
 </script>
