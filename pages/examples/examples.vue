@@ -14,8 +14,6 @@
 
 		</view>
 		<view class="menu">
-
-
 			<view class="select_part">
 				<view class="select" :class="{ active: current === 1 }" @click="current = 1">
 					<view class="text">
@@ -29,16 +27,11 @@
 				</view>
 			</view>
 			<view v-if="current == 1">
-
-
-				<ExampleCard></ExampleCard>
+				<ExampleCard v-for="item,index in examleList" :exampleCard="item" :key="index"></ExampleCard>
 			</view>
 			<view v-else class="news_page">
-				<NewsCard v-for="item in newsData" :newsCard="item"></NewsCard>
-
+				<NewsCard v-for="item in informationData" :newsCard="item"></NewsCard>
 			</view>
-
-
 		</view>
 	</view>
 </template>
@@ -50,14 +43,30 @@
 	import ExampleCard from '../../components/ExampleCard.vue';
 	import NewsCard from '../../components/NewsCard.vue';
 	import CustomNavBar from '../../components/CustomNavBar/CustomNavBar.vue';
-	const items = ref(['精选案例', '最新资讯'])
-	const newsData = ref([])
 	import {
-		useSwiperStore
-	} from '../../store/swiper';
-	const swiperStore = useSwiperStore()
-	newsData.value = swiperStore.newsData
+		useInformationStore,
+	} from '../../store/news';
+
+	import {
+		apiGetExamples
+	} from '../../api/example/api';
+	const keyWord = ref(' ')
+	const examleList = ref([])
+	const getExamples = async () => {
+		let res = await apiGetExamples()
+		examleList.value = res.data
+		console.log(examleList.value);
+	}
+
+	getExamples()
+	const items = ref(['精选案例', '最新资讯'])
+	const informationStore = useInformationStore()
+	const informationData = ref([])
+
+	informationData.value = uni.getStorageSync('informationList')
+
 	const current = ref(1)
+
 
 	//事件冒泡 携带id值 进行菜单切换
 </script>

@@ -53,7 +53,7 @@
 }
 .page .date_transition .date .font.data-v-34343ac9 {
   color: #fff;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 .page .date_transition .transition.data-v-34343ac9 {
   font-size: 26rpx;

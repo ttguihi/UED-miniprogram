@@ -106,7 +106,22 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "我的业务线"
 			}
+		},
+		{
+			"path": "pages/business_line/business_info/business_info",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "业务线信息"
+			}
+		},
+		{
+			"path": "pages/business_line/view_info/view_info",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "查看页面"
+			}
 		}
+
 
 	],
 	"globalStyle": {

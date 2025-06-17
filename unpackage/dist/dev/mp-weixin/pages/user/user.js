@@ -2,11 +2,7 @@
 const common_vendor = require("../../common/vendor.js");
 const common_assets = require("../../common/assets.js");
 const api_api = require("../../api/api.js");
-new Proxy({}, {
-  get(_, key) {
-    throw new Error(`Module "events" has been externalized for browser compatibility. Cannot access "events.${key}" in client code.  See https://vitejs.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.`);
-  }
-});
+const store_verify = require("../../store/verify.js");
 if (!Array) {
   const _easycom_CustomNavBar2 = common_vendor.resolveComponent("CustomNavBar");
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
@@ -23,6 +19,7 @@ const CustomTabBar = () => "../../components/CustomTabBar.js";
 const _sfc_main = {
   __name: "user",
   setup(__props) {
+    const verifyStore = store_verify.useVerifyStore();
     const userInfo = common_vendor.ref({});
     const enterpriseInfo = common_vendor.ref({});
     const popup = common_vendor.ref();
@@ -32,8 +29,13 @@ const _sfc_main = {
       });
     };
     const open = () => {
-      common_vendor.index.__f__("log", "at pages/user/user.vue:276", 1);
+      common_vendor.index.__f__("log", "at pages/user/user.vue:252", 1);
       popup.value.open("center");
+    };
+    const exitLogin = () => {
+      common_vendor.index.navigateTo({
+        url: "/pages/login/login"
+      });
     };
     const getUserInfo = () => {
       api_api.apiGetUserInfo().then((res) => {
@@ -48,7 +50,7 @@ const _sfc_main = {
     getUserInfo();
     getEnterpriseInfo();
     return (_ctx, _cache) => {
-      return {
+      return common_vendor.e({
         a: common_vendor.p({
           title: "个人中心",
           ifShowArrow: false
@@ -58,20 +60,26 @@ const _sfc_main = {
           size: "24",
           color: "#fff"
         }),
-        c: common_vendor.o(gotoRecognise),
-        d: common_assets._imports_0$2,
-        e: common_assets._imports_1$1,
-        f: common_assets._imports_2$1,
-        g: common_vendor.o(open),
-        h: common_assets._imports_3$1,
-        i: common_vendor.sr(popup, "0f7520f0-2", {
+        c: !common_vendor.unref(verifyStore).ifVerify
+      }, !common_vendor.unref(verifyStore).ifVerify ? {
+        d: common_vendor.o(gotoRecognise)
+      } : {}, {
+        e: common_vendor.unref(verifyStore).ifVerify
+      }, common_vendor.unref(verifyStore).ifVerify ? {} : {}, {
+        f: common_assets._imports_0$2,
+        g: common_assets._imports_1$1,
+        h: common_assets._imports_2$1,
+        i: common_vendor.o(open),
+        j: common_assets._imports_3$1,
+        k: common_vendor.o(exitLogin),
+        l: common_vendor.sr(popup, "0f7520f0-2", {
           "k": "popup"
         }),
-        j: common_vendor.p({
+        m: common_vendor.p({
           type: "center",
           ["border-radius"]: "10px 10px 0 0"
         })
-      };
+      });
     };
   }
 };

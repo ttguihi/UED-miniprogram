@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "查看页面",
+  "usingComponents": {
+    "custom-nav-bar": "../../../components/CustomNavBar/CustomNavBar"
+  }
+}

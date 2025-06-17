@@ -3,5 +3,18 @@
   "projectname": "UEDAIminiprogram",
   "setting": {
     "compileHotReLoad": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/business_line/business_info/business_info",
+          "pathName": "pages/business_line/business_info/business_info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }

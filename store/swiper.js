@@ -16,13 +16,13 @@ export const useSwiperStore = defineStore('swiper', () => {
 	const fetchSwiperData = async () => {
 		const response = await apiGetHomeData()
 		swiperData.value = response.banner;
-		newsData.value = response.informationList;
+		// newsData.value = response.informationList;
 	};
 
 	//return导出数据
 	return {
 		swiperData,
-		newsData,
+		// newsData,
 		fetchSwiperData
 	}, {
 		persist: true

@@ -2,7 +2,7 @@
 	<view class="page_top_background">
 
 	</view>
-	<CustomNavBar></CustomNavBar>
+	<CustomNavBar ifShowIcon :ifShowArrow="false"></CustomNavBar>
 	<view class="page">
 		<view class="decoration_part">
 			<view class="decoration">
@@ -107,7 +107,11 @@
 	import {
 		ref
 	} from 'vue';
+	import {
+		useVerifyStore
+	} from '../../store/verify';
 
+	const verifyStore = useVerifyStore()
 	const flag = ref(true)
 	// const sendCode = ('17756080942') => {
 	// 	a
@@ -117,6 +121,7 @@
 		console.log(res);
 	}
 	const wxLogin = () => { // 获取登录凭证
+		verifyStore.ifLogin = true
 		uni.login({
 			provider: 'weixin',
 			success: res => {

@@ -20,9 +20,7 @@
 			<view class="content">
 				{{params.texts}}
 				<view class="img">
-
 				</view>
-
 			</view>
 			<view class="recommend">
 				<view class="recommend_title">
@@ -50,16 +48,20 @@
 		ref
 	} from 'vue';
 	import {
-		useSwiperStore
-	} from '../../store/swiper';
-	const swiperStore = useSwiperStore()
-	onLoad(() => {
-		swiperStore.fetchSwiperData()
-	})
+		useInformationStore
+	} from '../../store/news';
+	const informationStore = useInformationStore()
 
+	// const swiperStore = useSwiperStore()
+	// onLoad(() => {
+	// 	swiperStore.fetchSwiperData()
+	// })
 	const newsData = ref([])
-	newsData.value = swiperStore.newsData
-	console.log(newsData.value);
+	newsData.value = informationStore.informationData
+	// newsData.value = uni.getStorageSync('informationList')
+	// const newsData = ref([])
+	// newsData.value = swiperStore.newsData
+	// console.log(newsData.value);
 	const InformationId = ref()
 	const params = ref()
 	onLoad(async (e) => {

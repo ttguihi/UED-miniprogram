@@ -162,8 +162,10 @@
   height: 0;
   border-top: 2rpx solid #c8c5be;
 }
+.page .contact_card .pop_part.data-v-6bf5d4b5 {
+  margin: 0 auto;
+}
 .page .contact_card .pop_part .contact_service.data-v-6bf5d4b5 {
-  width: 650rpx;
   height: 736rpx;
   background: linear-gradient(180deg, #FFFAED 0%, #FFFFFF 30%, #FFFFFF 64%, #FFFAED 100%);
   border-radius: 10rpx;

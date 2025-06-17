@@ -63,10 +63,11 @@
 		}
 	})
 	//解构出exampleCard并重命名为data
+
 	const {
 		exampleCard: data
 	} = props
-	console.log(data);
+	// console.log(data);
 	// console.log(props.exampleCard);
 	// 使用ref管理AI列表
 	const aiList = ref(['DeepSeek', '通义千问', '通义千问', '通义千问', '通义千问', '通义千问', 'KIMI', 'KIMI', 'KIMI']);
@@ -146,8 +147,8 @@
 				}
 
 				.info_name {
-					margin-top: 8rpx;
-					margin-bottom: 8rpx;
+					margin-top: 6rpx;
+					margin-bottom: 6rpx;
 					color: #666;
 					font-size: 24rpx;
 				}

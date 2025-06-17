@@ -8,3 +8,10 @@ export function apiGetExampleDetail(data = {}) {
 		data
 	})
 }
+
+export function apiGetExamples(data = {}) {
+	return request({
+		url: '/firm/getAllCase',
+		data
+	})
+}

@@ -17,6 +17,8 @@ if (!Math) {
   "./pages/news_detail/news_detail.js";
   "./pages/projects_management/projects_management.js";
   "./pages/business_line/business_line.js";
+  "./pages/business_line/business_info/business_info.js";
+  "./pages/business_line/view_info/view_info.js";
 }
 const _sfc_main = {
   onLaunch: function() {

@@ -33,39 +33,37 @@
 			</view>
 
 			<view class="form_part">
-				<uni-forms>
+				<uni-forms :rules="rules" :model="formData" ref="form">
 					<uni-forms-item label="姓名" name="name">
 						<view class="input">
-							<uni-easyinput type="text" />
-						</view>
-
-					</uni-forms-item>
-					<uni-forms-item label="电话" name="name">
-						<view class="input">
-							<uni-easyinput type="text" />
-						</view>
-					</uni-forms-item><uni-forms-item label="企业名称" name="name">
-						<view class="input">
-							<uni-easyinput type="text" />
-						</view>
-					</uni-forms-item><uni-forms-item label="备注" name="name">
-						<view class="input">
-							<uni-easyinput type="textarea" />
+							<uni-easyinput type="text" v-model="formData.name" />
 						</view>
 					</uni-forms-item>
-
+					<uni-forms-item label="电话" name="phone">
+						<view class="input">
+							<uni-easyinput type="text" v-model="formData.phone" />
+						</view>
+					</uni-forms-item>
+					<uni-forms-item label="企业名称" name="companyName">
+						<view class="input">
+							<uni-easyinput type="text" v-model="formData.companyName" />
+						</view>
+					</uni-forms-item>
+					<uni-forms-item label="备注" name="texts">
+						<view class="input">
+							<uni-easyinput type="textarea" v-model="formData.texts" />
+						</view>
+					</uni-forms-item>
 				</uni-forms>
 				<button class="submit" @click="open">提交</button>
 			</view>
 			<view class="last_part">
 				<view class="bline">
-
 				</view>
 				<view class="time">
 					有疑问?&nbsp;&nbsp;&nbsp;请联系我们
 				</view>
 				<view class="bline">
-
 				</view>
 			</view>
 			<view class="pop_part">
@@ -116,16 +114,13 @@
 								134-1101-0301
 							</view>
 							<view class="line">
-
 							</view>
 							<view class="dianji">
 								<view class="icon">
-
 								</view>
 								点击拨打
 							</view>
 						</view>
-
 					</view>
 
 					<view class="last">
@@ -168,12 +163,74 @@
 	import {
 		ref
 	} from 'vue'
-	//获取popup组件
-	const popup = ref()
-	//关闭和打开弹窗
-	const open = () => {
-		popup.value.open('center')
+
+	// Form data model
+	const formData = ref({
+		name: '',
+		phone: '',
+		companyName: '',
+		texts: ''
+	})
+
+	// Form validation rules
+	const rules = {
+		name: {
+			rules: [{
+					required: true,
+					errorMessage: '请输入姓名'
+				},
+				{
+					pattern: /^(?:[\u4e00-\u9fa5]{3,5}|[a-zA-Z\s]{1,10})$/,
+					errorMessage: "姓名无效"
+				}
+			]
+		},
+		phone: {
+			rules: [{
+					required: true,
+					errorMessage: '请输入手机号'
+				},
+				{
+					pattern: /^1[3-9]\d{9}$/,
+					errorMessage: '手机号格式不正确'
+				}
+			]
+		},
+		companyName: {
+			rules: [{
+					required: true,
+					errorMessage: '   请输入企业名称'
+				},
+				{
+					pattern: /^(?!(?:[a-zA-Z\s]+)$)[\u4e00-\u9fa5a-zA-Z0-9\s（）()]{1,20}$/,
+					errorMessage: "企业名称无效"
+				}
+			]
+		},
+		texts: {
+			rules: [{
+				required: false
+			}]
+		}
 	}
+
+	// Get form reference
+	const form = ref()
+
+	// Get popup component
+	const popup = ref()
+
+	// Open and close popup
+	const open = () => {
+		// Validate form before submitting
+		form.value.validate().then(res => {
+			console.log('Form data:', formData.value)
+			popup.value.open('center')
+		}).catch(err => {
+			console.log('Form validation failed:', err)
+		})
+	}
+
 	const close = () => {
 		popup.value.close()
 	}
@@ -357,8 +414,10 @@
 			}
 
 			.pop_part {
+				margin: 0 auto;
+
 				.contact_service {
-					width: 650rpx;
+
 					height: 736rpx;
 					background: linear-gradient(180deg, #FFFAED 0%, #FFFFFF 30%, #FFFFFF 64%, #FFFAED 100%);
 					border-radius: 10rpx;

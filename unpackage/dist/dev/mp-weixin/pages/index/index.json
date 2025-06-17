@@ -5,6 +5,7 @@
     "custom-tab-bar": "../../components/CustomTabBar",
     "example-card": "../../components/ExampleCard",
     "custom-nav-bar": "../../components/CustomNavBar/CustomNavBar",
-    "news-card": "../../components/NewsCard"
+    "news-card": "../../components/NewsCard",
+    "pop-up": "../../components/PopUp"
   }
 }

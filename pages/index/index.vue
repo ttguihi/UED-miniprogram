@@ -6,7 +6,7 @@
 		<CustomNavBar ifShowIcon :ifShowArrow="false"></CustomNavBar>
 		<view class="swiperArea">
 			<swiper autoplay="true" circular="true" style="width: 690rpx; margin: 0 auto;">
-				<swiper-item v-for="(item, index) in swiperStore.swiperData" :key="index">
+				<swiper-item v-for="(item, index) in banner" :key="index">
 					<navigator :url="item.linkurl" class="link" style="border-radius: 10rpx;">
 						<image :src="item.image" mode="widthFix" style="border-radius: 10rpx;"></image>
 					</navigator>
@@ -44,9 +44,14 @@
 
 								<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" enable-flex>
 
-									<view v-for="item in 10" :key="item+'item'" class="detail_pro ">
+									<view v-for="item in 10" :key="item+'item'" class="detail_pro"
+										v-if="verifyStore.ifLogin">
 										奥
 									</view>
+									<view v-for="item in 10" :key="item+'item'" class="default" v-else>
+
+									</view>
+
 								</scroll-view>
 							</view>
 
@@ -92,7 +97,6 @@
 						</navigator>
 
 					</view>
-
 				</view>
 			</view>
 			<view class="lineCard">
@@ -105,8 +109,8 @@
 					</view>
 				</view> -->
 
-				<navigator v-for="(item,index)  in itemList" :url="item.navigateUrl" :key="index + 'index'"
-					class="line_item">
+				<navigator v-for="(item,index)  in itemList" :url="index === 0 ? '' : item.navigateUrl"
+					:key="index + 'index'" class="line_item" @click="index === 0?openPop() : null">
 					<view class="line_box">
 						<view :class="`iconBox${index+1}`">
 						</view>
@@ -182,6 +186,7 @@
 		</view>
 
 		<view style="width: 100%;height: calc( 180rpx + env(safe-area-inset-bottom) / 2);"></view>
+		<PopUp ref="pop"></PopUp>
 		<CustomTabBar></CustomTabBar>
 	</view>
 </template>
@@ -192,7 +197,7 @@
 	import ExampleCard from '../../components/ExampleCard.vue'
 	import CustomNavBar from '../../components/CustomNavBar/CustomNavBar.vue';
 	import NewsCard from '../../components/NewsCard.vue';
-
+	import PopUp from '../../components/PopUp.vue';
 	// const bannerStore = useBannerStore()
 
 	// bannerStore.getBanner()
@@ -213,12 +218,24 @@
 		apiGetProjectsNum
 	} from '../../api/index/api';
 	import {
-		useSwiperStore
-	} from '../../store/swiper';
-	const swiperStore = useSwiperStore()
-	onLoad(() => {
-		swiperStore.fetchSwiperData()
-	})
+		useInformationStore
+	} from '../../store/news';
+	import {
+		useVerifyStore
+	} from '../../store/verify';
+
+	const verifyStore = useVerifyStore()
+	const pop = ref(null)
+	const openPop = (index) => {
+		if (pop.value) {
+			pop.value.open()
+		}
+	}
+	const informationStore = useInformationStore()
+	// onLoad(() => {
+	// 	swiperStore.fetchSwiperData()
+	// 	// console.log(swiperStore.banner);
+	// })
 	let itemList = ref([])
 	const flag = ref(false) //判断是否显示返回顶部按钮
 	const projectsNum = ref()
@@ -262,9 +279,9 @@
 			// console.log(res);
 			homeData.value = res
 			// console.log(homeData.value);
-			// banner.value = homeData.value.banner
+			banner.value = homeData.value.banner
 			// console.log(banner.value);
-			// uni.setStorageSync('bannerList', banner.value)
+			uni.setStorageSync('bannerList', banner.value)
 			//处理数据
 			// information.value = homeData.value.information
 			// console.log(homeData.value.information);
@@ -272,6 +289,9 @@
 				item.create_time = item.create_time.slice(0, 10)
 			})
 			information.value = homeData.value.informationList
+			informationStore.fetchData(information.value)
+			//存储到本地即可
+			uni.setStorageSync('informationList', information.value)
 			//首页最新资讯展示栏左边部分
 			informationLeft.value = information.value.filter((item, index) => {
 				// console.log(index);
@@ -538,6 +558,21 @@
 									align-items: center;
 
 								}
+
+								.default {
+
+									margin-right: 20rpx;
+									height: 100%;
+									aspect-ratio: 1;
+									background-color: #e4e7ff;
+									border-radius: 10rpx;
+									color: #8D28FC;
+									font-size: 34rpx;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+
+								}
 							}
 
 						}
@@ -672,8 +707,9 @@
 					padding-left: 24rpx;
 					align-items: center;
 					font-weight: 500;
-					box-shadow: 5rpx 5rpx 15rpx #f4f4fe;
+					// box-shadow: 5rpx 5rpx 15rpx #f4f4fe;
 					font-size: 24rpx;
+					box-shadow: 0rpx 4rpx 10rpx 0rpx rgba(0, 0, 0, 0.05);
 
 					.line_box {
 						display: flex;

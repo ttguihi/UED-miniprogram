@@ -4,22 +4,27 @@ const common_assets = require("../common/assets.js");
 const _sfc_main = {
   __name: "DetailExampleCard",
   props: {
-    companyName: String,
-    orderIcon: String,
-    orderName: String,
-    id: Number,
-    ifDetail: Boolean
+    data: {
+      type: Object,
+      default: () => ({})
+    }
   },
   setup(__props) {
     const props = __props;
-    common_vendor.index.__f__("log", "at components/DetailExampleCard.vue:42", props);
+    const data = common_vendor.ref();
+    common_vendor.ref();
+    data.value = props.data;
+    common_vendor.index.__f__("log", "at components/DetailExampleCard.vue:48", props.data);
     return (_ctx, _cache) => {
       return common_vendor.e({
-        a: !props.orderIcon
-      }, !props.orderIcon ? {
+        a: !data.value.image
+      }, !data.value.image ? {
         b: common_assets._imports_0$3
       } : {}, {
-        c: `url(${props.orderIcon})`
+        c: `url(${data.value.image})`,
+        d: common_vendor.t(data.value.orderName),
+        e: common_vendor.t(data.value.companyName),
+        f: common_vendor.t(data.value.projectName)
       });
     };
   }

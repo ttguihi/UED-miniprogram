@@ -19,9 +19,64 @@ const CustomNavBar = () => "../../components/CustomNavBar/CustomNavBar.js";
 const _sfc_main = {
   __name: "contact",
   setup(__props) {
+    const formData = common_vendor.ref({
+      name: "",
+      phone: "",
+      companyName: "",
+      texts: ""
+    });
+    const rules = {
+      name: {
+        rules: [
+          {
+            required: true,
+            errorMessage: "请输入姓名"
+          },
+          {
+            pattern: /^(?:[\u4e00-\u9fa5]{3,5}|[a-zA-Z\s]{1,10})$/,
+            errorMessage: "姓名无效"
+          }
+        ]
+      },
+      phone: {
+        rules: [
+          {
+            required: true,
+            errorMessage: "请输入手机号"
+          },
+          {
+            pattern: /^1[3-9]\d{9}$/,
+            errorMessage: "手机号格式不正确"
+          }
+        ]
+      },
+      companyName: {
+        rules: [
+          {
+            required: true,
+            errorMessage: "   请输入企业名称"
+          },
+          {
+            pattern: /^(?!(?:[a-zA-Z\s]+)$)[\u4e00-\u9fa5a-zA-Z0-9\s（）()]{1,20}$/,
+            errorMessage: "企业名称无效"
+          }
+        ]
+      },
+      texts: {
+        rules: [{
+          required: false
+        }]
+      }
+    };
+    const form = common_vendor.ref();
     const popup = common_vendor.ref();
     const open = () => {
-      popup.value.open("center");
+      form.value.validate().then((res) => {
+        common_vendor.index.__f__("log", "at pages/contact/contact.vue:227", "Form data:", formData.value);
+        popup.value.open("center");
+      }).catch((err) => {
+        common_vendor.index.__f__("log", "at pages/contact/contact.vue:230", "Form validation failed:", err);
+      });
     };
     const close = () => {
       popup.value.close();
@@ -33,40 +88,55 @@ const _sfc_main = {
           navigateType: "switchTab"
         }),
         b: common_assets._imports_0$1,
-        c: common_vendor.p({
-          type: "text"
-        }),
+        c: common_vendor.o(($event) => formData.value.name = $event),
         d: common_vendor.p({
+          type: "text",
+          modelValue: formData.value.name
+        }),
+        e: common_vendor.p({
           label: "姓名",
           name: "name"
         }),
-        e: common_vendor.p({
-          type: "text"
-        }),
-        f: common_vendor.p({
-          label: "电话",
-          name: "name"
-        }),
+        f: common_vendor.o(($event) => formData.value.phone = $event),
         g: common_vendor.p({
-          type: "text"
+          type: "text",
+          modelValue: formData.value.phone
         }),
         h: common_vendor.p({
-          label: "企业名称",
-          name: "name"
+          label: "电话",
+          name: "phone"
         }),
-        i: common_vendor.p({
-          type: "textarea"
-        }),
+        i: common_vendor.o(($event) => formData.value.companyName = $event),
         j: common_vendor.p({
-          label: "备注",
-          name: "name"
+          type: "text",
+          modelValue: formData.value.companyName
         }),
-        k: common_vendor.o(open),
-        l: common_vendor.o(close),
-        m: common_vendor.sr(popup, "6bf5d4b5-10", {
-          "k": "popup"
+        k: common_vendor.p({
+          label: "企业名称",
+          name: "companyName"
+        }),
+        l: common_vendor.o(($event) => formData.value.texts = $event),
+        m: common_vendor.p({
+          type: "textarea",
+          modelValue: formData.value.texts
         }),
         n: common_vendor.p({
+          label: "备注",
+          name: "texts"
+        }),
+        o: common_vendor.sr(form, "6bf5d4b5-1", {
+          "k": "form"
+        }),
+        p: common_vendor.p({
+          rules,
+          model: formData.value
+        }),
+        q: common_vendor.o(open),
+        r: common_vendor.o(close),
+        s: common_vendor.sr(popup, "6bf5d4b5-10", {
+          "k": "popup"
+        }),
+        t: common_vendor.p({
           type: "center",
           ["is-mask-click"]: false
         })

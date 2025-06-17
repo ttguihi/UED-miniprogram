@@ -8,30 +8,35 @@ const AIKindCard = () => "./AIKindCard.js";
 const _sfc_main = {
   __name: "ExampleCard",
   props: {
-    companyName: String,
-    orderIcon: String,
-    orderName: String,
-    id: Number,
-    ifDetail: Boolean
+    // companyName: String,
+    // orderIcon: String,
+    // orderName: String,
+    // id: Number,
+    //传入对象
+    exampleCard: {
+      type: Object,
+      default: () => ({})
+    }
   },
   setup(__props) {
     const props = __props;
-    common_vendor.index.__f__("log", "at components/ExampleCard.vue:61", props);
-    const aiList = common_vendor.ref(["DeepSeek", "通义千问", "通义千问", "通义千问", "KIMI", "KIMI", "KIMI", "KIMI"]);
-    if (aiList.value.length >= 7) {
-      aiList.value[6] = "......";
-      aiList.value = aiList.value.slice(0, 7);
-      common_vendor.index.__f__("log", "at components/ExampleCard.vue:69", aiList.value);
+    const {
+      exampleCard: data
+    } = props;
+    const aiList = common_vendor.ref(["DeepSeek", "通义千问", "通义千问", "通义千问", "通义千问", "通义千问", "KIMI", "KIMI", "KIMI"]);
+    if (aiList.value.length >= 6) {
+      aiList.value[5] = "......";
+      aiList.value = aiList.value.slice(0, 6);
     }
     return (_ctx, _cache) => {
       return common_vendor.e({
-        a: !props.orderIcon
-      }, !props.orderIcon ? {
+        a: !common_vendor.unref(data).image
+      }, !common_vendor.unref(data).image ? {
         b: common_assets._imports_0$3
       } : {}, {
-        c: `url(${props.orderIcon})`,
-        d: common_vendor.t(props.orderName),
-        e: common_vendor.t(props.companyName),
+        c: `url(${common_vendor.unref(data).image})`,
+        d: common_vendor.t(common_vendor.unref(data).orderName),
+        e: common_vendor.t(common_vendor.unref(data).companyName),
         f: common_vendor.f(aiList.value, (item, k0, i0) => {
           return {
             a: common_vendor.t(item),
@@ -41,8 +46,8 @@ const _sfc_main = {
         g: common_vendor.p({
           size: "small"
         }),
-        h: common_vendor.t(props.orderName),
-        i: "/pages/example_detail/example_detail?id=" + props.id
+        h: common_vendor.t(common_vendor.unref(data).orderName),
+        i: "/pages/example_detail/example_detail?id=" + common_vendor.unref(data).id
       });
     };
   }

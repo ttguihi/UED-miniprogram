@@ -3,16 +3,27 @@ const common_vendor = require("../../common/vendor.js");
 const common_assets = require("../../common/assets.js");
 const api_api = require("../../api/api.js");
 const api_index_api = require("../../api/index/api.js");
+const store_news = require("../../store/news.js");
+const store_verify = require("../../store/verify.js");
 if (!Math) {
-  (CustomNavBar + ExampleCard + NewsCard + CustomTabBar)();
+  (CustomNavBar + ExampleCard + NewsCard + PopUp + CustomTabBar)();
 }
 const CustomTabBar = () => "../../components/CustomTabBar.js";
 const ExampleCard = () => "../../components/ExampleCard.js";
 const CustomNavBar = () => "../../components/CustomNavBar/CustomNavBar.js";
 const NewsCard = () => "../../components/NewsCard.js";
+const PopUp = () => "../../components/PopUp.js";
 const _sfc_main = {
   __name: "index",
   setup(__props) {
+    const verifyStore = store_verify.useVerifyStore();
+    const pop = common_vendor.ref(null);
+    const openPop = (index) => {
+      if (pop.value) {
+        pop.value.open();
+      }
+    };
+    const informationStore = store_news.useInformationStore();
     let itemList = common_vendor.ref([]);
     const flag = common_vendor.ref(false);
     const projectsNum = common_vendor.ref();
@@ -46,14 +57,14 @@ const _sfc_main = {
     const getHomeData = () => {
       api_api.apiGetHomeData().then((res) => {
         homeData.value = res;
-        common_vendor.index.__f__("log", "at pages/index/index.vue:257", homeData.value);
         banner.value = homeData.value.banner;
         common_vendor.index.setStorageSync("bannerList", banner.value);
-        common_vendor.index.__f__("log", "at pages/index/index.vue:263", homeData.value.information);
         homeData.value.informationList.map((item) => {
           item.create_time = item.create_time.slice(0, 10);
         });
         information.value = homeData.value.informationList;
+        informationStore.fetchData(information.value);
+        common_vendor.index.setStorageSync("informationList", information.value);
         informationLeft.value = information.value.filter((item, index) => {
           return index % 2 == 0;
         });
@@ -66,7 +77,6 @@ const _sfc_main = {
     };
     const getProjectsNum = () => {
       api_index_api.apiGetProjectsNum().then((res) => {
-        common_vendor.index.__f__("log", "at pages/index/index.vue:286", res);
         projectsNum.value = res.projectNumber;
       });
     };
@@ -86,7 +96,7 @@ const _sfc_main = {
     getHomeData();
     getProjectsNum();
     return (_ctx, _cache) => {
-      return {
+      return common_vendor.e({
         a: common_vendor.p({
           ifShowIcon: true,
           ifShowArrow: false
@@ -100,65 +110,70 @@ const _sfc_main = {
         }),
         c: common_assets._imports_0,
         d: common_vendor.t(projectsNum.value),
-        e: common_vendor.f(10, (item, k0, i0) => {
+        e: common_vendor.unref(verifyStore).ifLogin
+      }, common_vendor.unref(verifyStore).ifLogin ? {
+        f: common_vendor.f(10, (item, k0, i0) => {
           return {
             a: item + "item"
           };
-        }),
-        f: common_vendor.o((...args) => _ctx.scroll && _ctx.scroll(...args)),
-        g: common_assets._imports_1,
-        h: common_assets._imports_2,
-        i: common_assets._imports_3,
-        j: common_vendor.f(common_vendor.unref(itemList), (item, index, i0) => {
+        })
+      } : {
+        g: common_vendor.f(10, (item, k0, i0) => {
+          return {
+            a: item + "item"
+          };
+        })
+      }, {
+        h: common_vendor.o((...args) => _ctx.scroll && _ctx.scroll(...args)),
+        i: common_assets._imports_1,
+        j: common_assets._imports_2,
+        k: common_assets._imports_3,
+        l: common_vendor.f(common_vendor.unref(itemList), (item, index, i0) => {
           return {
             a: common_vendor.n(`iconBox${index + 1}`),
             b: common_vendor.t(item.text),
-            c: item.navigateUrl,
-            d: index + "index"
+            c: index === 0 ? "" : item.navigateUrl,
+            d: index + "index",
+            e: common_vendor.o(($event) => index === 0 ? openPop() : null, index + "index")
           };
         }),
-        k: common_vendor.t(information.value[0].title),
-        l: common_vendor.t(information.value[0].create_time),
-        m: common_vendor.o(gotoNews),
-        n: common_vendor.f(orderList.value, (item, index, i0) => {
+        m: common_vendor.t(information.value[0].title),
+        n: common_vendor.t(information.value[0].create_time),
+        o: common_vendor.o(gotoNews),
+        p: common_vendor.f(orderList.value, (item, index, i0) => {
           return {
-            a: item.id,
-            b: index,
-            c: "1cf27b2a-1-" + i0,
-            d: common_vendor.p({
-              companyName: item.companyName,
-              orderIcon: item.image,
-              id: item.id,
-              orderName: item.orderName
+            a: index,
+            b: "1cf27b2a-1-" + i0,
+            c: common_vendor.p({
+              exampleCard: item
             })
           };
         }),
-        o: common_vendor.f(informationLeft.value, (item, index, i0) => {
+        q: common_vendor.f(informationLeft.value, (item, index, i0) => {
           return {
-            a: index,
+            a: index + `${item.id}`,
             b: "1cf27b2a-2-" + i0,
             c: common_vendor.p({
-              title: item.title,
-              createTime: item.create_time,
-              imageUrl: item.image
+              newsCard: item
             })
           };
         }),
-        p: common_vendor.f(informationRight.value, (item, index, i0) => {
+        r: common_vendor.f(informationRight.value, (item, index, i0) => {
           return {
-            a: index,
+            a: index + `${item.id}`,
             b: "1cf27b2a-3-" + i0,
             c: common_vendor.p({
-              title: item.title,
-              createTime: item.create_time,
-              imageUrl: item.image
+              newsCard: item
             })
           };
         }),
-        q: flag.value ? 1 : "",
-        r: common_vendor.o(goTop),
-        s: flag.value
-      };
+        s: flag.value ? 1 : "",
+        t: common_vendor.o(goTop),
+        v: flag.value,
+        w: common_vendor.sr(pop, "1cf27b2a-4", {
+          "k": "pop"
+        })
+      });
     };
   }
 };

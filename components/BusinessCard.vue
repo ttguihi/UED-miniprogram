@@ -1,5 +1,5 @@
 <template>
-	<view class="cardArea" :class="[card_status]">
+	<view class="cardArea" :class="[card_status]" @click="gotoDetail">
 		<view class="business_name">
 			佛山中秋月饼
 		</view>
@@ -38,6 +38,11 @@
 		'green': '已生效',
 		'orange': '进行中'
 	})
+	const gotoDetail = () => {
+		uni.navigateTo({
+			url: '/pages/business_line/business_info/business_info'
+		})
+	}
 </script>
 <style lang="scss" scoped>
 	/*动态类*/

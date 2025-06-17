@@ -1,5 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const store_swiper = require("../../store/swiper.js");
 if (!Array) {
   const _easycom_uni_easyinput2 = common_vendor.resolveComponent("uni-easyinput");
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
@@ -14,13 +15,13 @@ const CustomNavBar = () => "../../components/CustomNavBar/CustomNavBar.js";
 const _sfc_main = {
   __name: "searchAIRO",
   setup(__props) {
-    const banner = common_vendor.index.getStorageSync("bannerList");
+    const swiperStore = store_swiper.useSwiperStore();
     return (_ctx, _cache) => {
       return {
         a: common_vendor.p({
           title: "AIRO查询"
         }),
-        b: common_vendor.f(common_vendor.unref(banner), (item, index, i0) => {
+        b: common_vendor.f(common_vendor.unref(swiperStore).swiperData, (item, index, i0) => {
           return {
             a: item.image,
             b: item.linkurl,

@@ -57,7 +57,7 @@
 		</view>
 
 		<view class="enterprise_card">
-			<view class="quick" @click="gotoRecognise">
+			<view class="quick" @click="gotoRecognise" v-if="!verifyStore.ifVerify">
 				立即认证
 				<view class="right_arrow" style="margin-left: 10rpx;color: #a659fa;">
 
@@ -69,8 +69,11 @@
 
 				</view>
 
-				<view class="enterprise_name">
+				<view class="enterprise_name" v-if="verifyStore.ifVerify">
 					广东省友益典文化科技有限公司
+				</view>
+				<view class="enterprise_name" v-else>
+					请先绑定信息
 				</view>
 			</view>
 			<view class="points">
@@ -87,37 +90,6 @@
 					</view>
 				</view>
 			</view>
-			<!-- <view class="enterprise_info">
-				<view class="info_details">
-					<view class="range" style="margin-right: 52rpx;">
-						<view class="range_title">
-							业务范围
-						</view>
-						<view class="range_content">
-							{{enterpriseInfo.businessId}}
-						</view>
-					</view>
-					<view class="range">
-						<view class="range_title">
-							对公账户
-						</view>
-						<view class="range_content">
-							{{enterpriseInfo.account}}
-						</view>
-					</view>
-					<view class="range">
-						<view class="range_title">
-							对公账户地址
-						</view>
-						<view class="range_content">
-							{{enterpriseInfo.accountAddress}}
-						</view>
-					</view>
-				</view>
-				<view class="license">
-					<image :src="enterpriseInfo.imageurl" mode=""></image>
-				</view>
-			</view> -->
 
 		</view>
 
@@ -162,7 +134,7 @@
 					<view class="row_icon ">
 						<image src="/common/images/user/exit.svg" mode=""></image>
 					</view>
-					<view class="row_text">
+					<view class="row_text" @click="exitLogin">
 						退出登陆
 					</view>
 				</view>
@@ -257,8 +229,12 @@
 	} from "@/api/api.js";
 	import {
 		ref
-	} from 'vue'
-	import EventEmitter from "events";
+	} from 'vue';
+
+	import {
+		useVerifyStore
+	} from "../../store/verify";
+	const verifyStore = useVerifyStore()
 	const userInfo = ref({})
 	const enterpriseInfo = ref({})
 
@@ -280,6 +256,12 @@
 	const goBack = () => {
 		uni.switchTab({
 			url: '/pages/index/index'
+		})
+	}
+
+	const exitLogin = () => {
+		uni.navigateTo({
+			url: "/pages/login/login"
 		})
 	}
 	//获取用户信息接口

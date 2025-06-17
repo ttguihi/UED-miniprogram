@@ -23,6 +23,11 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
 /*每个页面公共css */
 view, swiper, swiper-item {
   box-sizing: border-box;

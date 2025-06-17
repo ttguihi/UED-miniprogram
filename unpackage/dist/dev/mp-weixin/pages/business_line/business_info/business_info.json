@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "业务线信息",
+  "usingComponents": {
+    "custom-nav-bar": "../../../components/CustomNavBar/CustomNavBar"
+  }
+}

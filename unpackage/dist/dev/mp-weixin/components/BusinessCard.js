@@ -13,11 +13,17 @@ const _sfc_main = {
       "green": "已生效",
       "orange": "进行中"
     });
+    const gotoDetail = () => {
+      common_vendor.index.navigateTo({
+        url: "/pages/business_line/business_info/business_info"
+      });
+    };
     return (_ctx, _cache) => {
       return {
         a: common_vendor.t(obj[props.status]),
         b: common_vendor.n(`status_${props.status}`),
-        c: common_vendor.n(card_status.value)
+        c: common_vendor.n(card_status.value),
+        d: common_vendor.o(gotoDetail)
       };
     };
   }

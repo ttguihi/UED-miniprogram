@@ -212,6 +212,18 @@
   justify-content: center;
   align-items: center;
 }
+.page .mainMenu .cardArea .projectCard .goingProjects .detail_projects .scroll-view_H .default.data-v-1cf27b2a {
+  margin-right: 20rpx;
+  height: 100%;
+  aspect-ratio: 1;
+  background-color: #e4e7ff;
+  border-radius: 10rpx;
+  color: #8D28FC;
+  font-size: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .page .mainMenu .cardArea .projectCard .goingProjects.data-v-1cf27b2a::after {
   content: "";
   position: absolute;
@@ -320,8 +332,8 @@
   padding-left: 24rpx;
   align-items: center;
   font-weight: 500;
-  box-shadow: 5rpx 5rpx 15rpx #f4f4fe;
   font-size: 24rpx;
+  box-shadow: 0rpx 4rpx 10rpx 0rpx rgba(0, 0, 0, 0.05);
 }
 .page .mainMenu .lineCard .line_item .line_box.data-v-1cf27b2a {
   display: flex;
