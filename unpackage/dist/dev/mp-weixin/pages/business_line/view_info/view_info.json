@@ -2,6 +2,8 @@
   "navigationStyle": "custom",
   "navigationBarTitleText": "查看页面",
   "usingComponents": {
-    "custom-nav-bar": "../../../components/CustomNavBar/CustomNavBar"
+    "custom-nav-bar": "../../../components/CustomNavBar/CustomNavBar",
+    "my-select": "../../../components/MySelect/components/uni-data-select/uni-data-select",
+    "date-picker": "../../../components/DatePicker/DatePicker"
   }
 }

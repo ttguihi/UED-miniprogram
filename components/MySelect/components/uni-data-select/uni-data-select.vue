@@ -4,13 +4,17 @@
 		<view class="uni-stat-box" :class="{'uni-stat__actived': current}">
 			<view class="uni-select" :class="{'uni-select--disabled':disabled}">
 				<view class="uni-select__input-box" @click="toggleSelector">
-					<view v-if="current" class="uni-select__input-text">{{textShow}}</view>
+					<view v-if="current" class="uni-select__input-text">
+						<view class="linear">
+							{{textShow}}
+						</view>
+					</view>
 					<view v-else class="uni-select__input-text uni-select__input-placeholder">{{typePlaceholder}}</view>
 					<view key="clear-button" v-if="current && clear && !disabled" @click.stop="clearVal">
 						<uni-icons type="clear" color="#c0c4cc" size="24" />
 					</view>
 					<view key="arrow-button" v-else>
-						<uni-icons :type="showSelector? 'top' : 'bottom'" size="24" color="#000" />
+						<uni-icons :type="showSelector? 'top' : 'bottom'" size="20" color="#000" />
 					</view>
 				</view>
 				<view class="uni-select--mask" v-if="showSelector" @click="toggleSelector" />
@@ -324,7 +328,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	$uni-base-color: #6a6a6a !default;
 	$uni-main-color: #333 !default;
 	$uni-secondary-color: #909399 !default;
@@ -351,10 +355,20 @@
 	}
 
 	.uni-stat-box {
+		position: relative;
+		/* 关键！ */
+		border-radius: 10rpx;
 		background-color: #fff;
+		background-clip: padding-box;
+		/* 防止背景覆盖边框 */
 		width: 100%;
 		flex: 1;
+		// border: 2rpx solid red;
+
+
 	}
+
+
 
 	.uni-stat__actived {
 		width: 100%;
@@ -372,9 +386,9 @@
 
 	.uni-select {
 		font-size: 14px;
-		border: 1px solid $uni-border-3;
+		// border: 1px solid $uni-border-3;
 		box-sizing: border-box;
-		border-radius: 4px;
+		border-radius: 10rpx;
 		padding: 0 5px;
 		padding-left: 10px;
 		position: relative;
@@ -384,7 +398,7 @@
 		/* #endif */
 		flex-direction: row;
 		align-items: center;
-		border-bottom: solid 1px $uni-border-3;
+		// border-bottom: solid 1px $uni-border-3;
 		width: 100%;
 		flex: 1;
 		height: 35px;
@@ -392,6 +406,20 @@
 		&--disabled {
 			background-color: #f5f7fa;
 			cursor: not-allowed;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: -2rpx;
+			bottom: -2rpx;
+			border: 2rpx solid transparent;
+			border-radius: inherit;
+			background: linear-gradient(90deg, rgba(148, 56, 252, 1), rgba(105, 136, 250, 1)) border-box;
+			-webkit-mask: linear-gradient(#fff, #fff) padding-box, linear-gradient(#fff, #fff);
+			-webkit-mask-composite: xor;
 		}
 	}
 
@@ -404,6 +432,7 @@
 	}
 
 	.uni-select__input-box {
+		padding-left: 16rpx;
 		height: 35px;
 		width: 0px;
 		position: relative;
@@ -436,7 +465,7 @@
 		width: 100%;
 		background-color: #FFFFFF;
 		border: 1px solid #EBEEF5;
-		border-radius: 6px;
+		border-radius: 10rpx;
 		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 		z-index: 3;
 		padding: 4px 0;
@@ -536,7 +565,6 @@
 		border-top-color: #fff;
 	}
 
-
 	.uni-select__input-text {
 		// width: 280px;
 		width: 100%;
@@ -545,6 +573,15 @@
 		text-overflow: ellipsis;
 		-o-text-overflow: ellipsis;
 		overflow: hidden;
+
+		.linear {
+			background: linear-gradient(to right, #2c55f5, #8e3efb);
+			color: transparent;
+			-webkit-background-clip: text;
+			width: fit-content;
+			height: 100%;
+			background-color: pink;
+		}
 	}
 
 	.uni-select__input-placeholder {

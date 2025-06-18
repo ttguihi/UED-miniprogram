@@ -23,6 +23,38 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.data-v-53d505d5  .date-picker {
+  height: 100% !important;
+}
+.data-v-53d505d5  .uni-swiper-dots {
+  display: flex;
+  gap: 12rpx;
+}
+.data-v-53d505d5  .uni-swiper-dot {
+  width: 20rpx;
+  height: 20rpx;
+}
+.data-v-53d505d5  .uni-swiper-dots-horizontal {
+  bottom: 2rpx !important;
+}
+.data-v-53d505d5  .uni-select {
+  height: 80rpx;
+}
+.data-v-53d505d5  .uni-select__input-text {
+  font-size: 32rpx;
+  font-weight: 700;
+  position: relative;
+}
+.data-v-53d505d5  .uni-select__input-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, #FF5F6D, #FFC371);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .page_top_background.data-v-53d505d5 {
   z-index: 0;
   mix-blend-mode: multiply;
@@ -40,4 +72,86 @@
   background: rgba(255, 255, 255, 0.7);
   margin-top: 20rpx;
   position: relative;
+}
+.page .business_card .AI_select.data-v-53d505d5 {
+  margin-bottom: 18rpx;
+}
+.page .business_card .Date_select.data-v-53d505d5 {
+  margin-bottom: 16rpx;
+}
+.page .business_card .display_area.data-v-53d505d5 {
+  width: 100%;
+  height: 780rpx;
+  border-radius: 20rpx 20rpx 20rpx 20rpx;
+  background-color: transparent;
+  position: relative;
+}
+.page .business_card .display_area .left.data-v-53d505d5 {
+  left: -35rpx;
+  transform: rotate(135deg);
+}
+.page .business_card .display_area .right.data-v-53d505d5 {
+  right: -35rpx;
+  transform: rotate(-45deg);
+}
+.page .business_card .display_area .arrow.data-v-53d505d5 {
+  position: absolute;
+  top: 323rpx;
+  z-index: 1;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.page .business_card .display_area .arrow.data-v-53d505d5::after {
+  content: "";
+  position: absolute;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 0rpx 0rpx 0rpx 0rpx;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
+  border-bottom: 4rpx solid #000000;
+  border-right: 4rpx solid #000000;
+}
+.page .business_card .display_area .arrow.data-v-53d505d5::before {
+  content: "";
+  position: absolute;
+  top: -2rpx;
+  left: -2rpx;
+  right: -2rpx;
+  bottom: -2rpx;
+  border: 2rpx solid transparent;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #9438fc, #6988fa) border-box;
+  -webkit-mask: linear-gradient(#fff, #fff) padding-box, linear-gradient(#fff, #fff);
+  -webkit-mask-composite: xor;
+}
+.page .business_card .display_area swiper.data-v-53d505d5 {
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx 20rpx 20rpx 20rpx;
+  overflow: hidden;
+}
+.page .business_card .display_area swiper-item.data-v-53d505d5 {
+  width: 100%;
+  height: 716rpx;
+  border-radius: 20rpx 20rpx 20rpx 20rpx;
+  overflow: hidden;
+}
+.page .business_card .display_area swiper-item .link.data-v-53d505d5 {
+  width: 100%;
+  height: 716rpx;
+  border-radius: 20rpx 20rpx 20rpx 20rpx;
+  overflow: hidden;
+  box-shadow: 0rpx 10rpx 15rpx 0rpx rgba(0, 0, 0, 0.05);
+}
+.page .business_card .display_area swiper-item .link image.data-v-53d505d5 {
+  box-shadow: 0rpx 10rpx 15rpx 0rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx 20rpx 20rpx 20rpx;
 }

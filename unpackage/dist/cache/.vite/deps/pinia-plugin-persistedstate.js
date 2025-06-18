@@ -1,3 +1,5 @@
+import "./chunk-Y2F7D3TJ.js";
+
 // ../../../../UEDAIminiprogram/node_modules/pinia-plugin-persistedstate/dist/index.js
 function isObject(v) {
   return typeof v === "object" && v !== null;
