@@ -345,7 +345,7 @@
 		/* #ifdef H5 */
 		cursor: pointer;
 		/* #endif */
-		width: 100%;
+		// width: 100%;
 		flex: 1;
 		box-sizing: border-box;
 	}
@@ -385,7 +385,7 @@
 		flex-direction: row;
 		align-items: center;
 		border-bottom: solid 1px $uni-border-3;
-		width: 100%;
+		// width: 100%;
 		flex: 1;
 		height: 35px;
 
@@ -405,7 +405,7 @@
 
 	.uni-select__input-box {
 		height: 35px;
-		width: 0px;
+		// width: 100%;
 		position: relative;
 		/* #ifndef APP-NVUE */
 		display: flex;
@@ -433,7 +433,7 @@
 		/* #endif */
 		position: absolute;
 		left: 0;
-		width: 100%;
+		// width: 100%;
 		background-color: #FFFFFF;
 		border: 1px solid #EBEEF5;
 		border-radius: 6px;
@@ -539,7 +539,7 @@
 
 	.uni-select__input-text {
 		// width: 280px;
-		width: 100%;
+		// width: 100%;
 		color: $uni-main-color;
 		white-space: nowrap;
 		text-overflow: ellipsis;

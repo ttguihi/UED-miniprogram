@@ -19,6 +19,7 @@ if (!Math) {
   "./pages/business_line/business_line.js";
   "./pages/business_line/business_info/business_info.js";
   "./pages/business_line/view_info/view_info.js";
+  "./pages/projects_management/add_project/add_project.js";
 }
 const _sfc_main = {
   onLaunch: function() {

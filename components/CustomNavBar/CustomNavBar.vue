@@ -71,6 +71,8 @@
 	}
 
 	.layout {
+		height: 10vh;
+
 		.navbar {
 			position: fixed;
 			top: 0;

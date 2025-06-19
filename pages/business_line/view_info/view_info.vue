@@ -26,7 +26,7 @@
 							</image>
 						</view>
 					</swiper-item>
-
+					<!-- <uni-load-more color="#007AFF" /> -->
 				</swiper>
 				<view class="arrow right" @click="goNext">
 

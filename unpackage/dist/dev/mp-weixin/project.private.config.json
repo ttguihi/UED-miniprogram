@@ -8,22 +8,15 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/business_line/business_info/business_info",
-          "pathName": "pages/business_line/business_info/business_info",
+          "name": "pages/projects_management/projects_management",
+          "pathName": "pages/projects_management/projects_management",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "pages/business_line/view_info/view_info",
-          "pathName": "pages/business_line/view_info/view_info",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/business_line/business_info/business_info",
-          "pathName": "pages/business_line/business_info/business_info",
+          "name": "pages/projects_management/projects_management",
+          "pathName": "pages/projects_management/projects_management",
           "query": "",
           "launchMode": "default",
           "scene": null

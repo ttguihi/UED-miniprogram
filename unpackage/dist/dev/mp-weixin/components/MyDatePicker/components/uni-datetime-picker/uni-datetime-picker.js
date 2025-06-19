@@ -312,9 +312,6 @@ const _sfc_main = {
     },
     show() {
       this.$emit("show");
-      if (this.disabled) {
-        return;
-      }
       this.platform();
       if (this.isPhone) {
         setTimeout(() => {

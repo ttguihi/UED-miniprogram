@@ -2,11 +2,13 @@
 const common_vendor = require("../../../common/vendor.js");
 if (!Array) {
   const _easycom_CustomNavBar2 = common_vendor.resolveComponent("CustomNavBar");
-  _easycom_CustomNavBar2();
+  const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
+  (_easycom_CustomNavBar2 + _easycom_uni_icons2)();
 }
 const _easycom_CustomNavBar = () => "../../../components/CustomNavBar/CustomNavBar.js";
+const _easycom_uni_icons = () => "../../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
 if (!Math) {
-  _easycom_CustomNavBar();
+  (_easycom_CustomNavBar + _easycom_uni_icons)();
 }
 const _sfc_main = {
   __name: "business_info",
@@ -29,23 +31,27 @@ const _sfc_main = {
         a: common_vendor.p({
           title: ""
         }),
-        b: foldStates.value[1] ? 1 : "",
-        c: common_vendor.o(($event) => toggleFold(1)),
-        d: foldStates.value[1] ? 1 : "",
-        e: foldStates.value[2] ? 1 : "",
-        f: common_vendor.o(($event) => toggleFold(2)),
-        g: common_vendor.f(10, (item, k0, i0) => {
+        b: common_vendor.p({
+          type: "right",
+          color: "#9e4cfc"
+        }),
+        c: foldStates.value[1] ? 1 : "",
+        d: common_vendor.o(($event) => toggleFold(1)),
+        e: foldStates.value[1] ? 1 : "",
+        f: foldStates.value[2] ? 1 : "",
+        g: common_vendor.o(($event) => toggleFold(2)),
+        h: common_vendor.f(10, (item, k0, i0) => {
           return {
             a: common_vendor.o(gotoView)
           };
         }),
-        h: foldStates.value[2] ? 1 : "",
-        i: foldStates.value[3] ? 1 : "",
-        j: common_vendor.o(($event) => toggleFold(3)),
-        k: common_vendor.f(10, (item, k0, i0) => {
+        i: foldStates.value[2] ? 1 : "",
+        j: foldStates.value[3] ? 1 : "",
+        k: common_vendor.o(($event) => toggleFold(3)),
+        l: common_vendor.f(10, (item, k0, i0) => {
           return {};
         }),
-        l: foldStates.value[3] ? 1 : ""
+        m: foldStates.value[3] ? 1 : ""
       };
     };
   }

@@ -55,6 +55,9 @@
 }
 .page .business_card .beforeBetter.data-v-1d9b9c41 {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 200rpx;
   height: 62rpx;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
@@ -62,6 +65,8 @@
   opacity: 0.6;
   right: 0;
   top: 32rpx;
+  color: #9e4cfc;
+  font-size: 24rpx;
 }
 .page .business_card .title .title_title.data-v-1d9b9c41 {
   display: flex;

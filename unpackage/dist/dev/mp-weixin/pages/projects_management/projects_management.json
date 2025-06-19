@@ -2,6 +2,9 @@
   "navigationStyle": "custom",
   "navigationBarTitleText": "项目管理",
   "usingComponents": {
-    "custom-nav-bar": "../../components/CustomNavBar/CustomNavBar"
+    "uni-easyinput": "../../uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput",
+    "uni-data-select": "../../uni_modules/uni-data-select/components/uni-data-select/uni-data-select",
+    "custom-nav-bar": "../../components/CustomNavBar/CustomNavBar",
+    "project-card": "../../components/ProjectCard"
   }
 }

@@ -36,7 +36,10 @@
 			<view class="phase">
 				<view class="phase_title" @click="toggleFold(1)">
 					第一期启动时间：2025-05-22
-					<view class="bottom_arrow" :class="{ 'rotate-arrow': foldStates[1] }"></view>
+					<view class="bottom_arrow" :class="{ 'rotate-arrow': foldStates[1] }">
+
+
+					</view>
 				</view>
 				<view class="phase_main" :class="{ 'show': foldStates[1] }">
 					<view class="phase_item">

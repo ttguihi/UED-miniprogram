@@ -35,6 +35,9 @@
   height: 50rpx;
   margin-right: 18rpx;
 }
+.layout.data-v-eb837262 {
+  height: 10vh;
+}
 .layout .navbar.data-v-eb837262 {
   position: fixed;
   top: 0;
