@@ -57,13 +57,15 @@
 		let res = await apiGetExampleDetail({
 			caseId: caseId.value
 		})
+		console.log(res.data);
 		params.value = res
+		// console.log(params.value);
 		//解构赋值 
 		data.value = {
-			companyName: res.companyName,
-			orderName: res.orderName,
-			projectName: res.projectName,
-			image: res.image
+			companyName: res.data.companyName,
+			orderName: res.data.orderName,
+			projectName: res.data.projectName,
+			image: res.data.image
 		};
 	})
 

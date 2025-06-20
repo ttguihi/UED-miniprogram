@@ -7,12 +7,12 @@
 	<view class="user_page">
 		<view class="user_info_card">
 			<view class="user_avatar">
-
+				<image :src="userInfo.image" mode=""></image>
 			</view>
 			<view class="user_details">
 				<view class="user_name_settings">
 					<view class="user_name">
-						UED001
+						{{userInfo.name}}
 					</view>
 					<navigator url="/pages/user/settings/settings">
 						<view class="user_settings">
@@ -31,7 +31,7 @@
 							</view>
 						</view>
 						<view class="">
-							177-5608-0942
+							{{userInfo.phone}}
 						</view>
 					</view>
 					<view class="user_address">
@@ -40,7 +40,7 @@
 							</view>
 						</view>
 						<view class="">
-							广东省广州市番禺区
+							{{userInfo.address.split(' ').join('').slice(0,10)}}
 						</view>
 					</view>
 					<view class="user_industry">
@@ -49,7 +49,7 @@
 							</view>
 						</view>
 						<view class="">
-							建筑/建材
+							{{userInfo.role}}
 						</view>
 					</view>
 				</view>
@@ -70,7 +70,7 @@
 				</view>
 
 				<view class="enterprise_name" v-if="verifyStore.ifVerify">
-					广东省友益典文化科技有限公司
+					{{userInfo.industryName}}
 				</view>
 				<view class="enterprise_name" v-else>
 					请先绑定信息
@@ -80,7 +80,7 @@
 				<view class="remain_points">
 					剩余积分
 					<view class="points_num">
-						---
+						{{verifyStore.ifVerify?remainPoints:'---'}}
 					</view>
 				</view>
 				<view class="getPoints">
@@ -106,7 +106,7 @@
 					</view>
 				</navigator>
 
-				<navigator url="" class="row">
+				<!-- <navigator url="/pages/change_theme/change_theme" class="row">
 					<view class="row">
 						<view class="row_icon ">
 							<image src="/common/images/user/change.svg" mode=""></image>
@@ -115,7 +115,7 @@
 							更换主题
 						</view>
 					</view>
-				</navigator>
+				</navigator> -->
 
 
 
@@ -208,7 +208,7 @@
 
 					</view>
 					<view class="time">
-						客服时段：09:00-17：00
+						客服时段：09:00-17:00
 					</view>
 					<view class="bline">
 
@@ -224,9 +224,11 @@
 	import CustomTabBar from "../../components/CustomTabBar.vue"
 	import EnterpriseCardVue from "../../components/EnterpriseCard.vue";
 	import {
-		apiGetUserInfo,
+		// apiGetUserInfo,
 		apiGetEnterpriseInfo
 	} from "@/api/api.js";
+
+
 	import {
 		ref
 	} from 'vue';
@@ -234,10 +236,16 @@
 	import {
 		useVerifyStore
 	} from "../../store/verify";
+	import {
+		apiGetUserInfo
+	} from '../../api/user/api.js'
+	import {
+		apiGetCompany
+	} from '/api/company/api.js'
 	const verifyStore = useVerifyStore()
 	const userInfo = ref({})
 	const enterpriseInfo = ref({})
-
+	const remainPoints = ref()
 	//定义组件
 	const popup = ref()
 
@@ -268,8 +276,8 @@
 	const getUserInfo = () => {
 		apiGetUserInfo().then(res => {
 			// console.log(res.data.userInfo);
-			userInfo.value = res.data.userInfo
-			// console.log(userInfo.value);
+			userInfo.value = res.data
+			console.log(userInfo.value);
 		})
 	}
 
@@ -283,6 +291,15 @@
 			//console.log(enterpriseInfo.value)
 		})
 	}
+
+	const getCompany = () => {
+		apiGetCompany().then(res => {
+			remainPoints.value = res.data.pointsNumber
+			// console.log(res);
+			// remainPoints.value = .data
+		})
+	}
+	getCompany()
 
 	//接口调用区域
 	getUserInfo()
@@ -514,6 +531,13 @@
 				background-color: skyblue;
 				border-radius: 10rpx;
 				margin-right: 32rpx;
+				overflow: hidden;
+
+				image {
+					width: 100%;
+					height: 100%;
+					border-radius: inherit;
+				}
 			}
 
 			.user_details {

@@ -134,6 +134,27 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "项目详情"
 			}
+		},
+		{
+			"path": "pages/share/share",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "分享"
+			}
+		},
+		{
+			"path": "pages/change_theme/change_theme",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "更换主题"
+			}
+		},
+		{
+			"path": "pages/view_themes/view_themes",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "查看所有主题"
+			}
 		}
 
 

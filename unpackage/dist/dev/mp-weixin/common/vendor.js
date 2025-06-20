@@ -7354,9 +7354,9 @@ function isConsoleWritable() {
   return isWritable;
 }
 function initRuntimeSocketService() {
-  const hosts = "192.168.10.105,192.168.184.1,192.168.94.1,127.0.0.1";
+  const hosts = "192.168.10.139,192.168.184.1,192.168.94.1,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_tN1nyC";
+  const id = "mp-weixin_Ne1HdQ";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -9452,7 +9452,22 @@ const pages = [
   {
     path: "pages/projects_management/add_project/add_project",
     style: {
+      navigationStyle: "custom",
       navigationBarTitleText: "新建项目"
+    }
+  },
+  {
+    path: "pages/projects_management/project_info/project_info",
+    style: {
+      navigationStyle: "custom",
+      navigationBarTitleText: "项目详情"
+    }
+  },
+  {
+    path: "pages/share/share",
+    style: {
+      navigationStyle: "custom",
+      navigationBarTitleText: "分享"
     }
   }
 ];

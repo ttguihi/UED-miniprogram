@@ -1,17 +1,17 @@
 <template>
 	<view class="cardArea" :class="[card_status]" @click="gotoDetail">
 		<view class="business_name">
-			佛山中秋月饼
+			{{data.name}}
 		</view>
 		<view class="business_target">
-			优化目标:&nbsp;苏式饼家
+			优化目标:&nbsp;{{data.projectName}}
 		</view>
 		<view class="business_date_id">
 			<view class="business_date">
-				创建日期:&nbsp;&nbsp;2024-12-12
+				创建日期:&nbsp;&nbsp;{{data.createTime.slice(0,10)}}
 			</view>
 			<view class="business_id">
-				项目ID:&nbsp;&nbsp;UED00000111
+				项目ID:&nbsp;&nbsp;{{data.projectID}}
 			</view>
 		</view>
 		<view class="business_status" :class="`status_${props.status}`">
@@ -28,8 +28,14 @@
 	} from 'vue';
 
 	const props = defineProps({
-		status: String
+		status: String,
+		data: {
+			type: Object,
+			default: () => ({})
+		}
 	})
+
+	// console.log(props.data);
 	const card_status = computed(() => `bg-${props.status}`)
 	// const card_status_corner = computed(() => `status_${props.status}`)
 	// const status_text = ref('')

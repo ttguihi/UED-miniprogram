@@ -3,25 +3,5 @@
   "projectname": "UEDAIminiprogram",
   "setting": {
     "compileHotReLoad": true
-  },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/projects_management/projects_management",
-          "pathName": "pages/projects_management/projects_management",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/projects_management/projects_management",
-          "pathName": "pages/projects_management/projects_management",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        }
-      ]
-    }
   }
 }

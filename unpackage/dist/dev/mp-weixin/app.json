@@ -17,7 +17,9 @@
     "pages/business_line/business_line",
     "pages/business_line/business_info/business_info",
     "pages/business_line/view_info/view_info",
-    "pages/projects_management/add_project/add_project"
+    "pages/projects_management/add_project/add_project",
+    "pages/projects_management/project_info/project_info",
+    "pages/share/share"
   ],
   "window": {
     "navigationBarTextStyle": "black",

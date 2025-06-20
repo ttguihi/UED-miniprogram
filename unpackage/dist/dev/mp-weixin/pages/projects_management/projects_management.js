@@ -15,6 +15,11 @@ const ProjectCard = () => "../../components/ProjectCard.js";
 const _sfc_main = {
   __name: "projects_management",
   setup(__props) {
+    const goAdd = () => {
+      common_vendor.index.navigateTo({
+        url: "/pages/projects_management/add_project/add_project"
+      });
+    };
     const tabs = [
       {
         name: "全部项目",
@@ -120,7 +125,9 @@ const _sfc_main = {
         j: filteredProjects.value.length === 0
       }, filteredProjects.value.length === 0 ? {
         k: common_vendor.t(tabs[current.value].name)
-      } : {});
+      } : {}, {
+        l: common_vendor.o(goAdd)
+      });
     };
   }
 };

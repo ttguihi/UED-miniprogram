@@ -9,7 +9,7 @@ export function apiGetUserInfo() {
 }
 
 
-//获取企业信息接口
+//获取企业信息接口 
 export function apiGetEnterpriseInfo() {
 	return request({
 		url: '/company/getCompany'
@@ -25,3 +25,11 @@ export function apiGetHomeData() {
 }
 
 //发送验证码
+
+//立即咨询
+export function apiSetConsult(data = {}) {
+	return request({
+		method: "POST",
+		url: '/consult/setConsult'
+	})
+}

@@ -16,39 +16,20 @@
 
 			</view>
 			<view class="select_part">
-				<view class="select" :class="{ active: current === 0 }" @click="current = 0">
-					全部
-				</view>
-				<view class="select" :class="{ active: current === 1 }" @click="current = 1">
-					进行中
-				</view>
-				<view class="select" :class="{ active: current === 2 }" @click="current = 2">
-					已生效
-				</view>
-				<view class="select" :class="{ active: current === 3 }" @click="current = 3">
-					已失效
+
+				<view v-for="(item,index) in tabs" :key="index" class="select" :class="{ active: current === index }"
+					@click="current = index">
+					{{item.name}}
 				</view>
 			</view>
 
 			<view class="content_part">
-				<view class="" v-show="current==0">
-					<BusinessCard status="green"></BusinessCard>
-					<BusinessCard status="green"></BusinessCard>
-					<BusinessCard status="white"></BusinessCard>
-					<BusinessCard status="orange"></BusinessCard>
-				</view>
-				<view class="" v-show="current==1">
-					<BusinessCard status="orange"></BusinessCard>
-				</view>
-				<view class="" v-show="current==2">
-					<BusinessCard status="green"></BusinessCard>
-					<BusinessCard status="green"></BusinessCard>
-				</view>
-				<view class="" v-show="current==3">
-					<BusinessCard status="white"></BusinessCard>
-					<BusinessCard status="white"></BusinessCard>
 
-				</view>
+				<BusinessCard :status="obj[business.status]" v-for="business in filterBusiness" :key="business.id"
+					:data="business">
+				</BusinessCard>
+
+
 			</view>
 		</view>
 	</view>
@@ -57,10 +38,48 @@
 
 <script setup>
 	import {
+		computed,
 		ref
 	} from 'vue'
 	import BusinessCard from '../../components/BusinessCard.vue';
+	import {
+		apiGetAllBusiness
+	} from '../../api/business/api';
+	const allBusinessInfo = ref([])
 	const current = ref(0)
+	const tabs = [{
+		name: '全部',
+		status: "all"
+	}, {
+		name: '进行中',
+		status: 1
+	}, {
+		name: '已生效',
+		status: 2
+	}, {
+		name: '已失效',
+		status: 3
+	}, ]
+
+	const obj = {
+		1: "orange",
+		2: "green",
+		3: "white"
+	}
+	const getAllBusiness = async () => {
+		let res = await apiGetAllBusiness()
+		// console.log(res.data);
+		allBusinessInfo.value = res.data
+		// console.log(allBusinessInfo.value);
+	}
+	getAllBusiness()
+
+
+	const filterBusiness = computed(() => {
+		const currentTab = tabs[current.value]
+		return currentTab.status === "all" ? allBusinessInfo.value : allBusinessInfo.value.filter(p => p.status ===
+			currentTab.status)
+	})
 </script>
 
 <style lang="scss" scoped>

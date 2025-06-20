@@ -69,7 +69,7 @@
 		let res = await apiGetNewsDetail({
 			InformationId: InformationId.value
 		})
-		params.value = res
+		params.value = res.data
 		// console.log(params.value);
 	})
 </script>

@@ -20,6 +20,8 @@ if (!Math) {
   "./pages/business_line/business_info/business_info.js";
   "./pages/business_line/view_info/view_info.js";
   "./pages/projects_management/add_project/add_project.js";
+  "./pages/projects_management/project_info/project_info.js";
+  "./pages/share/share.js";
 }
 const _sfc_main = {
   onLaunch: function() {

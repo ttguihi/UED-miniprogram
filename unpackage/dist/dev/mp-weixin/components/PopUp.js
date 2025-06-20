@@ -13,7 +13,6 @@ const _sfc_main = {
   setup(__props, { expose: __expose }) {
     const popup = common_vendor.ref();
     const open = () => {
-      common_vendor.index.__f__("log", "at components/PopUp.vue:86", 1);
       popup.value.open("center");
     };
     __expose({

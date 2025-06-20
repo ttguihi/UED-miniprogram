@@ -107,7 +107,7 @@
 					</view>
 				</view>
 
-				<view class="shengcheng" v-if="status==1">
+				<view class="shengcheng" v-if="status==0" @click="gotoShare">
 					一键生成
 					<view class="zhuanfa">
 						<uni-icons style="font-size: 50rpx;" type="redo-filled" color="#8d3afc"></uni-icons>
@@ -165,7 +165,11 @@
 		ref
 	} from 'vue'
 	import ProjectCard from '../../../components/ProjectCard.vue'
-
+	const gotoShare = () => {
+		uni.navigateTo({
+			url: '/pages/share/share'
+		})
+	}
 	const status = ref(0)
 	const foldStates = ref({
 		1: true,

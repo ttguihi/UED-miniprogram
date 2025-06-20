@@ -66,9 +66,6 @@
 	informationData.value = uni.getStorageSync('informationList')
 
 	const current = ref(1)
-
-
-	//事件冒泡 携带id值 进行菜单切换
 </script>
 
 <style lang="scss" scoped>

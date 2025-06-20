@@ -65,7 +65,7 @@
 
 					</view>
 					<view class="time">
-						客服时段：09:00-17：00
+						客服时段：09:00-17:00
 					</view>
 					<view class="bline">
 
@@ -83,7 +83,7 @@
 	const popup = ref()
 	//联系客服弹窗
 	const open = () => {
-		console.log(1);
+		// console.log(1);
 		popup.value.open('center')
 	}
 	defineExpose({

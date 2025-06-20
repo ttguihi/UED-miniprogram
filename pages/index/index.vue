@@ -44,9 +44,9 @@
 
 								<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" enable-flex>
 
-									<view v-for="item in 10" :key="item+'item'" class="detail_pro"
+									<view v-for="item,index in projectNameList" :key="index" class="detail_pro"
 										v-if="verifyStore.ifLogin">
-										奥
+										{{item.indexName[0]}}
 									</view>
 									<view v-for="item in 10" :key="item+'item'" class="default" v-else>
 
@@ -211,18 +211,22 @@
 		onPageScroll,
 		onLoad
 	} from '@dcloudio/uni-app';
+
 	import {
 		apiGetHomeData
 	} from '../../api/api';
+
 	import {
+		apiGetProjectFirstName,
 		apiGetProjectsNum
-	} from '../../api/index/api';
+	} from '../../api/project/api.js';
 	import {
 		useInformationStore
 	} from '../../store/news';
 	import {
 		useVerifyStore
 	} from '../../store/verify';
+
 
 	const verifyStore = useVerifyStore()
 	const pop = ref(null)
@@ -259,6 +263,8 @@
 	//精选案例
 	const orderList = ref([])
 
+	const projectNameList = ref([])
+	// const projectsNum = ref()
 	const project = ref({})
 	const goTop = () => {
 		uni.pageScrollTo({
@@ -310,8 +316,15 @@
 
 	const getProjectsNum = () => {
 		apiGetProjectsNum().then(res => {
-			// console.log(res);
-			projectsNum.value = res.projectNumber
+			console.log(res.data);
+			projectsNum.value = res.data.projectNumber
+		})
+	}
+
+	const getProjectFirstName = () => {
+		apiGetProjectFirstName().then(res => {
+			// console.log(res.data);
+			projectNameList.value = res.data
 		})
 	}
 	itemList.value = [{
@@ -332,6 +345,7 @@
 	//调用接口区域
 	getHomeData()
 	getProjectsNum()
+	getProjectFirstName()
 </script>
 
 

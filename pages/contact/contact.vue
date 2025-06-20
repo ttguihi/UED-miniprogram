@@ -163,6 +163,9 @@
 	import {
 		ref
 	} from 'vue'
+	import {
+		apiSetConsult
+	} from "../../api/api";
 
 	// Form data model
 	const formData = ref({
@@ -171,7 +174,26 @@
 		companyName: '',
 		texts: ''
 	})
-
+	const setConsult = async (data) => {
+		try {
+			let res = await apiSetConsult(data); // 使用传入的data而不是formData.value
+			console.log('提交成功', res);
+			popup.value.open('center');
+			// 提交成功后清空表单
+			formData.value = {
+				name: '',
+				phone: '',
+				companyName: '',
+				texts: ''
+			};
+		} catch (error) {
+			console.error('提交失败', error);
+			uni.showToast({
+				title: '提交失败，请重试',
+				icon: 'none'
+			});
+		}
+	}
 	// Form validation rules
 	const rules = {
 		name: {
@@ -222,15 +244,16 @@
 
 	// Open and close popup
 	const open = () => {
-		// Validate form before submitting
 		form.value.validate().then(res => {
-			console.log('Form data:', formData.value)
-			popup.value.open('center')
+			setConsult(res); // 传递验证通过的数据
 		}).catch(err => {
-			console.log('Form validation failed:', err)
-		})
+			// console.log('表单验证失败:', err);
+			uni.showToast({
+				title: '请检查表单',
+				icon: 'none'
+			});
+		});
 	}
-
 	const close = () => {
 		popup.value.close()
 	}
